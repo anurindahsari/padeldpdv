@@ -17,7 +17,7 @@ button{font-family:inherit}
 .muted{color:#4A5D72}.small{font-size:13px}
 /* ---------- hero ---------- */
 #hd{background:#08203D;color:#EEF5FB}
-#hd .in{max-width:1280px;margin:0 auto;padding:26px 20px 64px;overflow:hidden}
+#hd .in{max-width:1280px;margin:0 auto;padding:26px 20px 30px;overflow:hidden}
 #hd .hl{overflow:hidden;padding-top:18px}
 #hd .brand{font-family:Archivo,Arial,sans-serif;font-weight:800;font-size:12px;letter-spacing:2.4px;text-transform:uppercase;color:#A9C1D9}
 #hd .brand img{width:30px;height:30px;vertical-align:middle;margin-right:10px}
@@ -56,8 +56,24 @@ button{font-family:inherit}
 .opt.on i{color:#A9C1D9}
 .opt.on:after{content:"\2713";position:absolute;right:10px;top:9px;width:20px;height:20px;line-height:20px;text-align:center;border-radius:50%;background:#DDF247;color:#08203D;font-size:12px;font-weight:800}
 /* ---------- KPI strip ---------- */
-#kpi{margin-top:16px;position:sticky;position:-webkit-sticky;top:0;z-index:30;background:#FFFFFF;border-bottom:1px solid #CBD8E5;box-shadow:0 2px 8px rgba(8,32,61,.08)}
-#kpi .in{max-width:1280px;margin:0 auto;padding:8px 20px;white-space:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}
+#kpi{position:sticky;position:-webkit-sticky;top:0;z-index:30;background:#FFFFFF;border-bottom:1px solid #CBD8E5;box-shadow:0 2px 8px rgba(8,32,61,.08)}
+#kpi .in{max-width:1280px;margin:0 auto;padding:0 20px;overflow:hidden}
+#kpi .sel{float:left;display:block;width:330px;padding:10px 18px 10px 0;margin-right:18px;border-right:1px solid #E1E9F1;text-decoration:none;color:#08203D;overflow:hidden}
+#kpi .sel .lbl{display:block;font-size:10px}
+#cfgSum{display:block;font-size:13px;color:#4A5D72;line-height:1.35}
+#cfgSum b{display:block;font-family:Archivo,Arial,sans-serif;font-weight:900;font-style:italic;font-size:19px;color:#08203D;line-height:1.15}
+#kpi .cb{float:right;margin-top:10px;font-family:Archivo,Arial,sans-serif;font-weight:800;font-size:13px;background:#DDF247;color:#08203D;padding:8px 12px}
+#kpi .sel:hover .cb{background:#08203D;color:#DDF247}
+#kpi .ks{overflow-x:auto;-webkit-overflow-scrolling:touch;white-space:nowrap;padding:10px 0}
+#cfgBody{border-top:1px solid #E1E9F1;background:#F7FAFD;max-height:75vh;overflow-y:auto;-webkit-overflow-scrolling:touch}
+#cfgBody .in{padding:10px 20px 14px}
+#cfgBody .row{overflow:hidden;padding:6px 0}
+#cfgBody .rl{font-family:Archivo,Arial,sans-serif;font-weight:800;font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:#4A5D72;margin:0 0 8px}
+#cfgBody .rl .st{display:inline-block;width:20px;height:20px;line-height:20px;text-align:center;border-radius:50%;background:#0089D9;color:#FFFFFF;letter-spacing:0;margin-right:8px;font-size:11px}
+#cfgBody .opt{background:#FFFFFF}
+#cfgBody .opt.on{background:#08203D}
+#cfgBody .done{text-align:right}
+#cfgBody .done .btn{margin:0}
 .k{display:inline-block;vertical-align:middle;padding:2px 18px 2px 0;margin-right:18px;border-right:1px solid #E1E9F1}
 .k:last-child{border-right:0}
 .k .lbl{font-size:10px}
@@ -68,7 +84,7 @@ button{font-family:inherit}
 .kchg{display:inline-block;vertical-align:middle;font-size:12px;font-weight:800;color:#0270B5;text-decoration:none;border:1px solid #CBD8E5;padding:6px 10px}
 /* ---------- layout ---------- */
 #wrap{max-width:1280px;margin:0 auto;padding:20px}
-#side{float:left;width:210px;position:sticky;position:-webkit-sticky;top:78px}
+#side{float:left;width:210px;position:sticky;position:-webkit-sticky;top:96px}
 #side a{display:block;text-decoration:none;color:#08203D;font-size:14px;font-weight:600;padding:7px 12px;border-left:3px solid transparent}
 #side a:hover{background:#FFFFFF}
 #side a.on{border-left-color:#0089D9;background:#FFFFFF;color:#0270B5}
@@ -154,7 +170,7 @@ ul.clean li{margin-bottom:3px}
 #ovimg{display:block;width:100%}
 .foot{max-width:1280px;margin:0 auto;padding:10px 20px 40px;font-size:12px;color:#4A5D72}
 @media (max-width:980px){ #side{display:none} #main{margin-left:0} .c4{width:50%} .c3{width:50%} .grp{width:48%} }
-@media (max-width:600px){ .k.mh{display:none} .k{padding-right:10px;margin-right:10px} .c2,.c3,.c4{width:100%}  .ph .t{font-size:19px} .grp{width:100%} #hd h1{font-size:30px} #hd h1 span{white-space:nowrap} .opt .ok{font-size:9px;letter-spacing:1px;padding-right:16px} #hd .in{padding:18px 16px 56px} #cfg .in{padding:0 12px} #cfg .box{padding:12px} #cfgSum{font-size:15px} #cfgSum em{display:block;height:0;overflow:hidden;margin:0} #cfg .cs{float:none} #cfg .cs{display:block} #cfg .cb{float:none;display:table;margin-top:10px} .oc{width:50%} .opt{min-height:58px;padding:8px 10px} .opt b{font-size:15px} .opt.on:after{top:6px;right:6px;width:16px;height:16px;line-height:16px;font-size:10px} .k .v{font-size:18px} }
+@media (max-width:600px){ .k.mh{display:none} .k{padding-right:10px;margin-right:10px} .c2,.c3,.c4{width:100%}  .ph .t{font-size:19px} .grp{width:100%} #hd h1{font-size:30px} #hd h1 span{white-space:nowrap} .opt .ok{font-size:9px;letter-spacing:1px;padding-right:16px} #hd .in{padding:18px 16px 22px} #kpi .in{padding:0 14px} #kpi .sel{float:none;width:auto;margin:0;padding:10px 0;border-right:0;border-bottom:1px solid #E1E9F1} #cfgSum b{font-size:17px} #kpi .ks{padding:8px 0} #cfgBody .in{padding:10px 12px 14px} #cfg .in{padding:0 12px} #cfg .box{padding:12px} #cfgSum{font-size:15px} #cfgSum em{display:block;height:0;overflow:hidden;margin:0} #cfg .cs{float:none} #cfg .cs{display:block} #cfg .cb{float:none;display:table;margin-top:10px} .oc{width:50%} .opt{min-height:58px;padding:8px 10px} .opt b{font-size:15px} .opt.on:after{top:6px;right:6px;width:16px;height:16px;line-height:16px;font-size:10px} .k .v{font-size:18px} }
 
 #anim{position:relative;float:right;width:440px;height:214px;margin:4px 0 0 24px;background:#0569AD}
 #anim .ct{position:absolute;left:3%;top:6%;width:94%;height:88%;background:#0089D9;border:2px solid #EEF5FB}
@@ -180,15 +196,16 @@ ul.clean li{margin-bottom:3px}
     <div class="facts"><span>Sabtu, 28 November 2026</span><span>Surabaya</span><span class="tag">Usulan panitia</span></div>
   </div>
 </div></div>
-<div id="cfg"><div class="in"><div class="box">
-  <a class="cfgh" href="javascript:void(0)" onclick="__cfg()"><span class="cs"><span class="rl">Pilihan saat ini</span><span id="cfgSum"></span></span><span class="cb" id="cfgBtn">Ubah pilihan &#9662;</span></a>
-  <div id="cfgBody" style="display:none">
+<div id="kpi"><div class="in">
+  <a class="sel" href="javascript:void(0)" onclick="__cfg()"><span class="cb" id="cfgBtn">Ubah &#9662;</span><span class="lbl">Pilihan saat ini</span><span id="cfgSum"></span></a>
+  <div class="ks" id="kpiIn"></div>
+</div>
+<div id="cfgBody" style="display:none"><div class="in">
   <div class="row"><div class="rl"><span class="st">1</span>Skenario jumlah pasang</div><div id="optS" class="seg"></div></div>
   <div class="row"><div class="rl"><span class="st">2</span>Venue</div><div id="optV" class="seg"></div></div>
-  </div>
-</div></div></div>
-
-<div id="kpi"><div class="in" id="kpiIn"></div></div>
+  <div class="done"><a class="btn" href="javascript:void(0)" onclick="__cfg(false)">Selesai &#9652;</a></div>
+</div></div>
+</div>
 
 <div id="wrap">
   <div id="side">
@@ -230,10 +247,10 @@ var MGT="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBAUEBAYFBQUG
     for(i=0;i<D.VEN.length;i++){ var v=D.VEN[i]; h+='<span class="oc"><button type="button" class="opt'+(v.k==VK?' on':'')+'" onclick="__set(\'v\',\''+v.k+'\')"><span class="ok">'+v.c+' court</span><b>'+esc(v.n)+'</b><i>'+jv(v.sewaN)+' · selesai '+D.sched[v.c].end+'</i></button></span>'; }
     $('optV').innerHTML=h;
     var vn=''; for(i=0;i<D.VEN.length;i++) if(D.VEN[i].k==VK) vn=D.VEN[i].n+' · '+D.VEN[i].c+' court';
-    $('cfgSum').innerHTML='Skenario '+SK+' · '+D.SDALL[SK].n+' pasang<em>|</em>'+esc(vn);
+    $('cfgSum').innerHTML='<b>Skenario '+SK+' · '+D.SDALL[SK].n+' pasang</b>'+esc(vn)+' · '+CMP[SK];
   }
   var CFGO=false;
-  window.__cfg=function(o){ CFGO=(o===undefined)?!CFGO:o; $('cfgBody').style.display=CFGO?'block':'none'; $('cfgBtn').innerHTML=CFGO?'Tutup &#9652;':'Ubah pilihan &#9662;'; };
+  window.__cfg=function(o){ CFGO=(o===undefined)?!CFGO:o; $('cfgBody').style.display=CFGO?'block':'none'; $('cfgBtn').innerHTML=CFGO?'Tutup &#9652;':'Ubah &#9662;'; if(!CFGO){ var y=$('kpi').offsetTop; if((window.pageYOffset||document.documentElement.scrollTop)>y) window.scrollTo(0,y); } };
   window.__set=function(t,k){ if(t=='s') SK=k; else VK=k; save(); render(); };
   window.__all=function(o){ for(var i=0;i<SECS.length;i++) OPEN[SECS[i][0]]=o?1:0; save(); render(); };
   window.__tog=function(id){ OPEN[id]=OPEN[id]?0:1; save(); var p=$('p-'+id); p.className='pn'+(OPEN[id]?'':' closed'); p.getElementsByTagName('span')[1].innerHTML=OPEN[id]?'&minus;':'+'; };
@@ -251,9 +268,9 @@ var MGT="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBAUEBAYFBQUG
     var d=D.SDALL[SK], v=ven(VK), c=calc(SK,VK), S=D.sched[v.c], i, h;
     controls();
     // KPI
-    var K=[['Pasang (maks)',d.n,'Skenario '+SK],['Selesai','±'+S.end,v.c+' court · '+v.n],['Total anggaran',jt(c.tot),'RAB lengkap'],['Pendaftaran DPC',jt(c.reg),d.dpc+' pasang × Rp750 rb'],['Kebutuhan sponsor',jt(c.spon),'Total − pendaftaran']];
-    h=''; for(i=0;i<K.length;i++){ var ch=prevK[i]!==undefined&&prevK[i]!=K[i][1]; h+='<div class="k'+(i==4?' sp':'')+(i==0||i==3?' mh':'')+'"><div class="lbl">'+K[i][0]+'</div><div class="v'+(ch?' flash':'')+'">'+esc(K[i][1])+'</div><div class="ctx">'+esc(K[i][2])+'</div></div>'; prevK[i]=K[i][1]; }
-    $('kpiIn').innerHTML=h+'<a class="kchg" href="javascript:void(0)" onclick="__cfg(true);window.scrollTo(0,document.getElementById(\'cfg\').offsetTop-20)">Ubah pilihan &uarr;</a>';
+    var K=[['Selesai','±'+S.end,'Mulai 08.00 · '+v.c+' court'],['Total anggaran',jt(c.tot),'RAB lengkap'],['Pendaftaran DPC',jt(c.reg),d.dpc+' pasang × Rp750 rb'],['Kebutuhan sponsor',jt(c.spon),'Total − pendaftaran']];
+    h=''; for(i=0;i<K.length;i++){ var ch=prevK[i]!==undefined&&prevK[i]!=K[i][1]; h+='<div class="k'+(i==3?' sp':'')+'"><div class="lbl">'+K[i][0]+'</div><div class="v'+(ch?' flash':'')+'">'+esc(K[i][1])+'</div><div class="ctx">'+esc(K[i][2])+'</div></div>'; prevK[i]=K[i][1]; }
+    $('kpiIn').innerHTML=h;
     setTimeout(function(){ var f=$('kpiIn').getElementsByTagName('div'); for(var j=0;j<f.length;j++) if(f[j].className=='v flash') f[j].className='v'; },900);
     // side nav
     h=''; for(i=0;i<SECS.length;i++) h+='<a href="javascript:void(0)" onclick="__go(\''+SECS[i][0]+'\')">'+SECS[i][1]+'</a>'; $('sideNav').innerHTML=h;
