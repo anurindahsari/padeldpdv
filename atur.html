@@ -188,7 +188,7 @@ tr.navy td{background:#08203D;color:#EEF5FB;font-weight:800}
   // ---------- auto fill
   function resolve(){
     var M=parseInt(IN.M,10), X=parseInt(IN.X,10), W=parseInt(IN.W,10), a={M:!isNaN(M),X:!isNaN(X),W:!isNaN(W)};
-    if(!a.X&&!a.W){ if(a.M){ X=W=Math.max(9,r3(M/2)); if(X>=M) X=W=Math.max(6,M-3); } else { M=24; X=W=12; } }
+    if(!a.X&&!a.W){ if(a.M){ X=W=Math.max(9,Math.floor(M/6)*3); if(X>=M) X=W=Math.max(6,M-3); } else { M=24; X=W=12; } }
     else if(!a.X) X=W; else if(!a.W) W=X;
     if(!a.M){ M=Math.max(r3(Math.max(X,W)*2), Math.max(X,W)+3); }
     return {M:M,X:X,W:W,a:a};
