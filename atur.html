@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Atur Jumlah Pasang · Turnamen Padel DPD V</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,700;0,800;1,800;1,900&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap">
+<style>
+html,body{margin:0;padding:0}
+*{box-sizing:border-box}
+body{background:#EEF5FB;color:#08203D;font-family:"Plus Jakarta Sans","Segoe UI",Calibri,Arial,sans-serif;font-size:15px;line-height:1.55}
+a{color:#0270B5}
+button,input,select,textarea{font-family:inherit}
+.lbl{font-family:Archivo,Arial,sans-serif;font-weight:800;font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:#4A5D72}
+.muted{color:#4A5D72}.small{font-size:13px}
+#hd{background:#08203D;color:#EEF5FB}
+#hd .in{max-width:1180px;margin:0 auto;padding:22px 20px 24px}
+#hd .brand{font-family:Archivo,Arial,sans-serif;font-weight:800;font-size:12px;letter-spacing:2.4px;text-transform:uppercase;color:#A9C1D9}
+#hd .brand img{width:28px;height:28px;vertical-align:middle;margin-right:10px}
+#hd h1{margin:10px 0 6px;font-family:Archivo,"Arial Black",Arial,sans-serif;font-style:italic;font-weight:900;font-size:38px;line-height:1.05;color:#FFFFFF}
+#hd h1 span{color:#DDF247}
+#hd p{margin:0;color:#A9C1D9;font-size:14px;max-width:760px}
+.wrap{max-width:1180px;margin:0 auto;padding:18px 20px 40px}
+.pn{background:#FFFFFF;border:1px solid #CBD8E5;margin-bottom:14px;padding:18px 20px}
+.pn h2{margin:0 0 4px;font-family:Archivo,Arial,sans-serif;font-style:italic;font-weight:900;font-size:22px}
+.pn .s{font-size:13px;color:#4A5D72;margin-bottom:12px}
+h3{margin:16px 0 8px;font-family:Archivo,Arial,sans-serif;font-weight:800;font-size:16px}
+/* inputs */
+.g{margin:0 -6px;overflow:hidden}
+.c3{float:left;width:33.333%;padding:0 6px 12px}
+.c4{float:left;width:25%;padding:0 6px 12px}
+.fld{border:1px solid #CBD8E5;background:#F4F8FC;padding:12px 14px;height:100%}
+.fld.auto{border-style:dashed}
+.fld .lbl{display:block;margin-bottom:6px}
+.fld input,.fld select{display:block;width:100%;font-size:26px;font-family:Archivo,Arial,sans-serif;font-weight:900;font-style:italic;color:#08203D;border:2px solid #CBD8E5;background:#FFFFFF;padding:6px 10px}
+.fld select{font-size:16px;font-style:normal;font-weight:800;padding:10px}
+.fld input:focus,.fld select:focus{outline:0;border-color:#0089D9}
+.fld .hint{display:block;font-size:12px;color:#4A5D72;margin-top:6px;min-height:18px}
+.fld .hint b{color:#0270B5}
+.tag{display:inline-block;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:2px 7px;margin-left:6px;vertical-align:1px}
+.tag.isi{background:#08203D;color:#DDF247}
+.tag.oto{background:#E3F1FB;color:#0270B5}
+.btn{display:inline-block;font-family:Archivo,Arial,sans-serif;font-weight:800;font-size:13px;color:#08203D;background:#DDF247;border:0;padding:9px 14px;margin:4px 6px 0 0;cursor:pointer;text-decoration:none}
+.btn.ln{background:#FFFFFF;border:1px solid #CBD8E5}
+.warn{background:#FFF6DD;border-left:4px solid #F5C451;padding:10px 14px;font-size:13px;margin:8px 0 0}
+.warn.bad{background:#FDE8E8;border-left-color:#D64545}
+.ok{background:#E2F5E7;border-left:4px solid #1F7A3A;padding:10px 14px;font-size:13px;margin:8px 0 0}
+/* presets */
+.pre{display:inline-block;vertical-align:top;width:19%;margin:0 1% 8px 0;text-align:left;background:#FFFFFF;border:1px solid #CBD8E5;border-left:4px solid #CBD8E5;padding:9px 10px;cursor:pointer;line-height:1.3;color:#08203D}
+.pre:hover{border-color:#0089D9}
+.pre.on{background:#08203D;color:#FFFFFF;border-color:#08203D;border-left-color:#DDF247}
+.pre b{display:block;font-family:Archivo,Arial,sans-serif;font-size:16px}
+.pre i{display:block;font-style:normal;font-size:12px;color:#4A5D72}
+.pre.on i{color:#A9C1D9}
+.pre .t{display:block;font-size:12px;font-weight:700;margin-top:3px;color:#1F7A3A}
+.pre.on .t{color:#DDF247}
+.pre .t.late{color:#D64545}
+/* kpi */
+#kpi{position:sticky;position:-webkit-sticky;top:0;z-index:20;background:#FFFFFF;border-bottom:1px solid #CBD8E5;box-shadow:0 2px 8px rgba(8,32,61,.08)}
+#kpi .in{max-width:1180px;margin:0 auto;padding:8px 20px;white-space:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.k{display:inline-block;vertical-align:top;padding:2px 16px 2px 0;margin-right:16px;border-right:1px solid #E1E9F1}
+.k:last-child{border-right:0}
+.k .lbl{font-size:10px}
+.k .v{font-family:Archivo,Arial,sans-serif;font-weight:900;font-style:italic;font-size:21px;line-height:1.15}
+.k .v.late{color:#D64545}
+.k.sp .v{color:#0270B5}
+.k .ctx{font-size:12px;color:#4A5D72}
+/* tables */
+.tbl{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%}
+th,td{border-bottom:1px solid #E1E9F1;padding:8px 10px;text-align:left;vertical-align:top;font-size:14px}
+th{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#4A5D72;border-bottom:2px solid #CBD8E5;font-weight:800}
+.r{text-align:right}
+tr.hl td{background:#F4FBC9;font-weight:700}
+tr.tot td{font-weight:800;border-top:2px solid #CBD8E5}
+tr.navy td{background:#08203D;color:#EEF5FB;font-weight:800}
+/* bracket */
+.cat{margin-bottom:18px}
+.cat h3{margin-top:6px}
+.grp{display:inline-block;vertical-align:top;width:23.5%;margin:0 1.5% 8px 0;background:#F4F8FC;border-left:4px solid #0089D9;padding:7px 10px;font-size:13px}
+.grp b{display:block;font-size:14px}
+.ko{display:inline-block;vertical-align:top;margin:0 8px 8px 0;border:1px solid #CBD8E5;font-size:13px;min-width:160px}
+.ko .t{background:#0089D9;color:#FFFFFF;font-weight:800;padding:3px 10px;font-family:Archivo,Arial,sans-serif;font-size:12px}
+.ko .t.fin{background:#08203D;color:#DDF247}
+.ko div.m{padding:4px 10px;border-top:1px solid #E1E9F1}
+.stg{margin:10px 0 6px}
+.exp textarea{display:block;width:100%;height:170px;font-family:Consolas,Menlo,monospace;font-size:12px;border:1px solid #CBD8E5;padding:10px}
+.foot{max-width:1180px;margin:0 auto;padding:0 20px 40px;font-size:12px;color:#4A5D72}
+@media (max-width:900px){ .pre{width:32%} .grp{width:48%} }
+@media (max-width:600px){ #hd h1{font-size:28px} .c3,.c4{width:100%} .pre{width:48.5%} .grp{width:100%} .k .v{font-size:18px} .wrap{padding:14px 12px 30px} .pn{padding:14px} }
+</style>
+</head>
+<body>
+<div id="hd"><div class="in">
+  <div class="brand"><img src="data:image/png;base64,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" alt="">Hiswana Migas DPD V · draf panitia</div>
+  <h1>Atur jumlah <span>pasang</span></h1>
+  <p>Format 3 kategori: Men, Mix, Women. Semua pasang main 2 kali di fase grup; kekurangan jatah main diganti free play. Isi salah satu kategori, yang lain dihitung otomatis. Rundown, bagan, dan anggaran langsung menyesuaikan.</p>
+</div></div>
+
+<div id="kpi"><div class="in" id="kpiIn"></div></div>
+
+<div class="wrap">
+  <div class="pn">
+    <h2>1 · Isi jumlah pasang</h2>
+    <div class="s">Kosongkan kotak yang ingin dihitung otomatis. Men selalu dibuat paling banyak.</div>
+    <div class="g">
+      <div class="c4"><div class="fld" id="fM"><span class="lbl">Men <span id="tM"></span></span><input type="number" min="6" max="60" step="1" id="iM" placeholder="otomatis"><span class="hint" id="hM"></span></div></div>
+      <div class="c4"><div class="fld" id="fX"><span class="lbl">Mix <span id="tX"></span></span><input type="number" min="6" max="30" step="1" id="iX" placeholder="otomatis"><span class="hint" id="hX"></span></div></div>
+      <div class="c4"><div class="fld" id="fW"><span class="lbl">Women <span id="tW"></span></span><input type="number" min="6" max="30" step="1" id="iW" placeholder="otomatis"><span class="hint" id="hW"></span></div></div>
+      <div class="c4"><div class="fld"><span class="lbl">Venue</span><select id="iV"></select><span class="hint" id="hV"></span></div></div>
+    </div>
+    <a class="btn ln" href="javascript:void(0)" onclick="__reset()">Kosongkan semua</a>
+    <div id="msg"></div>
+  </div>
+
+  <div class="pn">
+    <h2>Pilihan cepat</h2>
+    <div class="s">Kombinasi yang rapi untuk bagan. Jam selesai mengikuti venue yang dipilih di atas. Klik untuk memakai.</div>
+    <div id="pres"></div>
+  </div>
+
+  <div class="pn">
+    <h2>2 · Kategori &amp; slot</h2>
+    <div class="s" id="slotS"></div>
+    <div class="tbl" id="slotT"></div>
+  </div>
+
+  <div class="pn">
+    <h2>3 · Rundown</h2>
+    <div class="s" id="runS"></div>
+    <div class="tbl" id="runT"></div>
+    <div id="runN"></div>
+  </div>
+
+  <div class="pn">
+    <h2>4 · Bagan</h2>
+    <div class="s">Grup isi 3: main bergiliran (semua bertemu). Grup isi 4: babak 1 A–B dan C–D, babak 2 pemenang vs pemenang dan kalah vs kalah. Peringkat: jumlah menang, selisih game, head-to-head.</div>
+    <div id="bagan"></div>
+  </div>
+
+  <div class="pn">
+    <h2>5 · Anggaran</h2>
+    <div class="s" id="rabS"></div>
+    <div class="tbl" id="rabT"></div>
+    <p class="small muted">Konsumsi dan atribut dihitung per pemain dari RAB skenario sebelumnya. Hadiah tunai 3 kategori: Men Rp3 jt / 1,5 jt / 750 rb; Mix dan Women Rp2 jt / 1 jt / 500 rb.</p>
+  </div>
+
+  <div class="pn exp">
+    <h2>Kirim ke Claude</h2>
+    <div class="s">Setelah diputuskan, salin ringkasan ini dan tempel ke chat. Claude akan memperbarui halaman utama, slide, RAB, rundown, dan bagan.</div>
+    <textarea id="expTxt" readonly></textarea>
+    <a class="btn" href="javascript:void(0)" onclick="__copy()">Salin ringkasan</a><span class="small muted" id="cpMsg"></span>
+  </div>
+</div>
+<div class="foot">Angka anggaran dan jam adalah estimasi: 20 menit per putaran, ishoma 60 menit, 2 exhibition match 40 menit tanpa match lain, final bersamaan 35 menit.</div>
+
+<script>
+(function(){
+  var D={"VEN": [{"k": "ptown", "sewaN": 9000000, "n": "Padel Town", "area": "Dukuh Pakis, Surabaya Barat", "c": 6, "qr": "qr-vptown.png", "slug": "padel-town", "loc": "Lagoon Avenue Mall, Jl. Abdul Wahab Siamin Kav. 9–10, Dukuh Pakis", "harga": "Paket 6 court, 07.00–18.00", "sewa": "Rp9.000.000", "st": "Terkonfirmasi manajemen", "stK": "ok", "rate": "4,86 / 5 · 87 rating", "fas": ["Kafe dan restoran", "Shower air panas, ruang ganti, toilet", "Tribun penonton", "Toko olahraga", "Ice bath", "Parkir mall"], "plus": ["Harga paket sudah dikonfirmasi manajemen", "Paket sampai 18.00 cukup untuk jadwal 6 court", "Di dalam mall: mudah dicari, parkir luas"], "minus": ["Hanya 6 court: acara selesai sekitar 16.55", "Musholla tidak tercantum (bisa memakai musholla mall)"], "note": "Paket dikonfirmasi manajemen. Dengan 6 court, fase grup butuh 12 putaran sehingga acara selesai sekitar 16.55, masih di dalam paket 07.00–18.00."}, {"k": "plat", "sewaN": 7700000, "n": "Platinum Padel", "area": "Dukuh Pakis, Surabaya Barat", "c": 5, "qr": "qr-vplat.png", "slug": "platinum-padel", "loc": "Golden City Mall (area parkir luar), Jl. KH Abdul Wahab Siamin 2–8", "harga": "Paket 5 court, 07.00–18.00", "sewa": "Rp7.700.000", "st": "Terkonfirmasi manajemen", "stK": "ok", "rate": "4,98 / 5 · 54 rating", "fas": ["Kafe", "Shower air panas, ruang ganti, toilet", "Tribun penonton", "Toko olahraga", "Wifi", "Handuk dingin"], "plus": ["Rating tertinggi di Ayo (4,98)", "Harga paket terkonfirmasi, lebih murah Rp1,3 jt dari Padel Town"], "minus": ["5 court: acara selesai sekitar 17.55, mepet dengan batas sewa 18.00", "Lokasi di area parkir luar mall: cek atap dan kondisi saat hujan"], "note": "Paket 5 court, 07.00–18.00, Rp7,7 jt, dikonfirmasi manajemen. Dengan 5 court acara selesai sekitar 17.55, jadi sisa waktu sewa hanya sekitar 5 menit."}, {"k": "ptoday", "sewaN": 7150000, "n": "Padel Today", "area": "Jl. Sulawesi, Surabaya Pusat", "c": 5, "qr": "qr-vptoday.png", "slug": "padel-today", "loc": "Jl. Sulawesi No. 77, Surabaya", "harga": "Paket 5 court, 07.00–18.00", "sewa": "Rp7.150.000", "st": "Terkonfirmasi manajemen", "stK": "ok", "rate": "4,88 / 5 · 48 rating", "fas": ["Kafe", "Shower air panas, ruang ganti, toilet", "Musholla", "Tribun penonton", "Wifi"], "plus": ["Harga paket paling murah: Rp7,15 jt", "Lokasi tengah kota, mudah dijangkau dari semua DPC", "Ada musholla"], "minus": ["5 court: acara selesai sekitar 17.55, mepet dengan batas sewa 18.00", "Ulasan: anak tangga kurang terlihat, perlu penanda untuk tamu"], "note": "Jam pada harga dibaca sebagai jam mulai sesi: Rp150 rb untuk sesi 07.00–11.00 (sampai 12.00), Rp100 rb untuk sesi 12.00–15.00 (sampai 16.00), Rp225 rb untuk sesi 16.00–17.00 (sampai 18.00). Estimasi 5 court, 08.00–18.00: Rp1,45 jt per court."}, {"k": "marina", "sewaN": 10038600, "n": "Marina Padel", "area": "Margorejo, Surabaya Selatan", "c": 6, "qr": "qr-vmarina.png", "slug": "marina-padel", "loc": "Plaza Marina, Jl. Margorejo Indah Utara 97–99, Wonocolo", "harga": "Paket 6 court, 07.00–18.00", "sewa": "Rp10.038.600", "st": "Terkonfirmasi manajemen", "stK": "ok", "rate": "4,91 / 5 · 126 rating", "fas": ["Kafe", "Shower air panas, ruang ganti, toilet", "Musholla", "Tribun penonton", "Area bermain anak", "Toko olahraga, wifi, parkir"], "plus": ["Fasilitas lengkap, termasuk musholla dan area anak", "Lokasi di tengah-selatan kota, dekat tol", "Rating tinggi (4,91)"], "minus": ["Paling mahal: Rp10,04 jt", "6 court: acara selesai sekitar 16.55"], "note": "Paket 6 court, 07.00–18.00, Rp10.038.600, dikonfirmasi manajemen. Fasilitas paling lengkap untuk keluarga pemain. Acara selesai sekitar 16.55."}]};
+  var VEN=D.VEN, VK='ptown', IN={M:'',X:'',W:''}, CUR=null;
+  try{ var s=JSON.parse(localStorage.getItem('hpc-kustom')||'null'); if(s){ IN=s.IN||IN; if(s.VK) VK=s.VK; } }catch(e){}
+  function $(id){ return document.getElementById(id); }
+  function on(el,ev,fn){ if(el.addEventListener) el.addEventListener(ev,fn,false); else el.attachEvent('on'+ev,fn); }
+  function save(){ try{ localStorage.setItem('hpc-kustom',JSON.stringify({IN:IN,VK:VK})); }catch(e){} }
+  function ven(k){ for(var i=0;i<VEN.length;i++) if(VEN[i].k==k) return VEN[i]; return VEN[0]; }
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function rp(n){ var s=String(Math.round(n)), o=''; while(s.length>3){ o='.'+s.slice(-3)+o; s=s.slice(0,-3); } return 'Rp'+s+o; }
+  function jt(n){ var v=Math.round(n/100000)/10; return 'Rp'+String(v).replace('.',',')+' jt'; }
+  function hm(m){ var h=Math.floor(m/60), mm=m%60; return (h<10?'0':'')+h+'.'+(mm<10?'0':'')+mm; }
+  function r3(x){ return Math.round(x/3)*3; }
+  function pow2(n){ var p=1; while(p<n) p*=2; return p; }
+  var LET='ABCDEFGHIJKLMNOPQRSTUVWX';
+
+  // ---------- format per kategori
+  function fmt(n){
+    var lo=Math.ceil(n/4), hi=Math.floor(n/3), g=0, p;
+    for(p=2;p<=32;p*=2) if(p>=lo&&p<=hi) g=p;
+    if(!g) g=hi;
+    if(g<1) return null;
+    var four=n-3*g, three=g-four, Q=Math.max(4,pow2(g));
+    if(g==1) Q=2;
+    var st=[]; if(Q>=16) st.push(['R16',8]); if(Q>=8) st.push(['QF',4]); if(Q>=4){ st.push(['SF',2]); st.push(['J3',1]); }
+    return {n:n,g:g,g3:three,g4:four,Q:Q,ru:Math.max(0,Q-g),gm:n,ko:st};
+  }
+
+  // ---------- auto fill
+  function resolve(){
+    var M=parseInt(IN.M,10), X=parseInt(IN.X,10), W=parseInt(IN.W,10), a={M:!isNaN(M),X:!isNaN(X),W:!isNaN(W)};
+    if(!a.X&&!a.W){ if(a.M){ X=W=Math.max(9,r3(M/2)); if(X>=M) X=W=Math.max(6,M-3); } else { M=24; X=W=12; } }
+    else if(!a.X) X=W; else if(!a.W) W=X;
+    if(!a.M){ M=Math.max(r3(Math.max(X,W)*2), Math.max(X,W)+3); }
+    return {M:M,X:X,W:W,a:a};
+  }
+
+  // ---------- schedule
+  function plan(M,X,W,C){
+    var cats=[['Men',fmt(M)],['Mix',fmt(X)],['Women',fmt(W)]], G=M+X+W, i, j;
+    var stg={R16:0,QF:0,SF:0,J3:0}, who={R16:[],QF:[],SF:[],J3:[]};
+    for(i=0;i<3;i++){ var f=cats[i][1]; if(!f) continue; for(j=0;j<f.ko.length;j++){ stg[f.ko[j][0]]+=f.ko[j][1]; who[f.ko[j][0]].push(cats[i][0]); } }
+    var blocks=[], Rg=Math.ceil(G/C);
+    var NM={R16:'16 besar',QF:'Quarter final',SF:'Semifinal',J3:'Perebutan juara 3'};
+    var rows=[], t=8*60, done=0, ish=false, ishT='';
+    function add(a,b,txt,hl){ rows.push([hm(a)+'–'+hm(b),txt,hl]); }
+    add(t,t+30,'Pembukaan'); t+=30;
+    function lunch(){ add(t,t+60,'Ishoma · mini game di court '+C+' · free play di court lain',1); ishT=hm(t)+'–'+hm(t+60); t+=60; ish=true; }
+    // group
+    if(Rg>11){ add(t,t+220,'Fase grup bagian 1: putaran 1–11 · '+C+' court'); t+=220; lunch(); add(t,t+(Rg-11)*20,'Fase grup bagian 2: putaran '+(Rg==12?'12':'12–'+Rg)); t+=(Rg-11)*20; done=Rg; }
+    else { add(t,t+Rg*20,'Fase grup: '+G+' match, '+Rg+' putaran di '+C+' court'); t+=Rg*20; done=Rg; }
+    var order=['R16','QF','SF','J3'];
+    for(i=0;i<order.length;i++){ var k=order[i], m=stg[k]; if(!m) continue;
+      if(!ish&&done>=11) lunch();
+      var r=Math.ceil(m/C), free=C*r-m, fc=C-(m%C||C);
+      var txt=NM[k]+' '+who[k].join(', ')+': '+m+' match'+(r>1?', '+r+' putaran':'');
+      if(m<C&&r==1) txt+=' · '+(C-m)+' court untuk free play';
+      add(t,t+r*20,txt); t+=r*20; done+=r; }
+    if(!ish) lunch();
+    add(t,t+40,'2 exhibition matches di court 1 · court lain kosong',1); t+=40;
+    add(t,t+35,'Final 3 kategori bersamaan di court 1–3',1); var fin=hm(t); t+=35;
+    add(t,t+30,'Penyerahan trofi, doorprize, dan penutupan'); t+=30;
+    var ko=stg.R16+stg.QF+stg.SF+stg.J3+3;
+    return {cats:cats,rows:rows,end:t,endS:hm(t),G:G,Rg:Rg,ko:ko,ishT:ishT,fin:fin};
+  }
+
+  // ---------- slot & budget
+  function slots(n){ var per=Math.floor(n/9); if(per<1) return {per:0,dpc:n,pert:0}; return {per:per,dpc:per*9,pert:n-per*9}; }
+  function budget(M,X,W,v){
+    var P=(M+X+W)*2, C=v.c;
+    var lain=2640000+(C+3)*400000;
+    var kons=20910000+(P-112)*106875+(C-8)*400000;
+    var atr=33200000+(P-112)*227000;
+    var had=29195000-4250000;
+    var sub=v.sewaN+lain+kons+12500000+atr+had, tt=Math.round(sub*0.05), tot=sub+tt;
+    var dpc=slots(M).dpc+slots(X).dpc+slots(W).dpc, reg=dpc*750000;
+    return {P:P,sewa:v.sewaN,lain:lain,kons:kons,atr:atr,had:had,tt:tt,tot:tot,dpc:dpc,reg:reg,spon:tot-reg};
+  }
+
+  // ---------- render
+  function grpTxt(f){ var o=[]; if(f.g3) o.push(f.g3+' grup isi 3'); if(f.g4) o.push(f.g4+' grup isi 4'); return f.g+' grup ('+o.join(' + ')+')'; }
+  function quTxt(f){ var s=f.ko[0]?{R16:'16 besar',QF:'quarter final',SF:'semifinal'}[f.ko[0][0]]:'final'; return (f.ru?f.g+' juara grup + '+f.ru+' runner-up terbaik':f.g+' juara grup')+' → '+s; }
+  function bracket(name,f){
+    var o='<div class="cat"><h3>'+name+' · '+f.n+' pasang · '+grpTxt(f)+'</h3><div class="lbl stg">Fase grup</div>', i, s=0;
+    for(i=0;i<f.g;i++){ var sz=i<f.g4?4:3; o+='<div class="grp"><b>Grup '+LET.charAt(i)+'</b>'+sz+' pasang · main 2 kali<br><span class="muted">Juara grup lolos</span></div>'; }
+    o+='<div class="small muted">'+quTxt(f)+'</div>';
+    var Q=f.Q, seeds=[], lab=function(k){ return f.ru? 'Peringkat '+k : 'Juara '+LET.charAt(k-1); };
+    var NM={R16:'16 besar',QF:'Quarter final',SF:'Semifinal'};
+    var size=Q, prev=null, st;
+    for(st=0;st<f.ko.length;st++){ var k=f.ko[st][0]; if(k=='J3') continue; var m=f.ko[st][1];
+      o+='<div class="lbl stg">'+NM[k]+'</div>';
+      for(i=0;i<m;i++){ var a,b; if(!prev){ if(f.ru){ a=lab(i+1); b=lab(size-i); } else { a=lab(2*i+1); b=lab(2*i+2); } } else { a='Pemenang '+prev+' '+(2*i+1); b='Pemenang '+prev+' '+(2*i+2); }
+        o+='<div class="ko"><div class="t">'+(k=='R16'?'R16':k)+' '+(i+1)+'</div><div class="m">'+a+'</div><div class="m">'+b+'</div></div>'; }
+      prev=(k=='R16'?'R16':k); size=size/2; }
+    o+='<div class="lbl stg">Final &amp; juara 3</div><div class="ko"><div class="t fin">Final</div><div class="m">Pemenang SF 1</div><div class="m">Pemenang SF 2</div></div><div class="ko"><div class="t">Juara 3</div><div class="m">Kalah SF 1</div><div class="m">Kalah SF 2</div></div>';
+    if(f.ru) o+='<div class="small muted">Peringkat: juara grup diurutkan dulu, lalu runner-up terbaik (menang, selisih game). Peringkat 1 bertemu peringkat terbawah.</div>';
+    return o+'</div>';
+  }
+
+  var PRESETS=[[18,9,9],[21,9,9],[24,9,9],[24,12,12],[27,12,12],[30,12,12],[30,15,15],[32,12,12],[36,12,12],[36,15,15]];
+
+  function render(){
+    var R=resolve(), v=ven(VK), M=R.M, X=R.X, W=R.W, i, h;
+    // field states
+    var F=[['M',M],['X',X],['W',W]];
+    for(i=0;i<3;i++){ var k=F[i][0], isi=R.a[k]; $('f'+k).className='fld'+(isi?'':' auto'); $('t'+k).innerHTML=isi?'<span class="tag isi">diisi</span>':'<span class="tag oto">otomatis</span>'; if(!isi) $('i'+k).placeholder=F[i][1]+' (otomatis)'; var f=fmt(F[i][1]); $('h'+k).innerHTML=f?('<b>'+F[i][1]+' pasang</b> · '+grpTxt(f)):'Minimal 6 pasang'; }
+    $('hV').innerHTML=v.c+' court · '+jt(v.sewaN);
+    var bad=[], warn=[];
+    if(M<6||X<6||W<6||M>60||X>30||W>30) bad.push('Isi antara 6–60 pasang untuk Men dan 6–30 untuk Mix/Women.');
+    if(bad.length){ $('msg').innerHTML='<div class="warn bad">'+bad.join(' ')+'</div>'; return; }
+    var P=plan(M,X,W,v.c), B=budget(M,X,W,v);
+    if(M<=X||M<=W) warn.push('Men belum paling banyak.');
+    if(X<9||W<9) warn.push('Mix/Women di bawah 9 pasang: tidak semua DPC dapat slot.');
+    if(P.end>18*60) $('msg').innerHTML='<div class="warn bad">Selesai '+P.endS+': lewat jam paket venue (18.00). Kurangi pasang atau pilih venue 6 court.</div>'+(warn.length?'<div class="warn">'+warn.join(' ')+'</div>':'');
+    else if(P.end>16*60) $('msg').innerHTML='<div class="warn">Selesai ±'+P.endS+': lewat target jam 16.00.'+(warn.length?' '+warn.join(' '):'')+'</div>';
+    else $('msg').innerHTML=(warn.length?'<div class="warn">'+warn.join(' ')+'</div>':'<div class="ok">Selesai ±'+P.endS+' · sesuai target jam 15.00–16.00.</div>');
+    // kpi
+    var K=[['Komposisi',M+' · '+X+' · '+W,'Men · Mix · Women'],['Total',(M+X+W)+' pasang',B.P+' pemain'],['Selesai','±'+P.endS,v.n+' · '+v.c+' court',P.end>16*60],['Total anggaran',jt(B.tot),'RAB estimasi'],['Pendaftaran DPC',jt(B.reg),B.dpc+' pasang × Rp750 rb'],['Kebutuhan sponsor',jt(B.spon),'Total − pendaftaran']];
+    h=''; for(i=0;i<K.length;i++) h+='<div class="k'+(i==5?' sp':'')+'"><div class="lbl">'+K[i][0]+'</div><div class="v'+(K[i][3]?' late':'')+'">'+esc(K[i][1])+'</div><div class="ctx">'+esc(K[i][2])+'</div></div>';
+    $('kpiIn').innerHTML=h;
+    // presets
+    h=''; for(i=0;i<PRESETS.length;i++){ var p=PRESETS[i], pp=plan(p[0],p[1],p[2],v.c), on=(p[0]==M&&p[1]==X&&p[2]==W);
+      h+='<button type="button" class="pre'+(on?' on':'')+'" onclick="__pre('+i+')"><b>'+p[0]+' · '+p[1]+' · '+p[2]+'</b><i>'+(p[0]+p[1]+p[2])+' pasang · '+jt(budget(p[0],p[1],p[2],v).spon)+' sponsor</i><span class="t'+(pp.end>16*60?' late':'')+'">selesai ±'+pp.endS+'</span></button>'; }
+    $('pres').innerHTML=h;
+    // slots
+    $('slotS').innerHTML=(M+X+W)+' pasang · '+B.P+' pemain · semua main 2 kali di grup · DPC mendaftar lebih dulu, sisa slot untuk Pertamina';
+    h='<table><tr><th>Kategori</th><th class="r">Pasang</th><th>Grup</th><th>Lolos</th><th class="r">Per DPC</th><th class="r">DPC</th><th class="r">Pertamina</th></tr>';
+    var C3=[['Men',M],['Mix',X],['Women',W]], td=0, tp=0;
+    for(i=0;i<3;i++){ var f2=fmt(C3[i][1]), sl=slots(C3[i][1]); td+=sl.dpc; tp+=sl.pert; h+='<tr><td><b>'+C3[i][0]+'</b></td><td class="r">'+C3[i][1]+'</td><td>'+grpTxt(f2)+'</td><td>'+quTxt(f2)+'</td><td class="r">'+(sl.per||'urutan daftar')+'</td><td class="r">'+sl.dpc+'</td><td class="r">'+sl.pert+'</td></tr>'; }
+    h+='<tr class="tot"><td>Total</td><td class="r">'+(M+X+W)+'</td><td></td><td></td><td></td><td class="r">'+td+'</td><td class="r">'+tp+'</td></tr></table>';
+    $('slotT').innerHTML=h;
+    // rundown
+    $('runS').innerHTML='Pukul 08.00–'+P.endS+' · '+v.c+' court · '+P.G+' match grup ('+P.Rg+' putaran) + '+P.ko+' match babak gugur & final';
+    h='<table><tr><th>Waktu</th><th>Kegiatan</th></tr>'; for(i=0;i<P.rows.length;i++) h+='<tr'+(P.rows[i][2]?' class="hl"':'')+'><td style="white-space:nowrap">'+P.rows[i][0]+'</td><td>'+esc(P.rows[i][1])+'</td></tr>'; h+='</table>';
+    $('runT').innerHTML=h;
+    $('runN').innerHTML='<p class="small muted">Registrasi ulang 07.00–08.00. Slot 20 menit (Race to 4), final 35 menit (Race to 6). Free play di court kosong saat ishoma dan babak gugur sebagai ganti jatah main.</p>';
+    // bagan
+    h=''; for(i=0;i<3;i++) h+=bracket(C3[i][0],fmt(C3[i][1])); $('bagan').innerHTML=h;
+    // rab
+    $('rabS').innerHTML='Total '+jt(B.tot)+' · pendaftaran DPC '+jt(B.reg)+' · sponsor '+jt(B.spon);
+    $('rabT').innerHTML='<table><tr><th>Pos</th><th class="r">Jumlah</th></tr>'+
+      '<tr class="hl"><td>A1. Sewa venue: '+esc(v.n)+' (paket '+v.c+' court, 07.00–18.00)</td><td class="r">'+rp(B.sewa)+'</td></tr>'+
+      '<tr><td>A2. Bola &amp; wasit ('+(v.c+3)+' wasit)</td><td class="r">'+rp(B.lain)+'</td></tr>'+
+      '<tr><td>B. Konsumsi ('+B.P+' pemain + panitia &amp; tamu)</td><td class="r">'+rp(B.kons)+'</td></tr>'+
+      '<tr><td>C. Acara &amp; produksi</td><td class="r">'+rp(12500000)+'</td></tr>'+
+      '<tr><td>D. Atribut (jersey, goodie bag, gelang)</td><td class="r">'+rp(B.atr)+'</td></tr>'+
+      '<tr><td>E. Hadiah &amp; penghargaan (3 kategori)</td><td class="r">'+rp(B.had)+'</td></tr>'+
+      '<tr><td>Biaya tak terduga 5%</td><td class="r">'+rp(B.tt)+'</td></tr>'+
+      '<tr class="tot"><td>Total RAB</td><td class="r">'+rp(B.tot)+'</td></tr>'+
+      '<tr><td>Pendaftaran: '+B.dpc+' pasang DPC × Rp750 rb</td><td class="r">('+rp(B.reg)+')</td></tr>'+
+      '<tr class="navy"><td>Kebutuhan sponsor</td><td class="r">'+rp(B.spon)+'</td></tr></table>';
+    // export
+    var L=['FORMAT BARU (draf) · Turnamen Padel DPD V','Men '+M+' · Mix '+X+' · Women '+W+' = '+(M+X+W)+' pasang ('+B.P+' pemain), semua main 2 kali di grup','Diisi: '+(R.a.M?'Men ':'')+(R.a.X?'Mix ':'')+(R.a.W?'Women':'')+' (lainnya otomatis)','Venue: '+v.n+' ('+v.c+' court) · selesai ±'+P.endS,''];
+    for(i=0;i<3;i++){ var f3=fmt(C3[i][1]), s3=slots(C3[i][1]); L.push(C3[i][0]+': '+grpTxt(f3)+' · '+quTxt(f3)+' · DPC '+s3.dpc+(s3.per?' ('+s3.per+'/DPC)':'')+' · Pertamina '+s3.pert); }
+    L.push(''); L.push('Total RAB '+rp(B.tot)+' · pendaftaran DPC '+rp(B.reg)+' · sponsor '+rp(B.spon));
+    $('expTxt').value=L.join('\n');
+  }
+
+  window.__pre=function(i){ var p=PRESETS[i]; IN={M:String(p[0]),X:String(p[1]),W:String(p[2])}; $('iM').value=IN.M; $('iX').value=IN.X; $('iW').value=IN.W; save(); render(); };
+  window.__reset=function(){ IN={M:'',X:'',W:''}; $('iM').value=''; $('iX').value=''; $('iW').value=''; save(); render(); };
+  window.__copy=function(){ var e=$('expTxt'); e.focus(); e.select(); var ok=false; try{ ok=document.execCommand('copy'); }catch(x){} $('cpMsg').innerHTML=ok?' Tersalin.':' Teks terpilih: tekan Cmd+C untuk menyalin.'; };
+  function bind(k){ var el=$('i'+k); el.value=IN[k]; var fn=function(){ if(IN[k]===el.value) return; IN[k]=el.value; save(); render(); }; on(el,'keyup',fn); on(el,'change',fn); on(el,'input',fn); }
+  bind('M'); bind('X'); bind('W');
+  var h=''; for(var i=0;i<VEN.length;i++) h+='<option value="'+VEN[i].k+'"'+(VEN[i].k==VK?' selected':'')+'>'+esc(VEN[i].n)+' · '+VEN[i].c+' court</option>';
+  $('iV').innerHTML=h; on($('iV'),'change',function(){ VK=$('iV').value; save(); render(); });
+  render();
+})();
+</script>
+</body>
+</html>
