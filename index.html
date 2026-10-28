@@ -75,14 +75,26 @@ button{font-family:inherit}
 #cfgBody .done{text-align:right}
 .cusg{margin:0 -4px;overflow:hidden}
 .cuc{float:left;width:25%;padding:0 4px 8px}
-.cuf{background:#FFFFFF;border:1px solid #CBD8E5;border-left:4px solid #DDF247;padding:10px 12px;min-height:112px}
+.cuf{background:#FFFFFF;border:1px solid #CBD8E5;border-left:4px solid #DDF247;padding:10px 12px}
 .cuf.auto{border-style:dashed;border-left-style:solid;border-left-color:#9FD3F5}
 .cuf.tip{background:#F4F8FC;border-left-color:#CBD8E5}
 .cuf .lbl{display:block;margin-bottom:6px}
 .cuf input{display:block;width:100%;font-size:24px;font-family:Archivo,Arial,sans-serif;font-weight:900;font-style:italic;color:#08203D;border:2px solid #CBD8E5;background:#FFFFFF;padding:4px 10px}
 .cuf input:focus{outline:0;border-color:#0089D9}
 .cuh{display:block;font-size:12px;color:#4A5D72;margin-top:6px}
-.cuf .btn{margin-top:8px}
+.cuf .btn{margin:0 6px 0 0;padding:7px 10px;font-size:12px}
+.cuf.tip{position:relative}
+.cub{margin-top:8px}
+#cuPre{background:#FFFFFF;border:1px solid #CBD8E5;padding:10px 12px 4px;margin:0 0 8px}
+.pre{display:inline-block;vertical-align:top;width:19%;margin:0 1% 8px 0;text-align:left;background:#F4F8FC;border:1px solid #CBD8E5;border-left:4px solid #CBD8E5;padding:8px 10px;cursor:pointer;line-height:1.3;color:#08203D}
+.pre:hover{border-color:#0089D9;background:#FFFFFF}
+.pre.on{background:#08203D;color:#FFFFFF;border-color:#08203D;border-left-color:#DDF247}
+.pre b{display:block;font-family:Archivo,Arial,sans-serif;font-size:15px}
+.pre i{display:block;font-style:normal;font-size:12px;color:#4A5D72}
+.pre.on i{color:#A9C1D9}
+.pre .tt2{display:block;font-size:12px;font-weight:700;margin-top:2px;color:#1F7A3A}
+.pre.on .tt2{color:#DDF247}
+.pre .tt2.late{color:#D64545}
 .tg{display:inline-block;font-size:10px;font-weight:800;letter-spacing:1px;text-transform:uppercase;padding:2px 7px;margin-left:6px}
 .tg.isi{background:#08203D;color:#DDF247}
 .tg.oto{background:#E3F1FB;color:#0270B5}
@@ -202,7 +214,7 @@ ul.clean li{margin-bottom:3px}
 #ovimg{display:block;width:100%}
 .foot{max-width:1280px;margin:0 auto;padding:10px 20px 40px;font-size:12px;color:#4A5D72}
 @media (max-width:980px){ #side{display:none} #main{margin-left:0} .c4{width:50%} .c3{width:50%} .grp{width:48%} }
-@media (max-width:600px){ .k.mh{display:none} .k{padding-right:10px;margin-right:10px} .c2,.c3,.c4{width:100%}  .ph .t{font-size:19px} .grp{width:100%} #hd h1{font-size:30px} .cuc{width:50%} .cuf{min-height:0} #hd h1 span{white-space:nowrap} .opt .ok{font-size:9px;letter-spacing:1px;padding-right:16px} #hd .in{padding:18px 16px 22px} #kpi .in{padding:0 14px} #kpi .sel{float:none;width:auto;margin:0;padding:10px 0;border-right:0;border-bottom:1px solid #E1E9F1} #cfgSum b{font-size:17px} #kpi .ks{padding:8px 0} #cfgBody .in{padding:10px 12px 14px} #cfg .in{padding:0 12px} #cfg .box{padding:12px} #cfgSum{font-size:15px} #cfgSum em{display:block;height:0;overflow:hidden;margin:0} #cfg .cs{float:none} #cfg .cs{display:block} #cfg .cb{float:none;display:table;margin-top:10px} .oc{width:50%} .opt{min-height:58px;padding:8px 10px} .opt b{font-size:15px} .opt.on:after{top:6px;right:6px;width:16px;height:16px;line-height:16px;font-size:10px} .k .v{font-size:18px} }
+@media (max-width:600px){ .k.mh{display:none} .k{padding-right:10px;margin-right:10px} .c2,.c3,.c4{width:100%}  .ph .t{font-size:19px} .grp{width:100%} #hd h1{font-size:30px} .cuc{width:50%} .pre{width:48.5%} #hd h1 span{white-space:nowrap} .opt .ok{font-size:9px;letter-spacing:1px;padding-right:16px} #hd .in{padding:18px 16px 22px} #kpi .in{padding:0 14px} #kpi .sel{float:none;width:auto;margin:0;padding:10px 0;border-right:0;border-bottom:1px solid #E1E9F1} #cfgSum b{font-size:17px} #kpi .ks{padding:8px 0} #cfgBody .in{padding:10px 12px 14px} #cfg .in{padding:0 12px} #cfg .box{padding:12px} #cfgSum{font-size:15px} #cfgSum em{display:block;height:0;overflow:hidden;margin:0} #cfg .cs{float:none} #cfg .cs{display:block} #cfg .cb{float:none;display:table;margin-top:10px} .oc{width:50%} .opt{min-height:58px;padding:8px 10px} .opt b{font-size:15px} .opt.on:after{top:6px;right:6px;width:16px;height:16px;line-height:16px;font-size:10px} .k .v{font-size:18px} }
 
 #anim{position:relative;float:right;width:440px;height:214px;margin:4px 0 0 24px;background:#0569AD}
 #anim .ct{position:absolute;left:3%;top:6%;width:94%;height:88%;background:#0089D9;border:2px solid #EEF5FB}
@@ -238,8 +250,8 @@ ul.clean li{margin-bottom:3px}
     <div class="cuc"><div class="cuf" id="cuFM"><span class="lbl">Men <span id="cuTM"></span></span><input type="number" min="6" max="60" id="cuM"><span class="cuh" id="cuHM"></span></div></div>
     <div class="cuc"><div class="cuf" id="cuFX"><span class="lbl">Mix <span id="cuTX"></span></span><input type="number" min="6" max="30" id="cuX"><span class="cuh" id="cuHX"></span></div></div>
     <div class="cuc"><div class="cuf" id="cuFW"><span class="lbl">Women <span id="cuTW"></span></span><input type="number" min="6" max="30" id="cuW"><span class="cuh" id="cuHW"></span></div></div>
-    <div class="cuc"><div class="cuf tip"><span class="lbl">Cara isi</span><span class="cuh">Isi salah satu, kosongkan yang lain: dihitung otomatis dengan Men selalu paling banyak.</span><a class="btn ln" href="javascript:void(0)" onclick="__cusReset()">Kosongkan</a></div></div>
-  </div><div id="cuMsg"></div></div></div>
+    <div class="cuc"><div class="cuf tip"><span class="lbl">Cara isi</span><span class="cuh">Isi salah satu kategori, sisanya otomatis. Men selalu paling banyak.</span><div class="cub"><a class="btn" href="javascript:void(0)" onclick="__preT()" id="preBtn">Pilihan cepat &#9662;</a><a class="btn ln" href="javascript:void(0)" onclick="__cusReset()">Kosongkan</a></div></div></div>
+  </div><div id="cuPre" style="display:none"><div class="lbl" style="margin:2px 0 8px">Pilihan cepat · Men · Mix · Women · jam selesai di venue terpilih</div><div id="cuPreL"></div></div><div id="cuMsg"></div></div></div>
   <div class="row"><div class="rl"><span class="st">2</span>Venue</div><div id="optV" class="seg"></div></div>
   <div class="done"><a class="btn" href="javascript:void(0)" onclick="__cfg(false)">Selesai &#9652;</a></div>
 </div></div>
@@ -363,16 +375,33 @@ var MGT="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBAUEBAYFBQUG
     if(SK=='X'){ var r=resolve(), F=[['M',r.M],['X',r.X],['W',r.W]];
       for(i=0;i<3;i++){ var kk=F[i][0], isi=r.a[kk], el=$('cu'+kk); el.placeholder=F[i][1]+' (otomatis)'; $('cuF'+kk).className='cuf'+(isi?'':' auto'); $('cuT'+kk).innerHTML=isi?'<span class="tg isi">diisi</span>':'<span class="tg oto">otomatis</span>'; $('cuH'+kk).innerHTML=grpTxt(fmt(F[i][1])); }
       var wn=[]; if(r.M<=r.X||r.M<=r.W) wn.push('Men belum paling banyak.'); if(r.X<9||r.W<9) wn.push('Mix/Women di bawah 9: tidak semua DPC dapat slot.'); if(c.S.endM>18*60) wn.push('Selesai ±'+c.S.end+': lewat jam paket 18.00.'); else if(c.S.endM>16*60) wn.push('Selesai ±'+c.S.end+': lewat target 16.00.');
+      var PR=[[18,9,9],[21,9,9],[24,9,9],[24,12,12],[27,12,12],[30,12,12],[30,15,15],[32,12,12],[36,12,12],[36,15,15]], ph='', vv=ven(VK);
+      for(i=0;i<PR.length;i++){ var pc={M:PR[i][0],X:PR[i][1],W:PR[i][2]}, pp=plan(pc,vv.c), pon=(r.M==pc.M&&r.X==pc.X&&r.W==pc.W);
+        ph+='<button type="button" class="pre'+(pon?' on':'')+'" onclick="__pre('+PR[i].join(',')+')"><b>'+PR[i].join(' · ')+'</b><i>'+(pc.M+pc.X+pc.W)+' pasang</i><span class="tt2'+(pp.endM>16*60?' late':'')+'">selesai ±'+pp.end+'</span></button>'; }
+      $('cuPreL').innerHTML=ph; $('cuPre').style.display=PREO?'block':'none'; $('preBtn').innerHTML=PREO?'Tutup pilihan &#9652;':'Pilihan cepat &#9662;';
+      setTimeout(eqCus,0);
       $('cuMsg').innerHTML=wn.length?'<div class="note warn" style="margin:6px 0 0">'+wn.join(' ')+'</div>':'<div class="note" style="margin:6px 0 0">Selesai ±'+c.S.end+' · sesuai target.</div>'; }
     var cc=comp(SK);
     for(i=0;i<D.VEN.length;i++){ var x=D.VEN[i]; h+='<span class="oc"><button type="button" class="opt'+(x.k==VK?' on':'')+'" onclick="__set(\'v\',\''+x.k+'\')"><span class="ok">'+x.c+' court</span><b>'+esc(x.n)+'</b><i>'+jv(x.sewaN)+' · selesai ±'+plan(cc,x.c).end+'</i></button></span>'; }
     $('optV').innerHTML=h;
     $('cfgSum').innerHTML='<b>'+cc.nm+' · '+tot(cc)+' pasang</b>'+esc(v.n+' · '+v.c+' court')+' · Men '+cc.M+' · Mix '+cc.X+' · Women '+cc.W;
   }
+  var PREO=false;
+  window.__preT=function(){ PREO=!PREO; controls(); };
+  window.__pre=function(m,x,w){ CUS={M:String(m),X:String(x),W:String(w)}; $('cuM').value=CUS.M; $('cuX').value=CUS.X; $('cuW').value=CUS.W; PREO=false; save(); render(); };
+  function eqCus(){ var L=[$('cuFM'),$('cuFX'),$('cuFW')], tip=$('cusRow').getElementsByTagName('div'), i, m=0, all=[];
+    for(i=0;i<tip.length;i++) if(/(^| )cuf( |$)/.test(tip[i].className)) all.push(tip[i]);
+    for(i=0;i<all.length;i++) all[i].style.height='';
+    if(window.innerWidth<=600) return;
+    for(i=0;i<all.length;i++) if(all[i].offsetHeight>m) m=all[i].offsetHeight;
+    for(i=0;i<all.length;i++) all[i].style.height=m+'px'; }
   function bindCus(k){ var el=$('cu'+k); el.value=CUS[k]||''; var fn=function(){ if(CUS[k]===el.value) return; CUS[k]=el.value; save(); render(); }; on(el,'keyup',fn); on(el,'change',fn); on(el,'input',fn); }
   window.__cusReset=function(){ CUS={M:'',X:'',W:''}; $('cuM').value=''; $('cuX').value=''; $('cuW').value=''; save(); render(); };
   var CFGO=false;
-  window.__cfg=function(o){ CFGO=(o===undefined)?!CFGO:o; $('cfgBody').style.display=CFGO?'block':'none'; $('cfgBtn').innerHTML=CFGO?'Tutup &#9652;':'Ubah &#9662;'; if(!CFGO){ var y=$('kpi').offsetTop; if((window.pageYOffset||document.documentElement.scrollTop)>y) window.scrollTo(0,y); } };
+  var CFGY=0;
+  function sy(){ return window.pageYOffset||document.documentElement.scrollTop||0; }
+  function autoHide(){ if(!CFGO) return; var ae=document.activeElement; if(ae&&ae.tagName=='INPUT') return; var kt=$('hd').offsetHeight; if(sy()-Math.max(CFGY,kt)>60){ var k=$('kpi'), h0=k.offsetHeight, stuck=sy()>=kt; CFGO=false; $('cfgBody').style.display='none'; $('cfgBtn').innerHTML='Ubah &#9662;'; if(stuck){ var d=h0-k.offsetHeight; if(d>0) window.scrollBy(0,-d); } } }
+  window.__cfg=function(o){ CFGO=(o===undefined)?!CFGO:o; if(CFGO) setTimeout(function(){ CFGY=sy(); eqCus(); },0); $('cfgBody').style.display=CFGO?'block':'none'; $('cfgBtn').innerHTML=CFGO?'Tutup &#9652;':'Ubah &#9662;'; if(!CFGO){ var y=$('kpi').offsetTop; if((window.pageYOffset||document.documentElement.scrollTop)>y) window.scrollTo(0,y); } };
   window.__set=function(t,k){ if(t=='s') SK=k; else VK=k; save(); render(); };
   window.__all=function(o){ for(var i=0;i<SECS.length;i++) OPEN[SECS[i][0]]=o?1:0; save(); render(); };
   window.__tog=function(id){ OPEN[id]=OPEN[id]?0:1; save(); var p=$('p-'+id); p.className='pn'+(OPEN[id]?'':' closed'); p.getElementsByTagName('span')[1].innerHTML=OPEN[id]?'&minus;':'+'; eqh(); };
@@ -555,6 +584,7 @@ var MGT="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBAUEBAYFBQUG
   on($('ov'),'click',function(e){ e=e||window.event; if((e.target||e.srcElement)==$('ov')) $('ov').style.display='none'; });
   on(document,'keydown',function(e){ e=e||window.event; if(e.keyCode==27) $('ov').style.display='none'; });
   bindCus('M'); bindCus('X'); bindCus('W');
+  var shT; on(window,'scroll',function(){ clearTimeout(shT); shT=setTimeout(autoHide,60); });
   render();
   on(window,'load',eqh); setTimeout(eqh,1200); try{ if(document.fonts&&document.fonts.ready) document.fonts.ready.then(eqh); }catch(e){} var rzT; on(window,'resize',function(){ clearTimeout(rzT); rzT=setTimeout(eqh,150); });
 })();
