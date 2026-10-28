@@ -30,6 +30,15 @@ button{font-family:inherit}
 /* ---------- configurator ---------- */
 #cfg .in{max-width:1280px;margin:-44px auto 0;padding:0 20px}
 #cfg .box{background:#FFFFFF;border:1px solid #CBD8E5;box-shadow:0 10px 30px rgba(8,32,61,.12);padding:16px 20px 10px}
+#cfg .box{padding-bottom:16px}
+#cfg .cfgh{display:block;overflow:hidden;text-decoration:none;color:#08203D}
+#cfg .cs{float:left;padding-top:2px}
+#cfg .cs .rl{display:block;margin:0 0 2px}
+#cfgSum{font-family:Archivo,Arial,sans-serif;font-weight:800;font-size:18px}
+#cfgSum em{font-style:normal;color:#A9C1D9;margin:0 10px}
+#cfg .cb{float:right;margin-top:6px;font-family:Archivo,Arial,sans-serif;font-weight:800;font-size:13px;background:#DDF247;color:#08203D;padding:9px 14px}
+#cfg .cfgh:hover .cb{background:#08203D;color:#DDF247}
+#cfgBody{margin-top:14px;border-top:1px solid #E1E9F1;padding-top:8px}
 #cfg .row{overflow:hidden;padding:6px 0}
 #cfg .row+.row{border-top:1px solid #E1E9F1;padding-top:12px}
 #cfg .rl{font-family:Archivo,Arial,sans-serif;font-weight:800;font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:#4A5D72;margin:0 0 8px}
@@ -145,7 +154,7 @@ ul.clean li{margin-bottom:3px}
 #ovimg{display:block;width:100%}
 .foot{max-width:1280px;margin:0 auto;padding:10px 20px 40px;font-size:12px;color:#4A5D72}
 @media (max-width:980px){ #side{display:none} #main{margin-left:0} .c4{width:50%} .c3{width:50%} .grp{width:48%} }
-@media (max-width:600px){ .k.mh{display:none} .k{padding-right:10px;margin-right:10px} .c2,.c3,.c4{width:100%}  .ph .t{font-size:19px} .grp{width:100%} #hd h1{font-size:30px} #hd h1 span{white-space:nowrap} .opt .ok{font-size:9px;letter-spacing:1px;padding-right:16px} #hd .in{padding:18px 16px 56px} #cfg .in{padding:0 12px} #cfg .box{padding:12px 12px 4px} .oc{width:50%} .opt{min-height:58px;padding:8px 10px} .opt b{font-size:15px} .opt.on:after{top:6px;right:6px;width:16px;height:16px;line-height:16px;font-size:10px} .k .v{font-size:18px} }
+@media (max-width:600px){ .k.mh{display:none} .k{padding-right:10px;margin-right:10px} .c2,.c3,.c4{width:100%}  .ph .t{font-size:19px} .grp{width:100%} #hd h1{font-size:30px} #hd h1 span{white-space:nowrap} .opt .ok{font-size:9px;letter-spacing:1px;padding-right:16px} #hd .in{padding:18px 16px 56px} #cfg .in{padding:0 12px} #cfg .box{padding:12px} #cfgSum{font-size:15px} #cfgSum em{display:block;height:0;overflow:hidden;margin:0} #cfg .cs{float:none} #cfg .cs{display:block} #cfg .cb{float:none;display:table;margin-top:10px} .oc{width:50%} .opt{min-height:58px;padding:8px 10px} .opt b{font-size:15px} .opt.on:after{top:6px;right:6px;width:16px;height:16px;line-height:16px;font-size:10px} .k .v{font-size:18px} }
 
 #anim{position:relative;float:right;width:440px;height:214px;margin:4px 0 0 24px;background:#0569AD}
 #anim .ct{position:absolute;left:3%;top:6%;width:94%;height:88%;background:#0089D9;border:2px solid #EEF5FB}
@@ -172,9 +181,12 @@ ul.clean li{margin-bottom:3px}
   </div>
 </div></div>
 <div id="cfg"><div class="in"><div class="box">
+  <a class="cfgh" href="javascript:void(0)" onclick="__cfg()"><span class="cs"><span class="rl">Pilihan saat ini</span><span id="cfgSum"></span></span><span class="cb" id="cfgBtn">Ubah pilihan &#9662;</span></a>
+  <div id="cfgBody" style="display:none">
   <div class="row"><div class="rl"><span class="st">1</span>Skenario jumlah pasang</div><div id="optS" class="seg"></div></div>
   <div class="row"><div class="rl"><span class="st">2</span>Venue</div><div id="optV" class="seg"></div></div>
-</div></div></div></div>
+  </div>
+</div></div></div>
 
 <div id="kpi"><div class="in" id="kpiIn"></div></div>
 
@@ -217,7 +229,11 @@ var MGT="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBAUEBAYFBQUG
     $('optS').innerHTML=h; h='';
     for(i=0;i<D.VEN.length;i++){ var v=D.VEN[i]; h+='<span class="oc"><button type="button" class="opt'+(v.k==VK?' on':'')+'" onclick="__set(\'v\',\''+v.k+'\')"><span class="ok">'+v.c+' court</span><b>'+esc(v.n)+'</b><i>'+jv(v.sewaN)+' · selesai '+D.sched[v.c].end+'</i></button></span>'; }
     $('optV').innerHTML=h;
+    var vn=''; for(i=0;i<D.VEN.length;i++) if(D.VEN[i].k==VK) vn=D.VEN[i].n+' · '+D.VEN[i].c+' court';
+    $('cfgSum').innerHTML='Skenario '+SK+' · '+D.SDALL[SK].n+' pasang<em>|</em>'+esc(vn);
   }
+  var CFGO=false;
+  window.__cfg=function(o){ CFGO=(o===undefined)?!CFGO:o; $('cfgBody').style.display=CFGO?'block':'none'; $('cfgBtn').innerHTML=CFGO?'Tutup &#9652;':'Ubah pilihan &#9662;'; };
   window.__set=function(t,k){ if(t=='s') SK=k; else VK=k; save(); render(); };
   window.__all=function(o){ for(var i=0;i<SECS.length;i++) OPEN[SECS[i][0]]=o?1:0; save(); render(); };
   window.__tog=function(id){ OPEN[id]=OPEN[id]?0:1; save(); var p=$('p-'+id); p.className='pn'+(OPEN[id]?'':' closed'); p.getElementsByTagName('span')[1].innerHTML=OPEN[id]?'&minus;':'+'; };
@@ -237,7 +253,7 @@ var MGT="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBAUEBAYFBQUG
     // KPI
     var K=[['Pasang (maks)',d.n,'Skenario '+SK],['Selesai','±'+S.end,v.c+' court · '+v.n],['Total anggaran',jt(c.tot),'RAB lengkap'],['Pendaftaran DPC',jt(c.reg),d.dpc+' pasang × Rp750 rb'],['Kebutuhan sponsor',jt(c.spon),'Total − pendaftaran']];
     h=''; for(i=0;i<K.length;i++){ var ch=prevK[i]!==undefined&&prevK[i]!=K[i][1]; h+='<div class="k'+(i==4?' sp':'')+(i==0||i==3?' mh':'')+'"><div class="lbl">'+K[i][0]+'</div><div class="v'+(ch?' flash':'')+'">'+esc(K[i][1])+'</div><div class="ctx">'+esc(K[i][2])+'</div></div>'; prevK[i]=K[i][1]; }
-    $('kpiIn').innerHTML=h+'<a class="kchg" href="javascript:void(0)" onclick="window.scrollTo(0,document.getElementById(\'cfg\').offsetTop-20)">Ubah pilihan &uarr;</a>';
+    $('kpiIn').innerHTML=h+'<a class="kchg" href="javascript:void(0)" onclick="__cfg(true);window.scrollTo(0,document.getElementById(\'cfg\').offsetTop-20)">Ubah pilihan &uarr;</a>';
     setTimeout(function(){ var f=$('kpiIn').getElementsByTagName('div'); for(var j=0;j<f.length;j++) if(f[j].className=='v flash') f[j].className='v'; },900);
     // side nav
     h=''; for(i=0;i<SECS.length;i++) h+='<a href="javascript:void(0)" onclick="__go(\''+SECS[i][0]+'\')">'+SECS[i][1]+'</a>'; $('sideNav').innerHTML=h;
