@@ -128,6 +128,12 @@ td .av{width:34px;height:34px;margin-right:8px}
 #toast{display:none;position:fixed;left:50%;bottom:24px;width:320px;margin-left:-160px;z-index:80;background:#08203D;color:#DDF247;font-weight:800;font-size:14px;text-align:center;padding:12px 14px;box-shadow:0 6px 20px rgba(8,32,61,.3)}
 .foot{max-width:1180px;margin:0 auto;padding:0 20px 40px;font-size:12px;color:#4A5D72}
 .foot a{color:#4A5D72}
+.pnb{display:inline-flex;align-items:center;gap:6px;border:1px solid #CBD8E5;background:#FFFFFF;padding:5px 5px 5px 12px;margin:0 0 12px;max-width:100%}
+.pnb .pnl{font-weight:800;font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:#4A5D72;white-space:nowrap}
+.pnb input{width:150px;min-width:0;font:inherit;font-size:14px;padding:7px 9px;border:1px solid #CBD8E5;color:#08203D}
+.pnb input:focus{outline:0;border-color:#0089D9}
+.pnb button{font:inherit;font-weight:800;font-size:13px;padding:8px 14px;border:0;background:#08203D;color:#DDF247;cursor:pointer}
+.foot{display:block}.foot .pnb{display:flex;width:max-content}
 @media (max-width:980px){ #anim{float:none;width:100%;max-width:440px;height:180px;margin:0 auto 18px} .c4{width:50%} .pc{width:50%} }
 @media (max-width:600px){ #hd h1{font-size:32px} #hd .in{padding:18px 16px 22px} .wrap{padding:14px 12px 30px} .sec{padding:16px} .c2,.c3,.c4,.fc,.pc{width:100%} .flt{float:none;display:block;margin:0 0 8px} #hd .cta.ln{margin-left:0} }
 
@@ -249,7 +255,8 @@ tr.na td{background:#FAFBFC}
     </form>
   </div>
 </div>
-<div class="foot">Turnamen Padel Hiswana Migas · 2026 · <a href="panitia.html">Ruang panitia</a></div>
+<div class="foot"><form class="pnb" onsubmit="return __pnGo()"><span class="pnl">Akses panitia</span><input id="pnPin" type="password" placeholder="PIN panitia" autocomplete="current-password" aria-label="PIN panitia"><button type="submit">Masuk</button></form>Turnamen Padel Hiswana Migas · 2026</div>
+<script>function __pnGo(){ var v=document.getElementById('pnPin').value; if(!v){ document.getElementById('pnPin').focus(); return false; } try{ sessionStorage.setItem('hpc-pin',v); sessionStorage.setItem('hpc-from','1'); }catch(e){} location.href='panitia.html'; return false; }</script>
 <div id="toast"></div>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
