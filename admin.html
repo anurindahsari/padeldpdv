@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,nofollow">
+<title>Data Pendaftaran · Panitia</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,800;1,900&amp;family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap">
+<style>
+html,body{margin:0}*{box-sizing:border-box}
+body{background:#EEF5FB;color:#08203D;font-family:"Plus Jakarta Sans","Segoe UI",Arial,sans-serif;font-size:14px}
+#hd{background:#08203D;color:#EEF5FB}
+#hd .in{max-width:1280px;margin:0 auto;padding:16px 20px;overflow:hidden}
+#hd b{font-family:Archivo,Arial,sans-serif;font-style:italic;font-weight:900;font-size:22px}
+#hd span{color:#A9C1D9;font-size:13px;margin-left:10px}
+#hd .r{float:right;font-size:13px;color:#A9C1D9;padding-top:6px}
+.wrap{max-width:1280px;margin:0 auto;padding:18px 20px 40px}
+.box{background:#FFF;border:1px solid #CBD8E5;padding:18px 20px;margin-bottom:14px}
+.btn{display:inline-block;font-family:Archivo,Arial,sans-serif;font-weight:800;font-size:13px;color:#08203D;background:#DDF247;border:0;padding:9px 14px;margin:0 6px 6px 0;cursor:pointer;text-decoration:none}
+.btn.ln{background:#FFF;border:1px solid #CBD8E5}.btn.red{background:#FFF;color:#B42318;border:1px solid #F2B8B5}.btn.sm{font-size:11px;padding:5px 8px}
+.stat span{display:inline-block;margin:0 18px 6px 0;font-weight:700}
+.stat b{font-family:Archivo,Arial,sans-serif;font-style:italic;font-size:22px;color:#0270B5;margin-right:4px}
+table{border-collapse:collapse;width:100%}
+th,td{border-bottom:1px solid #E1E9F1;padding:8px;text-align:left;vertical-align:top;font-size:13px}
+th{font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#4A5D72;border-bottom:2px solid #CBD8E5}
+.tbl{overflow-x:auto}
+.av{display:inline-block;width:44px;height:44px;border-radius:50%;background:#E3F1FB center/cover no-repeat;vertical-align:middle;margin-right:8px;cursor:zoom-in}
+.dup{background:#FDE8E8;color:#B42318;font-weight:800;padding:1px 6px;font-size:11px}
+.warn{background:#FFF8E5;border-left:4px solid #F5C451;padding:10px 14px;margin:0 0 12px;font-size:13px}
+select,input{font-family:inherit;font-size:13px;padding:7px 8px;border:1px solid #CBD8E5}
+#big{display:none;position:fixed;left:0;top:0;right:0;bottom:0;background:rgba(8,32,61,.85);z-index:50;text-align:center;padding-top:6vh}
+#big img{max-width:90vw;max-height:84vh;border:4px solid #FFF}
+</style>
+</head>
+<body>
+<div id="hd"><div class="in"><span class="r" id="who"></span><b>Data pendaftaran</b><span>Turnamen Padel DPD V · khusus panitia</span></div></div>
+<div class="wrap">
+  <div class="box" id="login" style="display:none"><p>Masuk dengan akun Google panitia yang terdaftar untuk melihat nomor KTA dan mengelola data.</p><button class="btn" onclick="__login()">Masuk dengan Google</button><div id="lerr" style="color:#B42318;margin-top:8px"></div></div>
+  <div id="app" style="display:none">
+    <div class="box"><div class="stat" id="stat"></div>
+      <select id="fK" onchange="__r()"><option value="">Semua kategori</option><option>Men Beginner</option><option>Mix Beginner</option><option>Women Beginner</option></select>
+      <select id="fD" onchange="__r()"><option value="">Semua DPC</option></select>
+      <input id="q" placeholder="Cari nama / KTA" oninput="__r()">
+      <a class="btn" href="javascript:void(0)" onclick="__csv()" style="margin-left:6px">Unduh CSV</a><a class="btn ln" href="./">Halaman publik</a><a class="btn ln" href="panitia.html">Ruang panitia</a>
+    </div>
+    <div id="dupw"></div>
+    <div class="box"><div class="tbl" id="tbl"></div></div>
+  </div>
+</div>
+<div id="big" onclick="this.style.display='none'"><img id="bigi" src="" alt=""></div>
+
+<script>
+var FB=null;
+var ADMINS=['a.nurindahsari@gmail.com'];
+(function(){
+  function $(id){ return document.getElementById(id); }
+  function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  var DEMO=!FB||/[?&]demo=1/.test(location.search), P=[], K={}, F={};
+  var DPCS=['Surabaya','Malang','Madura','Kediri','Besuki','Madiun','Bali','NTT','NTB','Pertamina (last call)'], o='<option value="">Semua DPC</option>';
+  for(var i=0;i<DPCS.length;i++) o+='<option>'+DPCS[i]+'</option>'; $('fD').innerHTML=o;
+  var api;
+  if(DEMO){ $('who').innerHTML='Mode demo (data di browser ini)'; $('app').style.display='block';
+    api={ load:function(cb){ var d={p:{},k:{},f:{}}; try{ d=JSON.parse(localStorage.getItem('hpc-demo-db')||'{"p":{},"k":{},"f":{}}'); }catch(e){} P=[]; for(var id in d.p){ var x=d.p[id]; x.id=id; P.push(x); } K=d.k; for(var f in d.f) F[f]=d.f[f].d; cb(); },
+      del:function(id,cb){ var d=JSON.parse(localStorage.getItem('hpc-demo-db')); delete d.p[id]; delete d.k[id]; delete d.f[id+'_1']; delete d.f[id+'_2']; localStorage.setItem('hpc-demo-db',JSON.stringify(d)); cb(); } };
+    api.load(render);
+  } else {
+    firebase.initializeApp(FB); var au=firebase.auth(), fs=firebase.firestore();
+    window.__login=function(){ au.signInWithPopup(new firebase.auth.GoogleAuthProvider()).catch(function(e){ $('lerr').innerHTML=esc(e.message); }); };
+    au.onAuthStateChanged(function(u){
+      if(!u||u.isAnonymous||ADMINS.indexOf(u.email)<0){ $('login').style.display='block'; $('app').style.display='none'; if(u&&!u.isAnonymous) $('lerr').innerHTML='Akun '+esc(u.email)+' belum terdaftar sebagai admin.'; return; }
+      $('who').innerHTML=esc(u.email)+' · <a href="javascript:void(0)" style="color:#9FD3F5" onclick="firebase.auth().signOut()">keluar</a>'; $('login').style.display='none'; $('app').style.display='block';
+      fs.collection('pasangan').orderBy('t').onSnapshot(function(s){ P=[]; s.forEach(function(d){ var x=d.data(); x.id=d.id; P.push(x); }); render(); });
+      fs.collection('kta').onSnapshot(function(s){ K={}; s.forEach(function(d){ K[d.id]=d.data(); }); render(); });
+    });
+    api={ foto:function(id,cb){ if(F[id]!=null) return cb(F[id]); fs.collection('foto').doc(id).get().then(function(d){ F[id]=d.exists?d.data().d:''; cb(F[id]); }); },
+      del:function(id,cb){ var b=fs.batch(); ['pasangan','kta'].forEach(function(c){ b.delete(fs.collection(c).doc(id)); }); b.delete(fs.collection('foto').doc(id+'_1')); b.delete(fs.collection('foto').doc(id+'_2')); b.commit().then(cb).catch(function(e){ alert(e.message); }); } };
+  }
+  function foto(id,el){ if(DEMO){ if(F[id]) el.style.backgroundImage='url('+F[id]+')'; return; } api.foto(id,function(d){ if(d) el.style.backgroundImage='url('+d+')'; }); }
+  function rows(){ var fk=$('fK').value, fd=$('fD').value, q=$('q').value.toLowerCase(), R=[]; for(var i=0;i<P.length;i++){ var x=P[i], k=K[x.id]||{}; if(fk&&x.kat!=fk) continue; if(fd&&x.dpc!=fd) continue; var s=(x.p[0].nama+' '+x.p[1].nama+' '+(k.k1||'')+' '+(k.k2||'')+' '+x.pendaftar).toLowerCase(); if(q&&s.indexOf(q)<0) continue; R.push(x); } return R; }
+  function render(){
+    var c={'Men Beginner':0,'Mix Beginner':0,'Women Beginner':0}, i, cnt={}, dups=[];
+    for(i=0;i<P.length;i++){ c[P[i].kat]=(c[P[i].kat]||0)+1; var k=K[P[i].id]||{}; ['k1','k2'].forEach(function(f,j){ if(k[f]){ (cnt[k[f]]=cnt[k[f]]||[]).push(P[i].p[j].nama+' ('+P[i].kat+', '+P[i].dpc+')'); } }); }
+    for(var kk in cnt) if(cnt[kk].length>1) dups.push(kk+': '+cnt[kk].join('; '));
+    $('stat').innerHTML='<span><b>'+P.length+'</b>pasangan</span>'+Object.keys(c).map(function(x){ return '<span><b>'+c[x]+'</b>'+x+'</span>'; }).join('');
+    $('dupw').innerHTML=dups.length?'<div class="warn"><b>Nomor KTA ganda</b> (satu pemain hanya boleh satu kategori):<br>'+dups.map(esc).join('<br>')+'</div>':'';
+    var R=rows(), h='<table><tr><th>#</th><th>Kategori</th><th>DPC</th><th>Pemain 1</th><th>Pemain 2</th><th>Pendaftar</th><th>Waktu</th><th></th></tr>';
+    for(i=0;i<R.length;i++){ var x=R[i], k=K[x.id]||{}; h+='<tr><td>'+(i+1)+'</td><td>'+esc(x.kat)+'</td><td><b>'+esc(x.dpc)+'</b></td>';
+      for(var n=1;n<=2;n++){ var p=x.p[n-1]||{}, kt=k['k'+n]||'-'; h+='<td style="white-space:nowrap"><span class="av" data-f="'+x.id+'_'+n+'"></span><span style="display:inline-block;vertical-align:middle"><b>'+esc(p.nama)+'</b> · '+(p.jk||'')+'<br>KTA '+esc(kt)+(cnt[kt]&&cnt[kt].length>1?' <span class="dup">ganda</span>':'')+(p.reclub?'<br><a href="'+esc(p.reclub)+'" target="_blank" rel="noopener">Reclub</a>':'')+'</span></td>'; }
+      h+='<td>'+esc(x.pendaftar)+(x.wa?'<br><a href="https://wa.me/'+esc(x.wa.replace(/^0/,'62').replace(/[^0-9]/g,''))+'" target="_blank" rel="noopener">'+esc(x.wa)+'</a>':'')+'</td><td class="small">'+new Date(x.u||x.t).toLocaleString('id-ID')+'</td><td><button class="btn sm red" onclick="__del(\''+x.id+'\')">Hapus</button></td></tr>'; }
+    $('tbl').innerHTML=R.length?h+'</table>':'<p>Belum ada data.</p>';
+    var av=$('tbl').querySelectorAll('.av'); for(i=0;i<av.length;i++){ (function(el){ foto(el.getAttribute('data-f'),el); el.onclick=function(){ var u=el.style.backgroundImage.replace(/^url\(["']?|["']?\)$/g,''); if(u){ $('bigi').src=u; $('big').style.display='block'; } }; })(av[i]); }
+  }
+  window.__r=render;
+  window.__del=function(id){ if(confirm('Hapus pasangan ini? Data dan foto ikut terhapus.')) api.del(id,function(){ if(DEMO) api.load(render); }); };
+  window.__csv=function(){ var L=[['Kategori','DPC','Pemain 1','JK 1','KTA 1','Reclub 1','Pemain 2','JK 2','KTA 2','Reclub 2','Pendaftar','WhatsApp','Waktu daftar','Terakhir diubah']], R=rows();
+    for(var i=0;i<R.length;i++){ var x=R[i], k=K[x.id]||{}, a=x.p[0]||{}, b=x.p[1]||{}; L.push([x.kat,x.dpc,a.nama,a.jk,k.k1,a.reclub,b.nama,b.jk,k.k2,b.reclub,x.pendaftar,x.wa,new Date(x.t).toLocaleString('id-ID'),new Date(x.u||x.t).toLocaleString('id-ID')]); }
+    var s='﻿'+L.map(function(r){ return r.map(function(v){ v=String(v==null?'':v); return /[",;\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v; }).join(','); }).join('\n');
+    var bl=new Blob([s],{type:'text/csv;charset=utf-8'}), a=document.createElement('a'); a.href=URL.createObjectURL(bl); a.download='pendaftaran-padel-dpdv.csv'; document.body.appendChild(a); a.click(); document.body.removeChild(a); };
+})();
+</script>
+</body></html>

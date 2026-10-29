@@ -1,0 +1,34 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Admin panitia (login Google). Tambahkan email lain bila perlu.
+    function isAdmin() {
+      return request.auth != null && request.auth.token.email in ['a.nurindahsari@gmail.com'];
+    }
+    // Pendaftaran & perubahan data dibuka sampai 10 Nov 2026 23.59 WIB
+    function isOpen() { return request.time < timestamp.value(1794329999000); }
+    function isOwnerNew() { return request.auth != null && request.resource.data.owner == request.auth.uid; }
+    function isOwnerOld() { return request.auth != null && resource.data.owner == request.auth.uid; }
+
+    match /pasangan/{id} {
+      allow read: if true;
+      allow create: if isOpen() && isOwnerNew()
+        && request.resource.data.kat in ['Men Beginner', 'Mix Beginner', 'Women Beginner']
+        && request.resource.data.p.size() == 2;
+      allow update: if isAdmin() || (isOpen() && isOwnerOld() && isOwnerNew());
+      allow delete: if isAdmin() || (isOpen() && isOwnerOld());
+    }
+    match /kta/{id} {
+      allow read: if isAdmin() || isOwnerOld();
+      allow create: if isOpen() && isOwnerNew();
+      allow update: if isAdmin() || (isOpen() && isOwnerOld() && isOwnerNew());
+      allow delete: if isAdmin() || (isOpen() && isOwnerOld());
+    }
+    match /foto/{id} {
+      allow read: if true;
+      allow create: if isOpen() && isOwnerNew() && request.resource.data.d.size() < 300000;
+      allow update: if isAdmin() || (isOpen() && isOwnerOld() && isOwnerNew() && request.resource.data.d.size() < 300000);
+      allow delete: if isAdmin() || (isOpen() && isOwnerOld());
+    }
+  }
+}

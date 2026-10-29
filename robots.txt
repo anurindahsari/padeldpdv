@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /panitia.html
+Disallow: /admin.html
+Disallow: /slides.html
+Disallow: /atur.html
