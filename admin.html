@@ -31,14 +31,14 @@ select,input{font-family:inherit;font-size:13px;padding:7px 8px;border:1px solid
 </style>
 </head>
 <body>
-<div id="hd"><div class="in"><span class="r" id="who"></span><b>Data pendaftaran</b><span>Turnamen Padel DPD V · khusus panitia</span></div></div>
+<div id="hd"><div class="in"><span class="r" id="who"></span><b>Data pendaftaran</b><span>Turnamen Padel · khusus panitia</span></div></div>
 <div class="wrap">
   <div class="box" id="login" style="display:none"><p>Masuk dengan akun Google panitia yang terdaftar untuk melihat nomor KTA dan mengelola data.</p><button class="btn" onclick="__login()">Masuk dengan Google</button><div id="lerr" style="color:#B42318;margin-top:8px"></div></div>
   <div id="app" style="display:none">
     <div class="box"><div class="stat" id="stat"></div>
       <select id="fK" onchange="__r()"><option value="">Semua kategori</option><option>Men Beginner</option><option>Mix Beginner</option><option>Women Beginner</option></select>
       <select id="fD" onchange="__r()"><option value="">Semua DPC</option></select>
-      <input id="q" placeholder="Cari nama / KTA" oninput="__r()">
+      <input id="q" placeholder="Cari nama / KTA / DPC" oninput="__r()">
       <a class="btn" href="javascript:void(0)" onclick="__csv()" style="margin-left:6px">Unduh CSV</a><a class="btn ln" href="./">Halaman publik</a><a class="btn ln" href="panitia.html">Ruang panitia</a>
     </div>
     <div id="dupw"></div>
@@ -53,16 +53,17 @@ select,input{font-family:inherit;font-size:13px;padding:7px 8px;border:1px solid
 <script>
 var FB={"apiKey": "AIzaSyC2aiagZRzmXtjfBUC-Shg0VrAOL9MXVTU", "authDomain": "padeldpdv.firebaseapp.com", "projectId": "padeldpdv", "storageBucket": "padeldpdv.firebasestorage.app", "messagingSenderId": "529745328024", "appId": "1:529745328024:web:c3b1544ca47172b6255ded"};
 var ADMINS=['a.nurindahsari@gmail.com'];
+var KAT=[['men','Men Beginner'],['mix','Mix Beginner'],['women','Women Beginner']];
+var DPCS=['Surabaya','Malang','Madura','Kediri','Besuki','Madiun','Bali','NTT','NTB'];
 (function(){
   function $(id){ return document.getElementById(id); }
   function esc(s){ return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
-  var DEMO=!FB||/[?&]demo=1/.test(location.search), P=[], K={}, F={};
-  var DPCS=['Surabaya','Malang','Madura','Kediri','Besuki','Madiun','Bali','NTT','NTB','Pertamina (last call)'], o='<option value="">Semua DPC</option>';
-  for(var i=0;i<DPCS.length;i++) o+='<option>'+DPCS[i]+'</option>'; $('fD').innerHTML=o;
-  var api;
+  function wa(n){ n=String(n||''); return n?'<a href="https://wa.me/'+esc(n.replace(/^0/,'62').replace(/[^0-9]/g,''))+'" target="_blank" rel="noopener">'+esc(n)+'</a>':'-'; }
+  var DEMO=!FB||/[?&]demo=1/.test(location.search), D=[], V={}, F={}, api;
+  var o='<option value="">Semua DPC</option>'; for(var i=0;i<DPCS.length;i++) o+='<option>'+DPCS[i]+'</option>'; $('fD').innerHTML=o;
   if(DEMO){ $('who').innerHTML='Mode demo (data di browser ini)'; $('app').style.display='block';
-    api={ load:function(cb){ var d={p:{},k:{},f:{}}; try{ d=JSON.parse(localStorage.getItem('hpc-demo-db')||'{"p":{},"k":{},"f":{}}'); }catch(e){} P=[]; for(var id in d.p){ var x=d.p[id]; x.id=id; P.push(x); } K=d.k; for(var f in d.f) F[f]=d.f[f].d; cb(); },
-      del:function(id,cb){ var d=JSON.parse(localStorage.getItem('hpc-demo-db')); delete d.p[id]; delete d.k[id]; delete d.f[id+'_1']; delete d.f[id+'_2']; localStorage.setItem('hpc-demo-db',JSON.stringify(d)); cb(); } };
+    api={ load:function(cb){ var d={d:{},v:{},f:{}}; try{ d=JSON.parse(localStorage.getItem('hpc-demo2')||'{"d":{},"v":{},"f":{}}'); }catch(e){} D=[]; for(var id in d.d){ var x=d.d[id]; x.id=id; D.push(x); } V=d.v; for(var f in d.f) F[f]=d.f[f].d; cb(); },
+      del:function(id,cb){ var d=JSON.parse(localStorage.getItem('hpc-demo2')); delete d.d[id]; delete d.v[id]; for(var k in d.f) if(k.indexOf(id+'_')==0) delete d.f[k]; localStorage.setItem('hpc-demo2',JSON.stringify(d)); cb(); } };
     api.load(render);
   } else {
     firebase.initializeApp(FB); var au=firebase.auth(), fs=firebase.firestore();
@@ -70,33 +71,42 @@ var ADMINS=['a.nurindahsari@gmail.com'];
     au.onAuthStateChanged(function(u){
       if(!u||u.isAnonymous||ADMINS.indexOf(u.email)<0){ $('login').style.display='block'; $('app').style.display='none'; if(u&&!u.isAnonymous) $('lerr').innerHTML='Akun '+esc(u.email)+' belum terdaftar sebagai admin.'; return; }
       $('who').innerHTML=esc(u.email)+' · <a href="javascript:void(0)" style="color:#9FD3F5" onclick="firebase.auth().signOut()">keluar</a>'; $('login').style.display='none'; $('app').style.display='block';
-      fs.collection('pasangan').orderBy('t').onSnapshot(function(s){ P=[]; s.forEach(function(d){ var x=d.data(); x.id=d.id; P.push(x); }); render(); });
-      fs.collection('kta').onSnapshot(function(s){ K={}; s.forEach(function(d){ K[d.id]=d.data(); }); render(); });
+      fs.collection('daftar').onSnapshot(function(s){ D=[]; s.forEach(function(d){ var x=d.data(); x.id=d.id; D.push(x); }); D.sort(function(a,b){ return (a.t||0)-(b.t||0); }); render(); });
+      fs.collection('privat').onSnapshot(function(s){ V={}; s.forEach(function(d){ V[d.id]=d.data(); }); render(); });
     });
     api={ foto:function(id,cb){ if(F[id]!=null) return cb(F[id]); fs.collection('foto').doc(id).get().then(function(d){ F[id]=d.exists?d.data().d:''; cb(F[id]); }); },
-      del:function(id,cb){ var b=fs.batch(); ['pasangan','kta'].forEach(function(c){ b.delete(fs.collection(c).doc(id)); }); b.delete(fs.collection('foto').doc(id+'_1')); b.delete(fs.collection('foto').doc(id+'_2')); b.commit().then(cb).catch(function(e){ alert(e.message); }); } };
+      del:function(id,cb){ var b=fs.batch(); b.delete(fs.collection('daftar').doc(id)); b.delete(fs.collection('privat').doc(id)); KAT.forEach(function(k){ [1,2].forEach(function(n){ b.delete(fs.collection('foto').doc(id+'_'+k[0]+'_'+n)); }); }); b.commit().then(cb).catch(function(e){ alert(e.message); }); } };
   }
   function foto(id,el){ if(DEMO){ if(F[id]) el.style.backgroundImage='url('+F[id]+')'; return; } api.foto(id,function(d){ if(d) el.style.backgroundImage='url('+d+')'; }); }
-  function rows(){ var fk=$('fK').value, fd=$('fD').value, q=$('q').value.toLowerCase(), R=[]; for(var i=0;i<P.length;i++){ var x=P[i], k=K[x.id]||{}; if(fk&&x.kat!=fk) continue; if(fd&&x.dpc!=fd) continue; var s=(x.p[0].nama+' '+x.p[1].nama+' '+(k.k1||'')+' '+(k.k2||'')+' '+x.pendaftar).toLowerCase(); if(q&&s.indexOf(q)<0) continue; R.push(x); } return R; }
+  function rows(){ var fk=$('fK').value, fd=$('fD').value, q=$('q').value.toLowerCase(), R=[];
+    for(var i=0;i<D.length;i++){ var x=D[i], v=V[x.id]||{}; if(fd&&x.dpc!=fd) continue;
+      for(var j=0;j<KAT.length;j++){ var k=KAT[j][0], c=x.kat&&x.kat[k]; if(!c||!c.ada) continue; if(fk&&KAT[j][1]!=fk) continue; var pv=(v.kat||{})[k]||[];
+        var s=(x.dpc+' '+x.pic+' '+(c.p||[]).map(function(p){ return p.nama+' '+p.panggilan; }).join(' ')+' '+pv.map(function(p){ return p.kta; }).join(' ')).toLowerCase(); if(q&&s.indexOf(q)<0) continue;
+        R.push({x:x,v:v,k:k,kn:KAT[j][1],p:c.p||[],pv:pv}); } }
+    return R; }
   function render(){
-    var c={'Men Beginner':0,'Mix Beginner':0,'Women Beginner':0}, i, cnt={}, dups=[];
-    for(i=0;i<P.length;i++){ c[P[i].kat]=(c[P[i].kat]||0)+1; var k=K[P[i].id]||{}; ['k1','k2'].forEach(function(f,j){ if(k[f]){ (cnt[k[f]]=cnt[k[f]]||[]).push(P[i].p[j].nama+' ('+P[i].kat+', '+P[i].dpc+')'); } }); }
+    var i, cnt={}, dups=[], c={men:0,mix:0,women:0}, npair=0;
+    for(i=0;i<D.length;i++){ var x=D[i], v=V[x.id]||{}; KAT.forEach(function(kk){ var cc=x.kat&&x.kat[kk[0]]; if(cc&&cc.ada){ c[kk[0]]++; npair++; ((v.kat||{})[kk[0]]||[]).forEach(function(pp,j){ if(pp.kta) (cnt[pp.kta]=cnt[pp.kta]||[]).push(((cc.p||[])[j]||{}).nama+' ('+kk[1]+', '+x.dpc+')'); }); } }); }
     for(var kk in cnt) if(cnt[kk].length>1) dups.push(kk+': '+cnt[kk].join('; '));
-    $('stat').innerHTML='<span><b>'+P.length+'</b>pasangan</span>'+Object.keys(c).map(function(x){ return '<span><b>'+c[x]+'</b>'+x+'</span>'; }).join('');
+    var belum=DPCS.filter(function(d){ for(var j=0;j<D.length;j++) if(D[j].dpc==d) return false; return true; });
+    $('stat').innerHTML='<span><b>'+D.length+'</b>DPC mendaftar</span><span><b>'+npair+'</b>pasangan</span>'+KAT.map(function(k){ return '<span><b>'+c[k[0]]+'</b>'+k[1]+'</span>'; }).join('')+(belum.length?'<div class="small" style="color:#4A5D72;margin-bottom:8px">Belum mendaftar: '+belum.join(', ')+'</div>':'');
     $('dupw').innerHTML=dups.length?'<div class="warn"><b>Nomor KTA ganda</b> (satu pemain hanya boleh satu kategori):<br>'+dups.map(esc).join('<br>')+'</div>':'';
-    var R=rows(), h='<table><tr><th>#</th><th>Kategori</th><th>DPC</th><th>Pemain 1</th><th>Pemain 2</th><th>Pendaftar</th><th>Waktu</th><th></th></tr>';
-    for(i=0;i<R.length;i++){ var x=R[i], k=K[x.id]||{}; h+='<tr><td>'+(i+1)+'</td><td>'+esc(x.kat)+'</td><td><b>'+esc(x.dpc)+'</b></td>';
-      for(var n=1;n<=2;n++){ var p=x.p[n-1]||{}, kt=k['k'+n]||'-'; h+='<td style="white-space:nowrap"><span class="av" data-f="'+x.id+'_'+n+'"></span><span style="display:inline-block;vertical-align:middle"><b>'+esc(p.nama)+'</b> · '+(p.jk||'')+'<br>KTA '+esc(kt)+(cnt[kt]&&cnt[kt].length>1?' <span class="dup">ganda</span>':'')+(p.reclub?'<br><a href="'+esc(p.reclub)+'" target="_blank" rel="noopener">Reclub</a>':'')+'</span></td>'; }
-      h+='<td>'+esc(x.pendaftar)+(x.wa?'<br><a href="https://wa.me/'+esc(x.wa.replace(/^0/,'62').replace(/[^0-9]/g,''))+'" target="_blank" rel="noopener">'+esc(x.wa)+'</a>':'')+'</td><td class="small">'+new Date(x.u||x.t).toLocaleString('id-ID')+'</td><td><button class="btn sm red" onclick="__del(\''+x.id+'\')">Hapus</button></td></tr>'; }
-    $('tbl').innerHTML=R.length?h+'</table>':'<p>Belum ada data.</p>';
+    var h='<h3 style="margin:0 0 8px">PIC DPC</h3><table><tr><th>DPC</th><th>PIC</th><th>WhatsApp</th><th>Email</th><th>Kategori</th><th>Terakhir diubah</th><th></th></tr>';
+    for(i=0;i<D.length;i++){ var y=D[i], w=V[y.id]||{}; h+='<tr><td><b>'+esc(y.dpc)+'</b></td><td>'+esc(y.pic)+'</td><td>'+wa(w.wa)+'</td><td>'+(w.email?'<a href="mailto:'+esc(w.email)+'">'+esc(w.email)+'</a>':'-')+'</td><td>'+KAT.map(function(k){ var cc=y.kat&&y.kat[k[0]]; return k[1].replace(' Beginner','')+': '+(cc&&cc.ada?'ada':'tidak'); }).join(' · ')+'</td><td>'+new Date(y.u||y.t).toLocaleString('id-ID')+'</td><td><button class="btn sm red" onclick="__del(\''+y.id+'\')">Hapus</button></td></tr>'; }
+    h+='</table><h3 style="margin:18px 0 8px">Pasangan</h3>';
+    var R=rows(); h+='<table><tr><th>#</th><th>Kategori</th><th>DPC</th><th>Pemain 1</th><th>Pemain 2</th></tr>';
+    for(i=0;i<R.length;i++){ var r=R[i]; h+='<tr><td>'+(i+1)+'</td><td>'+esc(r.kn)+'</td><td><b>'+esc(r.x.dpc)+'</b></td>';
+      for(var n=1;n<=2;n++){ var p=r.p[n-1]||{}, q=r.pv[n-1]||{}; h+='<td style="white-space:nowrap"><span class="av" data-f="'+r.x.id+'_'+r.k+'_'+n+'"></span><span style="display:inline-block;vertical-align:middle"><b>'+esc(p.nama)+'</b> · "'+esc(p.panggilan)+'"<br>KTA '+esc(q.kta||'-')+(cnt[q.kta]&&cnt[q.kta].length>1?' <span class="dup">ganda</span>':'')+' · WA '+wa(q.wa)+(p.reclub?'<br><a href="'+esc(p.reclub)+'" target="_blank" rel="noopener">Reclub</a>':'')+'</span></td>'; }
+      h+='</tr>'; }
+    $('tbl').innerHTML=D.length?h+'</table>':'<p>Belum ada data.</p>';
     var av=$('tbl').querySelectorAll('.av'); for(i=0;i<av.length;i++){ (function(el){ foto(el.getAttribute('data-f'),el); el.onclick=function(){ var u=el.style.backgroundImage.replace(/^url\(["']?|["']?\)$/g,''); if(u){ $('bigi').src=u; $('big').style.display='block'; } }; })(av[i]); }
   }
   window.__r=render;
-  window.__del=function(id){ if(confirm('Hapus pasangan ini? Data dan foto ikut terhapus.')) api.del(id,function(){ if(DEMO) api.load(render); }); };
-  window.__csv=function(){ var L=[['Kategori','DPC','Pemain 1','JK 1','KTA 1','Reclub 1','Pemain 2','JK 2','KTA 2','Reclub 2','Pendaftar','WhatsApp','Waktu daftar','Terakhir diubah']], R=rows();
-    for(var i=0;i<R.length;i++){ var x=R[i], k=K[x.id]||{}, a=x.p[0]||{}, b=x.p[1]||{}; L.push([x.kat,x.dpc,a.nama,a.jk,k.k1,a.reclub,b.nama,b.jk,k.k2,b.reclub,x.pendaftar,x.wa,new Date(x.t).toLocaleString('id-ID'),new Date(x.u||x.t).toLocaleString('id-ID')]); }
+  window.__del=function(id){ if(confirm('Hapus seluruh pendaftaran DPC ini? Data dan foto ikut terhapus.')) api.del(id,function(){ if(DEMO) api.load(render); }); };
+  window.__csv=function(){ var L=[['Kategori','DPC','PIC','WA PIC','Email DPC','Pemain 1','Panggilan 1','KTA 1','WA 1','Reclub 1','Pemain 2','Panggilan 2','KTA 2','WA 2','Reclub 2','Terakhir diubah']], R=rows();
+    for(var i=0;i<R.length;i++){ var r=R[i], a=r.p[0]||{}, b=r.p[1]||{}, qa=r.pv[0]||{}, qb=r.pv[1]||{}; L.push([r.kn,r.x.dpc,r.x.pic,r.v.wa,r.v.email,a.nama,a.panggilan,qa.kta,qa.wa,a.reclub,b.nama,b.panggilan,qb.kta,qb.wa,b.reclub,new Date(r.x.u||r.x.t).toLocaleString('id-ID')]); }
     var s='﻿'+L.map(function(r){ return r.map(function(v){ v=String(v==null?'':v); return /[",;\n]/.test(v)?'"'+v.replace(/"/g,'""')+'"':v; }).join(','); }).join('\n');
-    var bl=new Blob([s],{type:'text/csv;charset=utf-8'}), a=document.createElement('a'); a.href=URL.createObjectURL(bl); a.download='pendaftaran-padel-dpdv.csv'; document.body.appendChild(a); a.click(); document.body.removeChild(a); };
+    var bl=new Blob([s],{type:'text/csv;charset=utf-8'}), a=document.createElement('a'); a.href=URL.createObjectURL(bl); a.download='pendaftaran-padel.csv'; document.body.appendChild(a); a.click(); document.body.removeChild(a); };
 })();
 </script>
 </body></html>
