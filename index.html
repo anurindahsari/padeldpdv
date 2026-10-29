@@ -151,7 +151,9 @@ table.rabt tr.rk.on td{font-weight:800}
 .rdet .rh{font-family:Archivo,Arial,sans-serif;font-weight:900;font-style:italic;font-size:24px;color:#0270B5;margin:2px 0 8px}
 .kopt{background:#F4F8FC;border:1px solid #E1E9F1;padding:8px 10px;margin:0 0 10px}
 .kopt .kr{margin:4px 0}
-.kopt .lbl{display:inline-block;width:96px;font-size:10px}
+.kopt .lbl{display:block;font-size:10px;margin:2px 0 4px}
+.kopt .kr{margin:4px 0 6px}
+.kopt .chip{margin:0 4px 4px 0}
 .kopt .chip{margin:0 4px 0 0;padding:4px 10px;font-size:12px}
 .rdet td,.rdet th{font-size:13px;padding:6px 8px}
 .cuf .btn{margin:0 6px 0 0;padding:7px 10px;font-size:12px}
@@ -438,7 +440,8 @@ var MGT="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBAUEBAYFBQUG
 
   // ---------- anggaran (rincian sesuai RAB)
   var TAS=[['tas-t2','Tote kanvas dua warna',12000,'Kanvas krem dengan aksen navy, ada kantong depan. Paling hemat.','https://s.shopee.co.id/9pfRdAYfYv'],['tas-t3','Tas serut (string bag)',15000,'Taslan waterproof 34 × 43 cm, bisa dipakai seperti ransel.','https://s.shopee.co.id/BUw7NAgq4'],['tas-t4','Tas jaring hitam',34000,'Jaring tebal dengan kompartemen bawah; muat raket, baju ganti, dan sepatu.','https://s.shopee.co.id/3VlO5P8oLs'],['tas-t1','Tote kanvas premium',80000,'Kanvas tebal ukuran besar dengan sablon; kesan paling eksklusif.','']], TASK=null, ISI=31000;
-  var CATS={S:['S','Sonokembang',75000,25000,0],R:['R','Surabe',75000,25000,0]}, CAT='S', TUKU=true;
+  var CATS={S:{n:'Sonokembang',full:'Sonokembang Catering · The Prestige',pk:[['Lavender',97800],['Jasmine',105800],['Rose',115800],['Saffron',129800],['Heritage',145800]],inf:'Prasmanan, min. 100 porsi, layanan 3 jam termasuk tenaga & dekorasi pelengkap · DP Rp10.000.000, lunas H-10',d:0},R:{n:'Surabe',full:'Surabe Catering',pk:[['Bronze',65000],['Gold',75000],['Platinum',95000]],inf:'Prasmanan, min. 200 pax, termasuk air mineral free flow, meja, peralatan & server 3 jam · DP 50%, lunas H-30',d:1}}, CAT='S', PKG={S:0,R:1};
+  var TKF={kt:['Kumpul Tonggo',22000,0,'Dikirim, cup 12oz, min. 30 gelas; belum termasuk ongkir'],pj:['Pojok Tuku',18000,0.20,'Meja Tuku tanpa barista, cup 8oz, min. 100 cup; service charge 20%'],cs:['Coffee Serving',18000,0.25,'Dengan barista, dispenser, booth & condiment station, cup 8oz, min. 200 cup, maks. 4 jam; service charge 25%']}, TUKU='cs';
   var OV={}, GLO={};
   try{ OV=JSON.parse(localStorage.getItem('hpc3-ov')||'{}')||{}; GLO=JSON.parse(localStorage.getItem('hpc3-gl')||'{}')||{}; }catch(e){}
   function gelang(c,v){ var sl=[slots(c.M),slots(c.X),slots(c.W)], dpc=sl[0].dpc+sl[1].dpc+sl[2].dpc, P=tot(c)*2;
@@ -447,9 +450,9 @@ var MGT="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBAUEBAYFBQUG
     var C=v.c, P=tot(c)*2, PAN=30, TAMU=20, WS=C+3, ORG=P+PAN+WS+TAMU, air=Math.ceil(ORG*3/24), GLx=gelang(c,v), gel=GLx.tot, idn=0;
     function it(u,vol,sat,h,ket,id){ var o=OV[id]||{}, ed=false; if(o.v!=null){ vol=o.v; ed=true; } if(o.h!=null){ h=o.h; ed=true; } return [u,vol,sat,h,vol*h,ket||'',id,ed]; }
     var A=[it('Sewa venue: '+v.n+' (paket '+C+' court'+(v.single?' + '+v.single+' single court':'')+', 07.00–18.00)',1,'paket',v.sewaN,'Terkonfirmasi manajemen','A1:'+v.k),it('Bola padel',22,'tube',120000,'Turnamen 15 + cadangan 3 + free play 4; tube baru untuk final','A2'),it('Wasit',WS,'orang',400000,'1 per court ('+C+') + cadangan 3; fee per hari','A3')];
-    var CT=CATS[CAT], KN=(OV['KON']&&OV['KON'].v!=null)?OV['KON'].v:200, airK=Math.ceil(KN*3/24);
-    var B=[it('Lunch box · '+CT[1],KN,'pax',CT[2],'Asumsi '+KN+' orang'+(CT[4]?'':' · harga sementara, sesuaikan dengan pricelist'),'B4:'+CAT),it('Snack box · '+CT[1],KN,'pax',CT[3],'Asumsi '+KN+' orang'+(CT[4]?'':' · harga sementara, sesuaikan dengan pricelist'),'B1:'+CAT),it('Snack court',C,'court',300000,'Rp300.000 per court','B2'),it('Air mineral 600 ml',airK,'karton',55000,'3 botol × '+KN+' orang, 24 botol per karton','B3')];
-    if(TUKU) B.push(it('Kopi Tuku · Kopi Susu Tetangga',KN,'cup',25000,'Harga per cup Rp25.000 (naik per 24 April 2026)','B5'));
+    var CT=CATS[CAT], PK=CT.pk[PKG[CAT]], KN=(OV['KON']&&OV['KON'].v!=null)?OV['KON'].v:200, airK=Math.ceil(KN*3/24);
+    var B=[it('Prasmanan '+CT.n+' · paket '+PK[0],KN,'pax',PK[1],CT.inf,'B4:'+CAT+PKG[CAT]),it('Snack (vendor terpisah)',KN,'pax',25000,'Asumsi; bisa juga Tukudapan (donat, risoles, kukis Rp7.000–Rp13.000)','B1'),it('Snack court',C,'court',300000,'Rp300.000 per court','B2'),it('Air mineral 600 ml',airK,'karton',55000,'3 botol × '+KN+' orang, 24 botol per karton','B3')];
+    if(TUKU&&TKF[TUKU]){ var TF=TKF[TUKU], tk=it('Kopi Tuku · '+TF[0]+' · Es Kopi Susu Tetangga',KN,'cup',TF[1],TF[3],'B5:'+TUKU); B.push(tk); if(TF[2]) B.push(it('Service charge Tuku '+Math.round(TF[2]*100)+'%',1,'paket',Math.round(tk[4]*TF[2]),'Dari total pesanan kopi','B6:'+TUKU)); }
     var Cc=[it('Dokumentasi (foto + video)',1,'paket',3500000,'Fotografer + videografer 1 hari','C1'),it('Photobooth',1,'paket',3000000,'Unlimited print, sekitar 4 jam','C2'),it('Sound system',1,'paket',2500000,'Termasuk mic wireless','C3'),it('MC',1,'orang',1000000,'','C4'),it('Backdrop, banner, signage',1,'paket',2000000,'Termasuk papan bagan pertandingan','C5'),it('Cetak ID card & form skor',1,'paket',500000,'','C6')];
     var Dd=[it('Jersey panitia',PAN,'pcs',200000,'','D1'),it('Jersey peserta',P,'pcs',175000,'Jersey printing sublim','D2'),it('Goodie bag',P+PAN,'paket',(TASK!==null?ISI+TAS[TASK][2]:50000),(TASK!==null?'Tas: '+TAS[TASK][1]+' '+rp(TAS[TASK][2])+' + isi '+rp(ISI)+' · ':'')+'Pemain + panitia','D3'),it('Gelang akses 4 warna',gel,'pcs',2500,'Peserta '+GLx.p+' · tamu '+GLx.t+' · VIP '+GLx.v+' · panitia & wasit '+GLx.n+' (ubah di bagian Gelang akses)','D4')];
     var E=[it('Hadiah tunai Men Beginner (juara 1–3)',1,'paket',5250000,'Rp3.000.000 · Rp1.500.000 · Rp750.000','E1'),it('Hadiah tunai Mix Beginner (juara 1–3)',1,'paket',3500000,'Rp2.000.000 · Rp1.000.000 · Rp500.000','E2'),it('Hadiah tunai Women Beginner (juara 1–3)',1,'paket',3500000,'Rp2.000.000 · Rp1.000.000 · Rp500.000','E3'),it('Trofi juara',9,'buah',350000,'Juara 1, 2, 3 × 3 kategori','E4'),it('Medali pemain juara',18,'buah',50000,'3 pasang × 2 pemain × 3 kategori','E5'),it('Penghargaan DPC',1,'paket',3000000,'Best DPC, Best Dresscode, Best Supporter: plakat + hadiah tunai','E6'),it('Hadiah mini games',6,'paket',150000,'2 mini games × 3 pemenang','E7'),it('Doorprize',25,'item',135800,'Tumbler, voucher main, bola, handuk, wristband, grip','E8')];
@@ -508,9 +511,12 @@ var MGT="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBAUEBAYFBQUG
     if(!L) return '';
     o='<div class="rdet"><div class="lbl">'+L[0]+' · '+esc(L[1])+'</div><div class="rh">'+rp(L[3])+'</div>';
     if(k=='B'){ var kn=(OV['KON']&&OV['KON'].v!=null)?OV['KON'].v:200;
+      var CTx=CATS[CAT], ph2='', q5; for(q5=0;q5<CTx.pk.length;q5++) ph2+='<button type="button" class="chip'+(PKG[CAT]==q5?' on':'')+'" onclick="__pkg('+q5+')">'+CTx.pk[q5][0]+' · '+rp(CTx.pk[q5][1])+'</button>';
+      var tkb=''; for(var q6 in TKF) tkb+='<button type="button" class="chip'+(TUKU==q6?' on':'')+'" onclick="__tuku(\''+q6+'\')">'+TKF[q6][0]+' · '+rp(TKF[q6][1])+'</button>'; tkb+='<button type="button" class="chip'+(!TUKU?' on':'')+'" onclick="__tuku(0)">Hilangkan</button>';
       o+='<div class="kopt"><div class="kr"><span class="lbl">Catering</span><button type="button" class="chip'+(CAT=='S'?' on':'')+'" onclick="__cat(\'S\')">A · Sonokembang</button><button type="button" class="chip'+(CAT=='R'?' on':'')+'" onclick="__cat(\'R\')">B · Surabe</button></div>'+
-        '<div class="kr"><span class="lbl">Kopi Tuku</span><button type="button" class="chip'+(TUKU?' on':'')+'" onclick="__tuku(1)">Pakai</button><button type="button" class="chip'+(!TUKU?' on':'')+'" onclick="__tuku(0)">Hilangkan</button></div>'+
-        '<div class="kr"><span class="lbl">Jumlah orang</span><span class="ed"><input type="number" min="0" class="ev" value="'+kn+'" onchange="__ovs(\'KON\',\'v\',this.value)"> orang</span> <span class="small muted">dipakai untuk lunch, snack, air, dan kopi</span></div></div>'; }
+        '<div class="kr"><span class="lbl">Paket per pax</span>'+ph2+'</div>'+
+        '<div class="kr"><span class="lbl">Kopi Tuku</span>'+tkb+'</div>'+
+        '<div class="kr"><span class="lbl">Jumlah orang</span><span class="ed"><input type="number" min="0" class="ev" value="'+kn+'" onchange="__ovs(\'KON\',\'v\',this.value)"> orang</span> <span class="small muted">untuk prasmanan, snack, air, dan kopi</span></div></div>'; }
     o+='<table><tr><th>Uraian</th><th class="r">Jumlah</th></tr>';
     for(i=0;i<L[2].length;i++){ var it=L[2][i], vEd=(it[6]!='D4');
       o+='<tr><td><b>'+esc(it[0])+'</b>'+(it[7]?' <a class="rst" href="javascript:void(0)" onclick="__ovr(\''+it[6]+'\')">diubah · reset</a>':'')+'<div class="ed">'+
@@ -536,10 +542,11 @@ var MGT="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBAUEBAYFBQUG
     __ovh('Opsi tas goodie bag · '+TAS.length+' pilihan',o); };
   window.__tasSet=function(i){ TASK=i; var y=window.pageYOffset||document.documentElement.scrollTop; render(); window.scrollTo(0,y); __tas(); };
   window.__cat=function(k){ CAT=k; RABK='B'; var y=window.pageYOffset||document.documentElement.scrollTop; render(); window.scrollTo(0,y); };
-  window.__tuku=function(b){ TUKU=!!b; RABK='B'; var y=window.pageYOffset||document.documentElement.scrollTop; render(); window.scrollTo(0,y); };
+  window.__pkg=function(i){ PKG[CAT]=i; RABK='B'; var y=window.pageYOffset||document.documentElement.scrollTop; render(); window.scrollTo(0,y); };
+  window.__tuku=function(b){ TUKU=b||0; RABK='B'; var y=window.pageYOffset||document.documentElement.scrollTop; render(); window.scrollTo(0,y); };
   window.__snapSave=function(){ var d=new Date(), tt=d.getDate()+'/'+(d.getMonth()+1)+' pukul '+(d.getHours()<10?'0':'')+d.getHours()+'.'+(d.getMinutes()<10?'0':'')+d.getMinutes();
-    var s={t:tt,SK:SK,VK:VK,CUS:CUS,DUR:DUR,OV:OV,GLO:GLO,NOTES:NOTES,TAB:TAB,TASK:TASK,CAT:CAT,TUKU:TUKU}; try{ localStorage.setItem('hpc3-snap',JSON.stringify(s)); toast('Simulasi tersimpan · '+tt); }catch(e){ toast('Gagal menyimpan di browser ini'); } snapUI(); };
-  function applyState(s){ TASK=(s.TASK===undefined)?null:s.TASK; CAT=s.CAT||'S'; TUKU=(s.TUKU===undefined)?true:!!s.TUKU; SK=s.SK||null; VK=s.VK||null; CUS=s.CUS||{M:'',X:'',W:''}; DUR=s.DUR||{op:30,is:60}; OV=s.OV||{}; GLO=s.GLO||{}; NOTES=s.NOTES||{}; if(s.TAB) TAB=s.TAB;
+    var s={t:tt,SK:SK,VK:VK,CUS:CUS,DUR:DUR,OV:OV,GLO:GLO,NOTES:NOTES,TAB:TAB,TASK:TASK,CAT:CAT,TUKU:TUKU,PKG:PKG}; try{ localStorage.setItem('hpc3-snap',JSON.stringify(s)); toast('Simulasi tersimpan · '+tt); }catch(e){ toast('Gagal menyimpan di browser ini'); } snapUI(); };
+  function applyState(s){ TASK=(s.TASK===undefined)?null:s.TASK; CAT=s.CAT||'S'; TUKU=(s.TUKU===undefined||s.TUKU===true)?'cs':(s.TUKU||0); PKG=s.PKG||{S:0,R:1}; SK=s.SK||null; VK=s.VK||null; CUS=s.CUS||{M:'',X:'',W:''}; DUR=s.DUR||{op:30,is:60}; OV=s.OV||{}; GLO=s.GLO||{}; NOTES=s.NOTES||{}; if(s.TAB) TAB=s.TAB;
     $('cuM').value=CUS.M||''; $('cuX').value=CUS.X||''; $('cuW').value=CUS.W||'';
     try{ localStorage.setItem('hpc3-dur',JSON.stringify(DUR)); localStorage.setItem('hpc3-ov',JSON.stringify(OV)); localStorage.setItem('hpc3-gl',JSON.stringify(GLO)); }catch(e){} nsave(); save(); render(); }
   window.__snapLoad=function(){ var s=null; try{ s=JSON.parse(localStorage.getItem('hpc3-snap')||'null'); }catch(e){} if(!s){ toast('Belum ada simulasi tersimpan di browser ini'); return; } applyState(s); toast('Simulasi terakhir dibuka · '+s.t); };
