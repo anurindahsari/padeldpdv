@@ -27,5 +27,12 @@ service cloud.firestore {
       allow delete: if isAdmin() || (isOpen() && isOwnerOld());
     }
     match /panitia/{k} { allow get: if k == '8caf131174070313fb05a0f41bd60b6cd1750617'; allow list: if false; allow write: if k == '8caf131174070313fb05a0f41bd60b6cd1750617' && request.resource.data.rows is list && request.resource.data.rows.size() < 80; }
+    match /pengaturan/{id} { allow read: if true; allow write: if isAdmin(); }
+    match /hadir/{id} {
+      allow read: if resource.data.k == 'd24e31804e8b0e00110fff14fbc8f7f39d4083e6';
+      allow create: if request.resource.data.k == 'd24e31804e8b0e00110fff14fbc8f7f39d4083e6' && request.resource.data.nama is string && request.resource.data.nama.size() < 120;
+      allow update: if resource.data.k == 'd24e31804e8b0e00110fff14fbc8f7f39d4083e6' && request.resource.data.k == 'd24e31804e8b0e00110fff14fbc8f7f39d4083e6';
+      allow delete: if resource.data.k == 'd24e31804e8b0e00110fff14fbc8f7f39d4083e6';
+    }
   }
 }
