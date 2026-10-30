@@ -413,6 +413,42 @@ textarea.in2.ta{height:auto;min-height:110px;resize:vertical;line-height:1.5}
   #info .c3{width:100%}
   .rad span{min-width:60px;padding:8px 12px}
 }
+
+/* nav: tautan bisa digeser, tombol Daftar tetap */
+#nav .in{display:flex;align-items:center;gap:6px;padding:8px 10px 8px 6px;overflow:visible}
+#nav .nsc{flex:1;min-width:0;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent);padding-right:18px}
+#nav .nsc::-webkit-scrollbar{display:none}
+#nav a.reg{flex:0 0 auto;margin-left:0}
+/* hadiah */
+.hk h3{margin:4px 0 10px;font-size:19px;font-style:italic;font-weight:900}
+.jl{list-style:none;margin:0;padding:0}
+.jl li{display:flex;align-items:center;gap:12px;padding:8px 0;border-top:1px solid #EEF2F7;font-size:15px}
+.jl li:first-child{border-top:0}
+.md{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;font-family:Archivo,Arial,sans-serif;font-weight:800;font-size:14px;color:#08203D}
+.md1{background:#F5C451}.md2{background:#D3DCE6}.md3{background:#E3A86B}
+.sh{margin:10px 0 12px;font-size:13px;letter-spacing:1.4px;text-transform:uppercase;color:#4A5D72}
+.aw{display:flex;gap:14px;align-items:flex-start}
+.aw b{display:block;font-size:16px;margin-bottom:2px}
+.aw span{font-size:14px;color:#4A5D72}
+.awi,.fpi{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:12px;background:#08203D;color:#DDF247}
+/* mini game */
+.card.mg{padding:0;overflow:hidden}
+.mg img{display:block;width:100%;height:auto;aspect-ratio:700/438;object-fit:cover;background:#E3F1FB}
+.mgb{padding:14px 16px 16px}
+.mgb h3{margin:0 0 6px;font-size:18px}
+.mgb p{margin:0 0 8px;font-size:14.5px;color:#4A5D72}
+.mgb a{font-weight:700;font-size:14px}
+.fp{display:flex;gap:14px;align-items:flex-start;background:#EEF6FC;border-radius:16px;padding:16px;margin-top:4px}
+.fp b{display:block;font-size:16px;margin-bottom:2px}
+.fp span{font-size:14px;color:#334155}
+.fpi{background:#0089D9;color:#FFFFFF}
+.aw .awi{color:#DDF247}.fp .fpi{color:#FFFFFF}
+@media (min-width:760px){ #nav .nsc{-webkit-mask-image:none;mask-image:none;padding-right:0} }
+.hk2{padding:6px 16px;margin-bottom:6px}
+.hr{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-top:1px solid #EEF2F7}
+.hr:first-child{border-top:0}
+.hr b{display:block;font-family:Archivo,Arial,sans-serif;font-style:italic;font-weight:900;font-size:18px;margin-top:2px}
+.mds{display:flex;gap:6px}
 </style>
 </head>
 <body>
@@ -422,7 +458,7 @@ textarea.in2.ta{height:auto;min-height:110px;resize:vertical;line-height:1.5}
   <div class="brand"><img src="data:image/png;base64,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" alt="">Hiswana Migas</div>
   <h1>Turnamen Padel <span>DPC Surabaya</span></h1>
 </div></div>
-<div id="nav"><div class="in"><a href="#info">Info</a><a href="#aturan"><span class="nl">Syarat &amp; aturan</span><span class="ns">Aturan</span></a><a href="#kategori">Kategori</a><a href="#faq">FAQ</a><a href="#kontak">Kontak</a><a href="#daftar" class="reg">Daftar</a></div></div>
+<div id="nav"><div class="in"><div class="nsc" id="nsc"><a href="#info">Info</a><a href="#aturan"><span class="nl">Syarat &amp; aturan</span><span class="ns">Aturan</span></a><a href="#kategori">Kategori</a><a href="#hadiah">Hadiah</a><a href="#acara">Mini game</a><a href="#faq">FAQ</a><a href="#kontak">Kontak</a></div><a href="#daftar" class="reg">Daftar</a></div></div>
 
 <div class="wrap" id="main">
   <div class="sec" id="info">
@@ -460,6 +496,28 @@ textarea.in2.ta{height:auto;min-height:110px;resize:vertical;line-height:1.5}
       <div class="c3"><div class="card"><div class="lbl">1 putra + 1 putri</div><h3 style="margin:4px 0">Mix Beginner</h3><p class="small muted" style="margin:0">Kedua pemain level maksimal 1,5. Belum pernah juara di kategori beginner ke atas; maksimal pernah juara kategori rookie.</p></div></div>
       <div class="c3"><div class="card"><div class="lbl">Ganda putri</div><h3 style="margin:4px 0">Women Beginner</h3><p class="small muted" style="margin:0">Level maksimal 1,5. Belum pernah juara di kategori beginner ke atas; maksimal pernah juara kategori rookie.</p></div></div>
     </div>
+  </div>
+
+  <div class="sec" id="hadiah">
+    <h2>Hadiah</h2>
+    <div class="s">Juara 1, 2, dan 3 di setiap kategori mendapat trofi, medali, dan hadiah.</div>
+    <div class="card hk2"><div class="hr"><div><span class="lbl">Ganda putra</span><b>Men Beginner</b></div><span class="mds" aria-label="Juara 1, 2, dan 3"><span class="md md1">1</span><span class="md md2">2</span><span class="md md3">3</span></span></div><div class="hr"><div><span class="lbl">1 putra + 1 putri</span><b>Mix Beginner</b></div><span class="mds" aria-label="Juara 1, 2, dan 3"><span class="md md1">1</span><span class="md md2">2</span><span class="md md3">3</span></span></div><div class="hr"><div><span class="lbl">Ganda putri</span><b>Women Beginner</b></div><span class="mds" aria-label="Juara 1, 2, dan 3"><span class="md md1">1</span><span class="md md2">2</span><span class="md md3">3</span></span></div></div>
+    <h3 class="sh">Penghargaan untuk DPC</h3>
+    <div class="g">
+      <div class="c3"><div class="card aw"><span class="awi" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v4a5 5 0 0 1-10 0V4z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg></span><div><b>Best DPC</b><span>Poin dari hasil terbaik tiap kategori: juara 1 = 5, juara 2 = 3, juara 3 = 2.</span></div></div></div>
+      <div class="c3"><div class="card aw"><span class="awi" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3l4 3-2.5 3.5L16 8.5V21H8V8.5L6.5 9.5 4 6l4-3c0 1.7 1.8 3 4 3s4-1.3 4-3z"/></svg></span><div><b>Best Dresscode</b><span>Kostum DPC paling kompak.</span></div></div></div>
+      <div class="c3"><div class="card aw"><span class="awi" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg></span><div><b>Best Supporter</b><span>Dukungan paling meriah.</span></div></div></div>
+    </div>
+  </div>
+
+  <div class="sec" id="acara">
+    <h2>Mini game &amp; free play</h2>
+    <div class="s">Belum bisa main padel? Tetap ikut seru-seruan. Mini game terbuka untuk semua yang hadir, termasuk supporter dan tamu, dan pemenangnya mendapat hadiah.</div>
+    <div class="g">
+      <div class="c2"><div class="card mg"><img src="mg-target.jpg" alt="Ilustrasi Target Challenge: memukul bola ke sasaran berpoin" loading="lazy" width="700" height="438"><div class="mgb"><h3>Target Challenge</h3><p>Tiap peserta mendapat 3 bola dan memukulnya dari bawah ke sasaran berpoin: hula hoop 10, kardus 20, ember 30. Poin terbanyak menang.</p><a href="https://www.youtube.com/watch?v=2AT7pncJCuw" target="_blank" rel="noopener">Lihat contoh video</a></div></div></div>
+      <div class="c2"><div class="card mg"><img src="mg-king.jpg" alt="Ilustrasi King of the Court" loading="lazy" width="700" height="438"><div class="mgb"><h3>King of the Court</h3><p>Satu pasangan bertahan di sisi raja, pasangan lain antre sebagai penantang. Main 1 poin; yang kalah kembali antre.</p><a href="https://www.youtube.com/watch?v=6nI6rQqM38Y" target="_blank" rel="noopener">Lihat contoh video</a></div></div></div>
+    </div>
+    <div class="fp"><span class="fpi" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6c3 2.2 3 10.6 0 12.8M18.4 5.6c-3 2.2-3 10.6 0 12.8"/></svg></span><div><b>Free play</b><span>Lapangan yang sedang tidak dipakai untuk turnamen terbuka untuk main bebas, tanpa skor resmi. Mini game dan free play tidak memengaruhi hasil turnamen.</span></div></div>
   </div>
 
   <!-- Alur masuk peserta & tamu: disembunyikan sementara (hapus style="display:none" untuk menampilkan lagi) -->
@@ -3109,14 +3167,14 @@ var KAT=[['men','Men Beginner','Ganda putra'],['mix','Mix Beginner','1 putra + 1
   var FIRST=true;
   DB.ready(function(){ DB.klaimGet(function(k){ KLAIM=k||''; DB.listen(function(a){ ALL=a; render();
     if(FIRST){ FIRST=false; var u=DB.uid(); for(var i=0;i<a.length;i++) if(a[i].owner==u||a[i].id==KLAIM){ if(!EDIT) __tab('ed',1); break; } } }); }); });
-  var secs=['info','aturan','kategori','daftar','barcode'];
+  var secs=['info','aturan','kategori','hadiah','acara','daftar','barcode'];
   function isFaq(){ return location.hash=='#faq'||location.hash=='#kontak'; }
   function route(){ var h=location.hash, f=h=='#faq', k=h=='#kontak'; $('main').style.display=(f||k)?'none':'block'; $('faqv').style.display=f?'block':'none'; $('kontakv').style.display=k?'block':'none';
     if(f||k){ window.scrollTo(0,$('nav').offsetTop); } else if(location.hash.length>1){ var t=document.getElementById(location.hash.slice(1)); if(t) setTimeout(function(){ t.scrollIntoView(); },0); } onScroll(); }
-  function onScroll(){ var y=(window.pageYOffset||document.documentElement.scrollTop)+90, cur='', i; if(isFaq()) cur=location.hash.slice(1); else for(i=0;i<secs.length;i++){ var e=$(secs[i]); if(e&&e.offsetTop<=y) cur=secs[i]; } if(cur=='barcode') cur='daftar'; var as=$('nav').getElementsByTagName('a'); for(i=0;i<as.length;i++){ var on=as[i].getAttribute('href')=='#'+cur; as[i].className=(as[i].className.indexOf('reg')>=0?'reg':'')+(on?' on':''); } }
+  function onScroll(){ var y=(window.pageYOffset||document.documentElement.scrollTop)+90, cur='', i; if(isFaq()) cur=location.hash.slice(1); else for(i=0;i<secs.length;i++){ var e=$(secs[i]); if(e&&e.offsetTop<=y) cur=secs[i]; } if(cur=='barcode') cur='daftar'; var as=$('nav').getElementsByTagName('a'); for(i=0;i<as.length;i++){ var on=as[i].getAttribute('href')=='#'+cur; var was=as[i].className.indexOf(' on')>=0; as[i].className=(as[i].className.indexOf('reg')>=0?'reg':'')+(on?' on':''); if(on&&!was&&as[i].parentNode.id=='nsc'){ var sc=as[i].parentNode, l=as[i].offsetLeft-sc.offsetLeft; if(l<sc.scrollLeft||l+as[i].offsetWidth>sc.scrollLeft+sc.clientWidth-20){ try{ sc.scrollTo({left:Math.max(0,l-24),behavior:'smooth'}); }catch(e){ sc.scrollLeft=l-24; } } } } }
   if(window.addEventListener){ window.addEventListener('scroll',onScroll,false); window.addEventListener('hashchange',route,false); } route();
 })();
 </script>
-<script src="faq.js?v=3"></script>
+<script src="faq.js?v=4"></script>
 </body>
 </html>
