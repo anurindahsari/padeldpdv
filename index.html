@@ -386,7 +386,7 @@ tr.na td{background:#FAFBFC}
   </div>
 </div>
 <div class="foot"><form class="pnb" id="pnb" style="display:none" onsubmit="return __pnGo()"><span class="pnl">Akses panitia</span><input id="pnPin" type="password" placeholder="PIN panitia" autocomplete="current-password" aria-label="PIN panitia"><button type="submit">Masuk</button></form><span id="ftx">Turnamen Padel Hiswana Migas · 2026</span></div>
-<script>(function(){ var n=0, t=null, f=document.getElementById('pnb'); function show(){ f.style.display='flex'; document.getElementById('pnPin').focus(); } if(location.hash=='#panitia') show(); window.addEventListener('hashchange',function(){ if(location.hash=='#panitia') show(); }); document.getElementById('ftx').addEventListener('click',function(){ n++; clearTimeout(t); t=setTimeout(function(){ n=0; },1500); if(n>=5){ n=0; show(); } }); })();
+<script>(function(){ var n=0, t=null, f=document.getElementById('pnb'); function show(){ f.style.display='flex'; document.getElementById('pnPin').focus(); } if(location.hash=='#panitia') show(); window.addEventListener('hashchange',function(){ if(location.hash=='#panitia') show(); }); document.getElementById('ftx').addEventListener('click',function(){ n++; clearTimeout(t); t=setTimeout(function(){ n=0; },1500); if(n>=3){ n=0; show(); } }); })();
 function __pnGo(){ var v=document.getElementById('pnPin').value; if(!v){ document.getElementById('pnPin').focus(); return false; } try{ sessionStorage.setItem('hpc-pin',v); sessionStorage.setItem('hpc-from','1'); }catch(e){} location.href='panitia.html'; return false; }</script>
 <div id="toast"></div>
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
