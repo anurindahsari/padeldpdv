@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#08203D">
 <title>Turnamen Padel DPC Surabaya · Hiswana Migas</title>
 <meta name="description" content="Turnamen Padel Hiswana Migas DPC Surabaya. Info kategori, syarat, aturan main, dan pendaftaran.">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,700;0,800;1,800;1,900&amp;family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap">
@@ -12,7 +13,7 @@ html,body{margin:0;padding:0}
 *{box-sizing:border-box}
 body{background:#EEF5FB;color:#08203D;font-family:"Plus Jakarta Sans","Segoe UI",Calibri,Arial,sans-serif;font-size:15px;line-height:1.55}
 a{color:#0270B5}
-button,input,select{font-family:inherit}
+button,input,select,textarea{font-family:inherit}
 .lbl{font-family:Archivo,Arial,sans-serif;font-weight:800;font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:#4A5D72}
 .muted{color:#4A5D72}.small{font-size:13px}
 /* hero */
@@ -250,6 +251,168 @@ tr.na td{background:#FAFBFC}
   .mine td:last-child{text-align:left!important}
 }
 @media (max-width:360px){ #hd h1{font-size:30px} #nav a{padding:13px 6px;font-size:13px} #info .c3{width:100%} }
+/* ===== desain v2: mobile-first, rapi di iPhone ===== */
+html{-webkit-text-size-adjust:100%}
+body{background:#F1F5F9;font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+a{-webkit-tap-highlight-color:rgba(0,137,217,.12)}
+button{-webkit-tap-highlight-color:transparent}
+
+/* hero */
+#hd .in{display:flex;flex-direction:column;padding:calc(14px + env(safe-area-inset-top)) 20px 22px}
+#hd .brand{order:1;padding-top:6px;font-size:11px;letter-spacing:2px}
+#hd .brand img{width:28px;height:28px}
+#hd h1{order:2;margin:14px 0 0;font-size:42px;line-height:1;letter-spacing:-.5px}
+#hd h1 span{margin-top:4px}
+#anim{order:3;float:none;width:100%;max-width:none;height:118px;margin:20px 0 0;border-radius:14px;overflow:hidden;background:#0569AD}
+#anim .ct{border-radius:6px}
+
+/* nav */
+#nav{background:rgba(255,255,255,.94);-webkit-backdrop-filter:saturate(180%) blur(14px);backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid #E2E8F0;box-shadow:none}
+#nav .in{display:flex;align-items:center;gap:2px;padding:8px 10px;justify-content:space-between;overflow-x:auto;scrollbar-width:none}
+#nav .in::-webkit-scrollbar{display:none}
+#nav a{border:0;border-radius:999px;padding:8px 11px;font-size:14px;font-weight:700;color:#334155;white-space:nowrap}
+#nav a.on{background:#E3F1FB;color:#0270B5}
+#nav a.reg,#nav a.reg.on{background:#DDF247;color:#08203D;margin-left:2px;padding:8px 14px}
+#nav .nl{display:none}#nav .ns{display:inline}
+
+/* layout & kartu */
+.wrap{padding:16px 14px 28px}
+.sec{border:0;border-radius:20px;padding:24px 20px;margin-bottom:14px;box-shadow:0 1px 2px rgba(8,32,61,.05),0 6px 20px rgba(8,32,61,.05);scroll-margin-top:70px}
+.sec h2{font-size:27px;line-height:1.15;margin:0 0 6px;letter-spacing:-.3px}
+.sec .s{font-size:15px;margin-bottom:16px}
+h3{font-size:17px}
+.g{margin:0 -5px}
+.c2,.c3,.c4{padding:0 5px;margin-bottom:10px}
+.card{border:1px solid #E2E8F0;border-radius:16px;padding:16px}
+.card.navy{border-color:#08203D}
+.lbl{font-size:11px;letter-spacing:1.4px}
+.big{font-size:24px}
+.item{margin-bottom:14px}
+.item .tx b{font-size:15.5px}
+.num{width:28px;height:28px;line-height:28px;margin-right:12px}
+.note{border-left:0;border-radius:12px;padding:12px 14px;font-size:14px;background:#EEF6FC}
+.note.warn{background:#FFF6DB;color:#6B4B00}
+.note.ok{background:#E3F6E8}
+.btn{border-radius:12px;padding:12px 18px;font-size:15px;min-height:46px}
+.btn.sm{border-radius:10px;min-height:36px;padding:8px 12px;font-size:13px}
+.btn.ln{border:1px solid #D5DFEA}
+
+/* syarat: dua blok */
+#aturan .c2 h3{margin:4px 0 12px;font-size:13px;letter-spacing:1.4px;text-transform:uppercase;color:#4A5D72;font-family:Archivo,Arial,sans-serif}
+#aturan .c2+.c2{border-top:1px solid #E2E8F0;padding-top:14px}
+
+/* kategori */
+#kategori .card{display:block}
+#kategori .card h3{font-size:19px;font-style:italic;font-weight:900}
+
+/* segmented control (gaya iOS) */
+.seg{display:flex;gap:0;background:#EEF2F7;border:0;border-radius:14px;padding:4px;margin:10px 0 16px;max-width:none}
+.seg button{flex:1;min-height:44px;border:0;border-radius:11px;background:transparent;color:#4A5D72;font-family:"Plus Jakarta Sans",Arial,sans-serif;font-weight:700;font-size:15px;padding:10px 8px;transition:background .15s,color .15s,box-shadow .15s}
+.seg button.on{background:#FFFFFF;color:#08203D;box-shadow:0 1px 2px rgba(8,32,61,.12),0 2px 8px rgba(8,32,61,.08)}
+.fmi{font-size:15px;color:#4A5D72;margin:0 0 14px}
+
+/* formulir */
+.fm{border:0;border-radius:18px;background:#F6F9FC;padding:18px 16px 14px;margin-bottom:12px}
+.fm .hd{display:flex;align-items:center;gap:10px;font-size:19px;margin-bottom:12px}
+.fm .hd .opt{font-family:"Plus Jakarta Sans",Arial,sans-serif;font-style:normal;font-weight:600;font-size:13px;color:#64748B;margin-left:auto}
+.stn{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#08203D;color:#DDF247;font-family:Archivo,Arial,sans-serif;font-style:normal;font-weight:800;font-size:14px}
+.fr{margin:0}
+.fc{float:none;width:100%;padding:0 0 12px}
+.fl{font-size:14px;font-weight:700;margin-bottom:6px;color:#0F2A47}
+.in2{height:50px;border-radius:12px;border:1px solid #D5DFEA;padding:12px 14px;font-size:16px;background:#FFFFFF;-webkit-appearance:none;appearance:none;transition:border-color .15s,box-shadow .15s}
+.in2:focus{border-color:#0089D9;box-shadow:0 0 0 3px rgba(0,137,217,.15)}
+.in2.err{border-color:#D64545;box-shadow:0 0 0 3px rgba(214,69,69,.12)}
+select.in2{padding-right:40px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%2308203D' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+textarea.in2.ta{height:auto;min-height:110px;resize:vertical;line-height:1.5}
+.hint{font-size:13px;margin-top:6px}
+.fm>.note{margin:0 0 12px}
+
+/* kategori di formulir */
+.kb{border:1px solid #E2E8F0;border-radius:16px;margin-bottom:10px;overflow:hidden}
+.kb.on{border-color:#08203D;box-shadow:0 0 0 1px #08203D}
+.kbh{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:14px}
+.kbt{float:none;padding:0}
+.kbt b{display:block;font-size:18px;margin:0}
+.kbt span{font-size:13px}
+.kbo{float:none;display:flex;background:#EEF2F7;border-radius:12px;padding:4px}
+.rad{margin:0}
+.rad span{border:0;background:transparent;border-radius:9px;padding:8px 16px;font-size:14px;color:#4A5D72;min-width:74px;text-align:center}
+.rad input:checked+span{background:#08203D;color:#DDF247;box-shadow:0 1px 3px rgba(8,32,61,.2)}
+.rad input:focus-visible+span{outline:2px solid #0089D9}
+.rad input:focus+span{outline:0}
+.kbb{padding:12px 10px 4px}
+.kb .hint{padding:0 14px 10px}
+.pc2{padding:0 4px}
+.pl{border:1px solid #E2E8F0;border-radius:14px;padding:16px}
+.fotob{width:120px;height:120px}
+
+#fmsg .note{margin:4px 0 12px}
+#save{display:block;width:100%;margin:6px 0 0;min-height:56px;border-radius:14px;font-size:17px;box-shadow:0 6px 16px rgba(8,32,61,.18)}
+#cancel{display:block;width:100%;margin:10px 0 0;min-height:50px}
+
+/* ubah data */
+.ubf{border:0;border-radius:18px;background:#F6F9FC;padding:18px 16px;margin-bottom:12px}
+.ubf .btn{width:100%;margin:4px 0 0}
+.mine{border:0;border-radius:16px;background:#F7FBE0;padding:14px 16px}
+.kodebox{border:0;border-radius:18px;background:#08203D;color:#EEF5FB;padding:18px}
+.kodebox .lbl{color:#A9C1D9}
+.kodebox .kodev{color:#DDF247;font-size:30px}
+.kodebox .small{color:#C9D8E8}
+.kodebox .btn{margin:10px 8px 0 0}
+.kodebox .btn.nv{background:#DDF247;color:#08203D}
+.kodebox .btn.ln{background:transparent;color:#FFFFFF;border-color:#2F537A}
+
+/* barcode */
+.chip{display:inline-block;background:#FFF1C2;color:#6B4B00;font-weight:800;font-size:12px;letter-spacing:.4px;padding:5px 10px;border-radius:999px;margin:0 0 10px}
+
+/* kontak & faq */
+.wa{border:1px solid #E2E8F0;border-radius:16px;padding:14px 16px;display:flex;align-items:center;gap:14px}
+.wa .wi{float:none;flex:0 0 auto;width:44px;height:44px;margin:0}
+.wa b{font-size:17px}
+.back{display:inline-flex;align-items:center;min-height:44px;margin:-10px 0 4px}
+#fqForm .in2{border-radius:12px}
+#fqForm .btn{min-height:50px}
+.fqchip{border-radius:999px;padding:8px 14px;font-size:14px}
+.fq{border:1px solid #E2E8F0;border-radius:14px;overflow:hidden}
+.fq summary{padding:14px 40px 14px 16px}
+.fa{padding:0 16px 14px}
+
+/* footer & toast */
+.foot{text-align:center;padding:4px 20px calc(36px + env(safe-area-inset-bottom));font-size:13px}
+.foot .pnb{margin:0 auto 14px;border-radius:12px}
+#ftx{display:inline-block;padding:8px 6px}
+#toast{border-radius:14px;bottom:calc(20px + env(safe-area-inset-bottom));width:auto;left:16px;right:16px;margin-left:0;max-width:420px;margin:0 auto}
+
+/* layar lebar */
+@media (min-width:760px){
+  #hd .in{display:block;padding:30px 24px 34px}
+  #anim{float:right;width:420px;height:200px;margin:0 0 0 28px}
+  #hd h1{font-size:54px;margin-top:18px}
+  .wrap{padding:24px 24px 40px}
+  .sec{padding:30px 32px}
+  .fc{float:left;width:50%;padding:0 8px 12px}
+  .fr{margin:0 -8px}
+  #aturan .c2+.c2{border-top:0;padding-top:0}
+  .seg{max-width:420px}
+  #save{width:auto;min-width:240px;display:inline-block}
+  #cancel{width:auto;display:inline-block;margin-left:10px}
+  .ubf .btn{width:auto}
+  #nav .nl{display:inline}#nav .ns{display:none}
+  #nav .in{justify-content:flex-start;gap:6px}
+}
+@media (max-width:759px){
+  .c2,.c3,.c4,.pc,.pc2{width:100%}
+  .kbo{width:100%} .kbo .rad{flex:1} .kbo .rad span{display:block;width:100%}
+  #info .c3{width:50%} #info .c3:last-child{width:100%}
+  #info .card{padding:14px}
+  #info .big{font-size:21px}
+}
+@media (max-width:374px){
+  #hd h1{font-size:34px}
+  #nav a{padding:8px 8px;font-size:13px}
+  #info .c3{width:100%}
+  .rad span{min-width:60px;padding:8px 12px}
+}
 </style>
 </head>
 <body>
@@ -312,8 +475,7 @@ tr.na td{background:#FAFBFC}
   </div>
 
   <div class="sec" id="daftar">
-    <h2>Daftar</h2>
-    <div class="s">Satu formulir untuk satu DPC, sekaligus semua kategori. Data bisa diubah sampai 10 November 2026 pukul 23.59 WIB dari HP atau browser mana pun dengan kode ubah data.</div>
+    <h2>Pendaftaran</h2>
     <div id="closed" class="note warn" style="display:none"></div>
     <div class="seg" id="seg" role="tablist" aria-label="Pilih">
       <button type="button" role="tab" id="tbNew" class="on" aria-selected="true" onclick="__tab('new')">Daftar baru</button>
@@ -323,7 +485,7 @@ tr.na td{background:#FAFBFC}
     <div id="pnEd" style="display:none">
       <div id="mine"></div>
       <form id="ubForm" class="ubf" onsubmit="return __ubGo()" autocomplete="off">
-        <div class="small muted" style="margin-bottom:10px">Masukkan kode ubah data yang muncul saat DPC Anda pertama kali mendaftar.</div>
+        <div class="fmi">Masukkan kode ubah data yang muncul saat DPC Anda pertama kali mendaftar. Data bisa diubah sampai 10 Nov 2026, 23.59 WIB.</div>
         <div class="fr">
           <div class="fc"><label class="fl" for="ubD">DPC</label><select class="in2" id="ubD"></select></div>
           <div class="fc"><label class="fl" for="ubK">Kode ubah data</label><input class="in2 kode" id="ubK" maxlength="9" autocapitalize="characters" spellcheck="false" placeholder="XXXX-XXXX" oninput="__kodeFmt(this)"><span class="hint" id="e-ub">Lupa kode? <a href="#kontak">Hubungi panitia</a>.</span></div>
@@ -332,7 +494,8 @@ tr.na td{background:#FAFBFC}
       </form>
     </div>
     <form id="form" onsubmit="return false" novalidate>
-      <div class="fm"><div class="hd">1 · PIC DPC</div>
+      <div class="fmi" id="fmiNew">Satu formulir untuk satu DPC, sekaligus semua kategori. Setelah terkirim, Anda mendapat kode untuk mengubah data dari HP mana pun sampai 10 Nov 2026, 23.59 WIB.</div>
+      <div class="fm"><div class="hd"><span class="stn">1</span>PIC DPC</div>
         <div class="note" style="margin-top:0">PIC tidak harus peserta. PIC menjadi penghubung antara DPC dan panitia.</div>
         <div class="fr">
           <div class="fc"><label class="fl" for="dpc">DPC</label><select class="in2" id="dpc" onchange="__dpcChk()"><option value="">Pilih DPC</option></select><span class="hint" id="e-dpc"></span></div>
@@ -341,15 +504,20 @@ tr.na td{background:#FAFBFC}
           <div class="fc"><label class="fl" for="em">Email DPC</label><input class="in2" id="em" maxlength="80" inputmode="email" placeholder="nama@email.com"><span class="hint" id="e-em"></span></div>
         </div>
       </div>
-      <div class="fm"><div class="hd">2 · Konfirmasi perwakilan</div>
+      <div class="fm"><div class="hd"><span class="stn">2</span>Konfirmasi perwakilan</div>
         <div class="small muted" style="margin-bottom:10px">Pilih <b>Ada</b> untuk kategori yang diikuti DPC Anda; kolom pendaftaran pasangan langsung muncul. 1 pasangan per kategori.</div>
         <div id="kats"></div>
         <span class="hint" id="e-kats"></span>
       </div>
-      <div class="fm"><div class="hd">3 · Jumlah supporter per DPC</div>
+      <div class="fm"><div class="hd"><span class="stn">3</span>Jumlah supporter per DPC</div>
         <div class="small muted" style="margin-bottom:10px">Berapa orang yang akan hadir <b>di luar peserta</b>? Untuk perhitungan kapasitas lapangan dan konsumsi. Maksimal 10 orang; setiap orang mendapat barcode masuk atas namanya.</div>
         <div class="fr"><div class="fc"><label class="fl" for="pdn">Jumlah supporter</label><select class="in2" id="pdn" onchange="__pdn()"><option value="">Pilih jumlah</option></select><span class="hint" id="e-pdn"></span></div></div>
         <div id="pdl" class="fr"></div>
+      </div>
+      <div class="fm"><div class="hd"><span class="stn">4</span>Saran &amp; masukan <i class="opt">opsional</i></div>
+        <label class="fl" for="saran" style="margin-top:0">Ada saran atau masukan untuk panitia?</label>
+        <textarea class="in2 ta" id="saran" maxlength="500" rows="4" placeholder="Tulis di sini (boleh dikosongkan)"></textarea>
+        <span class="hint">Hanya dibaca panitia.</span>
       </div>
       <div id="fmsg"></div>
       <button type="button" class="btn nv" id="save" onclick="__save()">Daftar</button><button type="button" class="btn ln" id="cancel" onclick="__reset()" style="display:none">Batal ubah</button>
@@ -357,7 +525,8 @@ tr.na td{background:#FAFBFC}
   </div>
 
   <div class="sec" id="barcode">
-    <h2>Unduh barcode untuk memasuki venue acara <span class="soon" id="bcSoon">(belum tersedia)</span></h2>
+    <span class="chip" id="bcSoon">Belum tersedia</span>
+    <h2>Unduh barcode untuk memasuki venue acara</h2>
     <div id="bcBox"></div>
     <div id="bcOut"></div>
   </div>
@@ -2833,7 +3002,7 @@ var KAT=[['men','Men Beginner','Ganda putra'],['mix','Mix Beginner','1 putra + 1
     if(pic.length<3) bad+=err('pic','Isi nama PIC.');
     if(wa.replace(/[^0-9]/g,'').length<9) bad+=err('wa','Isi nomor WhatsApp PIC yang aktif.');
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) bad+=err('em','Isi email DPC yang valid.');
-    var pub={dpc:dpc,pic:pic,kat:{},t:EDIT?EDIT.t:Date.now(),u:Date.now()}, pv={wa:wa,email:em,kat:{}}, fotos={}, del=[], any=0, ktaAll=[];
+    var pub={dpc:dpc,pic:pic,kat:{},t:EDIT?EDIT.t:Date.now(),u:Date.now()}, pv={wa:wa,email:em,kat:{},saran:tr($('saran').value).slice(0,500)}, fotos={}, del=[], any=0, ktaAll=[];
     for(var i=0;i<KAT.length;i++){ var k=KAT[i][0];
       if(ADA[k]===''){ $('e-ada-'+k).innerHTML='Pilih Ada atau Tidak ada.'; $('e-ada-'+k).className='hint err'; bad++; continue; }
       if(ADA[k]=='0'){ pub.kat[k]={ada:false}; for(var n0=1;n0<=2;n0++) if(EDIT&&EDIT.kat&&EDIT.kat[k]&&EDIT.kat[k].ada) del.push(EDIT.id+'_'+k+'_'+n0); continue; }
@@ -2874,7 +3043,7 @@ var KAT=[['men','Men Beginner','Ganda putra'],['mix','Mix Beginner','1 putra + 1
   window.__edit=function(id){ if(!open()) return; var x=null; for(var i=0;i<ALL.length;i++) if(ALL[i].id==id) x=ALL[i]; if(!x) return; __reset(); EDIT=x;
     $('dpc').value=x.dpc; $('dpc').disabled=true; $('pic').value=x.pic||'';
     var pd=x.pd||null; PDV=pd&&pd.nama?pd.nama.slice():[]; $('pdn').value=pd?String(pd.n||0):''; __pdn();
-    DB.priv(id,function(v){ EDITK=v.kode||''; $('wa').value=v.wa||''; $('em').value=v.email||'';
+    DB.priv(id,function(v){ EDITK=v.kode||''; $('saran').value=v.saran||''; $('wa').value=v.wa||''; $('em').value=v.email||'';
       for(var i=0;i<KAT.length;i++){ var k=KAT[i][0], c=x.kat&&x.kat[k]; if(!c) continue; setAda(k,c.ada?'1':'0'); if(!c.ada) continue;
         for(var n=1;n<=2;n++){ var p=(c.p||[])[n-1]||{}, q=((v.kat||{})[k]||[])[n-1]||{}, idd=k+n; $('nm'+idd).value=p.nama||''; $('pg'+idd).value=p.panggilan||''; $('rc'+idd).value=p.reclub||''; $('kta'+idd).value=q.kta||''; $('wp'+idd).value=q.wa||'';
           (function(idd,fid){ DB.foto(fid,function(d){ if(d){ $('fp'+idd).style.backgroundImage='url('+d+')'; $('fp'+idd).className='fotob has'; $('e-ff'+idd).innerHTML='Foto sudah ada. Klik foto untuk mengganti.'; } }); })(idd,id+'_'+k+'_'+n); } } });
@@ -2888,7 +3057,7 @@ var KAT=[['men','Men Beginner','Ganda putra'],['mix','Mix Beginner','1 putra + 1
   window.__tab=function(t,keep){ TAB=t; var ed=t=='ed'; $('tbNew').className=ed?'':'on'; $('tbEd').className=ed?'on':''; $('tbNew').setAttribute('aria-selected',ed?'false':'true'); $('tbEd').setAttribute('aria-selected',ed?'true':'false');
     $('pnEd').style.display=ed?'block':'none';
     if(!keep&&EDIT) __reset(); if(!keep){ $('fmsg').innerHTML=''; $('okmsg').innerHTML=''; }
-    $('form').style.display=(!open()||(ed&&!EDIT))?'none':'block'; $('ubForm').style.display=(ed&&!EDIT)?'block':'none'; };
+    $('form').style.display=(!open()||(ed&&!EDIT))?'none':'block'; $('fmiNew').style.display=ed?'none':'block'; $('ubForm').style.display=(ed&&!EDIT)?'block':'none'; };
   window.__kodeFmt=function(el){ var k=el.value.toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,8); el.value=k.length>4?k.slice(0,4)+'-'+k.slice(4):k; };
   window.__ubGo=function(){ var d=$('ubD').value, K=$('ubK').value.toUpperCase().replace(/[^A-Z0-9]/g,''), x=null, i;
     function no(m){ $('e-ub').innerHTML=m; $('e-ub').className='hint err'; }
