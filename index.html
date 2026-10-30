@@ -199,6 +199,53 @@ tr.na td{background:#FAFBFC}
 .fqall{margin-top:18px}
 .fqall .lbl{margin-bottom:8px}
 @media (max-width:600px){ #fqForm .btn{padding:11px 12px} }
+/* revisi 2026-10-30 */
+#hd h1 span{display:block;white-space:nowrap}
+#nav .ns{display:none}
+.sec h2 .soon{font-family:"Plus Jakarta Sans",Arial,sans-serif;font-style:normal;font-weight:700;font-size:15px;color:#4A5D72;white-space:nowrap}
+.wa .wi{display:flex;align-items:center;justify-content:center}
+.wa .wi svg{display:block}
+.back{display:inline-block;font-weight:800;font-size:14px;text-decoration:none;margin:0 0 10px;padding:6px 0}
+.ubx{border:1px solid #CBD8E5;background:#F7FAFD;padding:12px 14px;margin-bottom:14px}
+.ubh{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px}
+.ubh .small{flex:1 1 200px}
+.ubh .btn{margin:0}
+.ubf{margin-top:12px}
+.in2.kode,.kodev{font-family:ui-monospace,Menlo,Consolas,monospace;letter-spacing:2px;text-transform:uppercase}
+.kodebox{border:2px solid #08203D;background:#FFFFFF;padding:14px 16px;margin:10px 0}
+.kodebox .kodev{display:block;font-size:28px;font-weight:800;color:#08203D;margin:6px 0 8px;letter-spacing:4px}
+.kodebox .btn{margin:6px 8px 0 0}
+.mk{font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:800;letter-spacing:1px}
+@media (max-width:600px){
+  body{font-size:15px}
+  #anim{height:112px;margin-bottom:10px}
+  #nav .in{display:flex;justify-content:space-between;overflow-x:auto}
+  #nav .nl{display:none} #nav .ns{display:inline}
+  #nav a.reg{margin-left:4px}
+  #info .c3{width:50%} #info .c3:last-child{width:100%}
+  #info .card{padding:12px}
+  #info .big{font-size:20px}
+  #hd .brand{padding-top:6px;font-size:11px;letter-spacing:1.8px}
+  #hd h1{font-size:34px;margin:10px 0 6px}
+  #hd .cta{padding:12px 18px}
+  #nav .in{padding:0 8px}
+  #nav a{padding:13px 8px;font-size:13.5px}
+  .sec h2{font-size:23px}
+  .sec h2 .soon{display:block;margin-top:2px}
+  .big{font-size:24px}
+  .c3 .card,.c2 .card{height:auto}
+  .in2{font-size:16px}
+  .btn{padding:12px 16px}
+  #save{width:100%;margin-right:0}
+  #cancel{width:100%;margin-right:0}
+  .kodebox .kodev{font-size:24px}
+  .mine table,.mine tbody,.mine tr,.mine td{display:block;width:100%}
+  .mine tr:first-child{display:none}
+  .mine td{border:0;padding:4px 0}
+  .mine tr{border-top:1px solid #E1E9F1;padding:8px 0}
+  .mine td:last-child{text-align:left!important}
+}
+@media (max-width:360px){ #hd h1{font-size:30px} #nav a{padding:13px 6px;font-size:13px} #info .c3{width:100%} }
 </style>
 </head>
 <body>
@@ -207,25 +254,35 @@ tr.na td{background:#FAFBFC}
   <div id="anim" aria-hidden="true"><div class="ct"><div class="sv" style="left:15.4%"></div><div class="sv" style="left:84.6%"></div><div class="cl"></div><div class="bm"><div class="ball"></div></div></div><div class="net"></div></div>
   <div class="brand"><img src="data:image/png;base64,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" alt="">Hiswana Migas</div>
   <h1>Turnamen Padel <span>DPC Surabaya</span></h1>
-  <div class="facts"><span>Tanggal menyusul</span><span>Surabaya</span><span>Gratis untuk peserta</span></div>
-  <a class="cta" href="#daftar">Daftar</a><a class="cta ln" href="#alur">Alur masuk</a>
+  <a class="cta" href="#daftar">Daftar</a><a class="cta ln" href="#faq">FAQ</a>
 </div></div>
-<div id="nav"><div class="in"><a href="#info">Info</a><a href="#kategori">Kategori</a><a href="#aturan">Syarat &amp; aturan</a><a href="#alur">Alur masuk</a><a href="#tanya">Tanya</a><a href="#daftar" class="reg">Daftar</a></div></div>
+<div id="nav"><div class="in"><a href="#info">Info</a><a href="#aturan"><span class="nl">Syarat &amp; aturan</span><span class="ns">Aturan</span></a><a href="#kategori">Kategori</a><a href="#faq">FAQ</a><a href="#kontak"><span class="nl">Narahubung</span><span class="ns">Kontak</span></a><a href="#daftar" class="reg">Daftar</a></div></div>
 
-<div class="wrap">
+<div class="wrap" id="main">
   <div class="sec" id="info">
     <h2>Info turnamen</h2>
-    <div class="s">Turnamen padel satu hari untuk anggota Hiswana Migas.</div>
     <div class="g">
-      <div class="c4"><div class="card"><div class="lbl">Tanggal</div><div class="big">Menyusul</div><div class="small muted">Diumumkan bersama venue</div></div></div>
-      <div class="c4"><div class="card"><div class="lbl">Lokasi</div><div class="big">Surabaya</div><div class="small muted">Court menyusul</div></div></div>
-      <div class="c4"><div class="card"><div class="lbl">Batas ubah data fase 1</div><div class="big">10 Nov 2026</div><div class="small muted">Sampai pukul 23.59 WIB</div></div></div>
-      <div class="c4"><div class="card navy"><div class="lbl">Biaya</div><div class="big">Gratis</div><div class="small muted">Peserta tidak dipungut biaya</div></div></div>
+      <div class="c3"><div class="card"><div class="lbl">Tanggal &amp; lokasi</div><div class="big">Menyusul</div><div class="small muted">Diumumkan bersamaan</div></div></div>
+      <div class="c3"><div class="card"><div class="lbl">Batas ubah data</div><div class="big">10 Nov 2026</div><div class="small muted">Sampai pukul 23.59 WIB</div></div></div>
+      <div class="c3"><div class="card navy"><div class="lbl">Biaya</div><div class="big">Gratis</div><div class="small muted">Peserta tidak dipungut biaya</div></div></div>
     </div>
-    <h3>Narahubung (chat WhatsApp saja)</h3>
+  </div>
+
+  <div class="sec" id="aturan">
+    <h2>Syarat &amp; aturan main</h2>
     <div class="g">
-      <div class="c2"><a class="wa" href="https://wa.me/6281333526593" target="_blank" rel="noopener"><span class="wi">WA</span><b>Kenny</b><span>0813 3352 6593</span></a></div>
-      <div class="c2"><a class="wa" href="https://wa.me/628195002295" target="_blank" rel="noopener"><span class="wi">WA</span><b>Arinta</b><span>0819 5002 295</span></a></div>
+      <div class="c2"><h3>Syarat peserta</h3>
+        <div class="item"><span class="num">1</span><div class="tx"><b>Anggota Hiswana Migas</b><br><span class="muted small">Setiap pemain wajib anggota dan mencantumkan nomor KTA.</span></div></div>
+        <div class="item"><span class="num">2</span><div class="tx"><b>1 slot per kategori</b><br><span class="muted small">Masing-masing DPC mendapat 1 slot di tiap kategori: Men, Mix, dan Women.</span></div></div>
+        <div class="item"><span class="num">3</span><div class="tx"><b>Didaftarkan oleh PIC DPC</b><br><span class="muted small">Satu formulir untuk semua kategori. PIC tidak harus peserta.</span></div></div>
+        <div class="item"><span class="num">4</span><div class="tx"><b>Link Reclub (opsional)</b><br><span class="muted small">Bila punya, cantumkan link profil Reclub setiap pemain.</span></div></div>
+        <div class="item"><span class="num">5</span><div class="tx"><b>Foto setiap pemain wajib</b><br><span class="muted small">Wajib melampirkan foto yang terlihat wajah; tidak harus pas foto.</span></div></div>
+      </div>
+      <div class="c2"><h3>Aturan main</h3>
+        <div class="item"><span class="num">1</span><div class="tx"><b>Registrasi ulang 07.00–08.00</b><br><span class="muted small">Acara dimulai pukul 08.00.</span></div></div>
+        <div class="item"><span class="num">2</span><div class="tx"><b>Fase grup lalu sistem gugur</b><br><span class="muted small">Race to 4 dengan golden point pada 40–40, tanpa tie-break.</span></div></div>
+        <div class="item"><span class="num">3</span><div class="tx"><b>Final: Race to 6</b><br><span class="muted small">Final ketiga kategori dimainkan bersamaan.</span></div></div>
+      </div>
     </div>
   </div>
 
@@ -239,54 +296,33 @@ tr.na td{background:#FAFBFC}
     </div>
   </div>
 
-  <div class="sec" id="aturan">
-    <h2>Syarat &amp; aturan main</h2>
-    <div class="g">
-      <div class="c2"><h3>Syarat peserta</h3>
-        <div class="item"><span class="num">1</span><div class="tx"><b>Anggota Hiswana Migas</b><br><span class="muted small">Setiap pemain wajib anggota dan mencantumkan nomor KTA.</span></div></div>
-        <div class="item"><span class="num">2</span><div class="tx"><b>1 slot per kategori di fase 1</b><br><span class="muted small">Masing-masing DPC mendapat 1 slot di tiap kategori: Men, Mix, dan Women.</span></div></div>
-        <div class="item"><span class="num">3</span><div class="tx"><b>Didaftarkan oleh PIC DPC</b><br><span class="muted small">Satu formulir untuk semua kategori. PIC tidak harus peserta.</span></div></div>
-        <div class="item"><span class="num">4</span><div class="tx"><b>Link Reclub (opsional)</b><br><span class="muted small">Bila punya, cantumkan link profil Reclub setiap pemain.</span></div></div>
-        <div class="item"><span class="num">5</span><div class="tx"><b>Foto setiap pemain wajib</b><br><span class="muted small">Wajib melampirkan foto; tidak harus pas foto.</span></div></div>
-      </div>
-      <div class="c2"><h3>Aturan main</h3>
-        <div class="item"><span class="num">1</span><div class="tx"><b>Registrasi ulang 07.00–08.00</b><br><span class="muted small">Acara dimulai pukul 08.00.</span></div></div>
-        <div class="item"><span class="num">2</span><div class="tx"><b>Fase grup lalu sistem gugur</b><br><span class="muted small">Race to 4 dengan golden point pada 40–40, tanpa tie-break.</span></div></div>
-        <div class="item"><span class="num">3</span><div class="tx"><b>Final: Race to 6</b><br><span class="muted small">Final ketiga kategori dimainkan bersamaan.</span></div></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="sec" id="alur">
+  <!-- Alur masuk peserta & tamu: disembunyikan sementara (hapus style="display:none" untuk menampilkan lagi) -->
+  <div class="sec" id="alur" style="display:none">
     <h2>Alur masuk peserta &amp; tamu</h2>
-    <div class="s">Setiap orang yang hadir, peserta maupun pendamping, masuk dengan barcode pribadi atas namanya.</div>
+    <div class="s">Setiap orang yang hadir, peserta maupun tamu, masuk dengan barcode pribadi atas namanya.</div>
     <div class="g stp">
-      <div class="c4"><div class="card"><span class="num">1</span><b>PIC mendaftarkan</b><p class="small muted">PIC DPC mengisi formulir di web ini: pasangan per kategori dan jumlah pendamping yang hadir (maksimal 10 orang). Bisa diubah sampai 10 Nov 2026.</p></div></div>
-      <div class="c4"><div class="card"><span class="num">2</span><b>PIC mengunduh barcode</b><p class="small muted">Setelah pendaftaran ditutup atau saat technical meeting (tanggal menyusul), PIC mengunduh barcode di bawah. Satu barcode untuk satu orang.</p></div></div>
-      <div class="c4"><div class="card"><span class="num">3</span><b>Bagikan ke tiap orang</b><p class="small muted">PIC mengirim barcode ke masing-masing peserta dan pendamping, misalnya lewat WhatsApp.</p></div></div>
+      <div class="c4"><div class="card"><span class="num">1</span><b>PIC mendaftarkan</b><p class="small muted">PIC DPC mengisi formulir di web ini: pasangan per kategori dan jumlah supporter yang hadir (maksimal 10 orang). Bisa diubah sampai 10 Nov 2026.</p></div></div>
+      <div class="c4"><div class="card"><span class="num">2</span><b>PIC mengunduh barcode</b><p class="small muted">Setelah barcode tersedia, PIC mengunduhnya di bagian Unduh barcode di web ini. Satu barcode untuk satu orang.</p></div></div>
+      <div class="c4"><div class="card"><span class="num">3</span><b>Bagikan ke tiap orang</b><p class="small muted">PIC mengirim barcode ke masing-masing peserta dan supporter, misalnya lewat WhatsApp.</p></div></div>
       <div class="c4"><div class="card navy"><span class="num">4</span><b>Hari H, 07.00–08.00</b><p class="small muted">Tunjukkan barcode di meja registrasi untuk discan panitia, lalu terima gelang akses: <b style="color:#DDF247">Peserta</b> atau <b style="color:#9FD3F5">Tamu</b>.</p></div></div>
     </div>
-    <div class="bcw" id="barcode">
-      <div class="lbl">Unduh barcode · khusus PIC DPC</div>
-      <div id="bcBox"><div class="small muted">Memuat...</div></div>
-      <div id="bcOut"></div>
-    </div>
-  </div>
-
-  <div class="sec" id="tanya">
-    <h2>Tanya panitia</h2>
-    <div class="s">Ketik pertanyaan Anda. Jawaban diambil dari juknis turnamen; bila belum ada, pertanyaan bisa langsung dikirim ke panitia lewat WhatsApp.</div>
-    <form id="fqForm" autocomplete="off"><input id="fqIn" class="in2" type="search" placeholder="Contoh: boleh ikut dua kategori?" aria-label="Pertanyaan"><button class="btn nv" type="submit">Tanya</button></form>
-    <div class="fqchips"><button type="button" class="fqchip" data-q="Berapa biayanya?">Biaya</button><button type="button" class="fqchip" data-q="Kapan dan di mana?">Tanggal &amp; lokasi</button><button type="button" class="fqchip" data-q="Syarat level pemain">Syarat level</button><button type="button" class="fqchip" data-q="Sampai kapan bisa ubah data?">Batas ubah data</button><button type="button" class="fqchip" data-q="Cara masuk barcode">Barcode masuk</button></div>
-    <div id="fqOut" aria-live="polite"></div>
-    <div class="fqall"><div class="lbl">Semua pertanyaan</div><div id="fqAll"></div></div>
   </div>
 
   <div class="sec" id="daftar">
     <h2>Daftar</h2>
-    <div class="s">Satu formulir untuk satu DPC, sekaligus semua kategori. Data bisa diubah sampai 10 November 2026 pukul 23.59 WIB dari perangkat yang sama.</div>
+    <div class="s">Satu formulir untuk satu DPC, sekaligus semua kategori. Data bisa diubah sampai 10 November 2026 pukul 23.59 WIB dari HP atau browser mana pun, memakai kode ubah data.</div>
     <div id="closed" class="note warn" style="display:none"></div>
     <div id="mine"></div>
+    <div class="ubx" id="ubx">
+      <div class="ubh"><b>Sudah mendaftar?</b><span class="small muted">Ubah data dengan kode ubah data DPC Anda.</span><button type="button" class="btn ln" id="ubBtn" onclick="__ubOpen()">Ubah data</button></div>
+      <form id="ubForm" class="ubf" style="display:none" onsubmit="return __ubGo()" autocomplete="off">
+        <div class="fr">
+          <div class="fc"><label class="fl" for="ubD">DPC</label><select class="in2" id="ubD"></select></div>
+          <div class="fc"><label class="fl" for="ubK">Kode ubah data</label><input class="in2 kode" id="ubK" maxlength="9" autocapitalize="characters" spellcheck="false" placeholder="XXXX-XXXX" oninput="__kodeFmt(this)"><span class="hint" id="e-ub">Kode diberikan saat pendaftaran pertama kali. Lupa kode? Hubungi narahubung.</span></div>
+        </div>
+        <button type="submit" class="btn nv" id="ubGo">Buka data</button><button type="button" class="btn ln" onclick="__ubOpen(0)">Batal</button>
+      </form>
+    </div>
     <form id="form" onsubmit="return false" novalidate>
       <div class="fm"><div class="hd">1 · PIC DPC</div>
         <div class="note" style="margin-top:0">PIC tidak harus peserta. PIC menjadi narahubung panitia untuk DPC-nya.</div>
@@ -298,18 +334,45 @@ tr.na td{background:#FAFBFC}
         </div>
       </div>
       <div class="fm"><div class="hd">2 · Konfirmasi perwakilan</div>
-        <div class="small muted" style="margin-bottom:10px">Pilih <b>Ada</b> untuk kategori yang diikuti DPC Anda; kolom pendaftaran pasangan langsung muncul. Fase 1: 1 pasangan per kategori.</div>
+        <div class="small muted" style="margin-bottom:10px">Pilih <b>Ada</b> untuk kategori yang diikuti DPC Anda; kolom pendaftaran pasangan langsung muncul. 1 pasangan per kategori.</div>
         <div id="kats"></div>
         <span class="hint" id="e-kats"></span>
       </div>
-      <div class="fm"><div class="hd">3 · Pendamping yang hadir</div>
+      <div class="fm"><div class="hd">3 · Jumlah supporter per DPC</div>
         <div class="small muted" style="margin-bottom:10px">Berapa orang yang akan hadir <b>di luar peserta</b>? Untuk perhitungan kapasitas lapangan dan konsumsi. Maksimal 10 orang; setiap orang mendapat barcode masuk atas namanya.</div>
-        <div class="fr"><div class="fc"><label class="fl" for="pdn">Jumlah pendamping</label><select class="in2" id="pdn" onchange="__pdn()"><option value="">Pilih jumlah</option></select><span class="hint" id="e-pdn"></span></div></div>
+        <div class="fr"><div class="fc"><label class="fl" for="pdn">Jumlah supporter</label><select class="in2" id="pdn" onchange="__pdn()"><option value="">Pilih jumlah</option></select><span class="hint" id="e-pdn"></span></div></div>
         <div id="pdl" class="fr"></div>
       </div>
       <div id="fmsg"></div>
       <button type="button" class="btn nv" id="save" onclick="__save()">Daftar</button><button type="button" class="btn ln" id="cancel" onclick="__reset()" style="display:none">Batal ubah</button>
     </form>
+  </div>
+
+  <div class="sec" id="barcode">
+    <h2>Unduh barcode untuk memasuki venue acara <span class="soon" id="bcSoon">(belum tersedia)</span></h2>
+    <div id="bcBox"></div>
+    <div id="bcOut"></div>
+  </div>
+
+  <div class="sec" id="kontak">
+    <h2>Narahubung</h2>
+    <div class="s">Chat WhatsApp saja, tidak melayani telepon.</div>
+    <div class="g">
+      <div class="c2"><a class="wa" href="https://wa.me/6281333526593" target="_blank" rel="noopener"><span class="wi"><svg viewBox="0 0 32 32" width="24" height="24" aria-hidden="true" focusable="false"><path fill="#fff" d="M16 4.5A11.5 11.5 0 0 0 6.1 21.8L4.5 27.5l5.9-1.5A11.5 11.5 0 1 0 16 4.5zm0 2A9.5 9.5 0 1 1 11 24.1l-.4-.2-3.3.9.9-3.2-.2-.4A9.5 9.5 0 0 1 16 6.5z"/><path fill="#fff" d="M12.3 10.2c-.3-.6-.6-.6-.9-.6h-.7c-.3 0-.7.1-1 .5s-1.3 1.3-1.3 3.1 1.3 3.6 1.5 3.9c.2.2 2.6 4.1 6.4 5.6 3.1 1.2 3.8 1 4.5.9.7-.1 2.2-.9 2.5-1.8.3-.9.3-1.6.2-1.8-.1-.2-.3-.3-.7-.5s-2.2-1.1-2.5-1.2c-.3-.1-.6-.2-.8.2-.2.4-.9 1.2-1.1 1.4-.2.2-.4.3-.8.1-.4-.2-1.6-.6-3-1.9-1.1-1-1.9-2.2-2.1-2.6-.2-.4 0-.6.2-.8l.6-.7c.2-.2.3-.4.4-.6.1-.3.1-.5 0-.7l-1.1-2.7z"/></svg></span><b>Kenny</b><span>0813 3352 6593</span></a></div>
+      <div class="c2"><a class="wa" href="https://wa.me/628195002295" target="_blank" rel="noopener"><span class="wi"><svg viewBox="0 0 32 32" width="24" height="24" aria-hidden="true" focusable="false"><path fill="#fff" d="M16 4.5A11.5 11.5 0 0 0 6.1 21.8L4.5 27.5l5.9-1.5A11.5 11.5 0 1 0 16 4.5zm0 2A9.5 9.5 0 1 1 11 24.1l-.4-.2-3.3.9.9-3.2-.2-.4A9.5 9.5 0 0 1 16 6.5z"/><path fill="#fff" d="M12.3 10.2c-.3-.6-.6-.6-.9-.6h-.7c-.3 0-.7.1-1 .5s-1.3 1.3-1.3 3.1 1.3 3.6 1.5 3.9c.2.2 2.6 4.1 6.4 5.6 3.1 1.2 3.8 1 4.5.9.7-.1 2.2-.9 2.5-1.8.3-.9.3-1.6.2-1.8-.1-.2-.3-.3-.7-.5s-2.2-1.1-2.5-1.2c-.3-.1-.6-.2-.8.2-.2.4-.9 1.2-1.1 1.4-.2.2-.4.3-.8.1-.4-.2-1.6-.6-3-1.9-1.1-1-1.9-2.2-2.1-2.6-.2-.4 0-.6.2-.8l.6-.7c.2-.2.3-.4.4-.6.1-.3.1-.5 0-.7l-1.1-2.7z"/></svg></span><b>Arinta</b><span>0819 5002 295</span></a></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap" id="faqv" style="display:none">
+  <div class="sec" id="faq">
+    <a class="back" href="#info">&larr; Kembali</a>
+    <h2>FAQ</h2>
+    <div class="s">Ketik pertanyaan Anda. Bila jawaban belum tersedia, silakan hubungi narahubung melalui WhatsApp.</div>
+    <form id="fqForm" autocomplete="off"><input id="fqIn" class="in2" type="search" placeholder="Contoh: boleh ikut dua kategori?" aria-label="Pertanyaan"><button class="btn nv" type="submit">Cari</button></form>
+    <div class="fqchips"><button type="button" class="fqchip" data-q="Berapa biayanya?">Biaya</button><button type="button" class="fqchip" data-q="Kapan dan di mana?">Tanggal &amp; lokasi</button><button type="button" class="fqchip" data-q="Syarat level pemain">Syarat level</button><button type="button" class="fqchip" data-q="Sampai kapan bisa ubah data?">Batas ubah data</button><button type="button" class="fqchip" data-q="Lupa kode ubah data">Kode ubah data</button></div>
+    <div id="fqOut" aria-live="polite"></div>
+    <div class="fqall"><div class="lbl">Semua pertanyaan</div><div id="fqAll"></div></div>
   </div>
 </div>
 <div class="foot"><form class="pnb" onsubmit="return __pnGo()"><span class="pnl">Akses panitia</span><input id="pnPin" type="password" placeholder="PIN panitia" autocomplete="current-password" aria-label="PIN panitia"><button type="submit">Masuk</button></form>Turnamen Padel Hiswana Migas · 2026</div>
@@ -2629,7 +2692,7 @@ var BC=(function(){
     for(var i=0;i<ks.length;i++){ k=ks[i]; var c=x.kat&&x.kat[k]; if(!c||!c.ada) continue;
       for(n=1;n<=2;n++){ var p=(c.p||[])[n-1]||{}; o.push({id:x.id+'-'+k+'-'+n, q:'HPC1:'+x.id+':'+k+':'+n, nama:p.nama||'', panggilan:p.panggilan||'', peran:'Peserta', ket:KN[k], dpc:x.dpc, jenis:'peserta'}); } }
     var pd=x.pd||{}, nm=pd.nama||[];
-    for(n=1;n<=nm.length;n++) o.push({id:x.id+'-pd-'+n, q:'HPC1:'+x.id+':pd:'+n, nama:nm[n-1]||'', peran:'Pendamping', ket:'', dpc:x.dpc, jenis:'tamu'});
+    for(n=1;n<=nm.length;n++) o.push({id:x.id+'-pd-'+n, q:'HPC1:'+x.id+':pd:'+n, nama:nm[n-1]||'', peran:'Supporter', ket:'', dpc:x.dpc, jenis:'tamu'});
     return o; }
   function wrap(ctx,t,maxW){ var w=String(t).split(/\s+/), L=[], cur=''; for(var i=0;i<w.length;i++){ var tt=cur?cur+' '+w[i]:w[i]; if(ctx.measureText(tt).width>maxW&&cur){ L.push(cur); cur=w[i]; } else cur=tt; } if(cur) L.push(cur); return L; }
   function card(o){
@@ -2655,7 +2718,7 @@ var BC=(function(){
   function dl(url,name){ var a=document.createElement('a'); a.href=url; a.download=name; document.body.appendChild(a); a.click(); setTimeout(function(){ document.body.removeChild(a); },100); }
   // tampilkan grid kartu di elemen el
   function grid(el,list){
-    if(!list.length){ el.innerHTML='<div class="small muted">Belum ada data peserta atau pendamping.</div>'; return; }
+    if(!list.length){ el.innerHTML='<div class="small muted">Belum ada data peserta atau supporter.</div>'; return; }
     var h='<div class="bcbar"><b>'+list.length+' barcode</b> · '+list[0].dpc+'<button type="button" class="btn sm nv" onclick="BC.all()">Unduh semua</button></div><div class="bcg">';
     for(var i=0;i<list.length;i++){ var u=card(list[i]); list[i].u=u; h+='<div class="bcc"><img src="'+u+'" alt="Barcode '+String(list[i].nama).replace(/"/g,'')+'"><div class="bcn"><b>'+String(list[i].nama).replace(/</g,'&lt;')+'</b><span>'+list[i].peran+(list[i].ket?' · '+list[i].ket:'')+'</span></div><button type="button" class="btn sm ln" onclick="BC.one('+i+')">Unduh</button></div>'; }
     el.innerHTML=h+'</div>'; CUR=list; }
@@ -2679,6 +2742,8 @@ var KAT=[['men','Men Beginner','Ganda putra'],['mix','Mix Beginner','1 putra + 1
   function slug(d){ return d.toLowerCase().replace(/[^a-z0-9]+/g,'-'); }
   var DEMO=!FB||/[?&]demo=1/.test(location.search);
 
+  function mkKode(){ var A='ABCDEFGHJKMNPQRSTUVWXYZ23456789', a=new Uint32Array(8), k=''; try{ crypto.getRandomValues(a); }catch(e){ for(var j=0;j<8;j++) a[j]=Math.floor(Math.random()*4294967296); } for(var i=0;i<8;i++) k+=A.charAt(a[i]%A.length); return k; }
+  function kodeShow(K){ return K?K.slice(0,4)+'-'+K.slice(4):''; }
   // ---------- data layer: daftar/{dpc} (publik), privat/{dpc} (KTA, WA, email), foto/{dpc}_{kat}_{n}
   var DB=(function(){
     if(DEMO){
@@ -2691,8 +2756,11 @@ var KAT=[['men','Men Beginner','Ganda putra'],['mix','Mix Beginner','1 putra + 1
         foto:function(id,cb){ var d=ld(); cb(d.f[id]?d.f[id].d:''); },
         priv:function(id,cb){ var d=ld(); cb(d.v[id]||{}); },
         cfg:function(cb){ var b=null; try{ b=localStorage.getItem('hpc-demo-bc'); }catch(e){} cb({barcode:b=='1'}); },
-        save:function(id,isNew,pub,pv,fotos,del,cb){ var d=ld(); if(isNew&&d.d[id]) return cb({message:'DPC ini sudah didaftarkan. Hubungi narahubung panitia bila perlu diubah.'}); pub.owner=uid; pv.owner=uid; d.d[id]=pub; d.v[id]=pv; for(var n in fotos) d.f[n]={owner:uid,d:fotos[n]}; for(var i=0;i<del.length;i++) delete d.f[del[i]]; sv(d); emit(); cb(null); },
-        remove:function(id,cb){ var d=ld(); delete d.d[id]; delete d.v[id]; for(var k in d.f) if(k.indexOf(id+'_')==0) delete d.f[k]; sv(d); emit(); cb(null); } };
+        save:function(id,isNew,pub,pv,fotos,del,cb){ var d=ld(); if(isNew&&d.d[id]) return cb({message:'DPC ini sudah didaftarkan. Pakai tombol Ubah data dan kode ubah data DPC.'}); if(!pub.owner) pub.owner=uid; pv.owner=pub.owner; d.d[id]=pub; d.v[id]=pv; for(var n in fotos) d.f[n]={owner:pub.owner,d:fotos[n]}; for(var i=0;i<del.length;i++) delete d.f[del[i]]; sv(d); emit(); cb(null); },
+        remove:function(id,cb){ var d=ld(); delete d.d[id]; delete d.v[id]; for(var k in d.f) if(k.indexOf(id+'_')==0) delete d.f[k]; sv(d); emit(); cb(null); },
+        newKode:function(id,cb){ var d=ld(), K=mkKode(); d.k=d.k||{}; d.k[id+'_'+K]=1; if(d.v[id]) d.v[id].kode=K; sv(d); cb(null,K); },
+        klaimGet:function(cb){ var d=ld(); cb(((d.c||{})[uid])||''); },
+        claim:function(id,kode,cb){ var d=ld(); if(!(d.k||{})[id+'_'+kode]) return cb({message:'permission'}); d.c=d.c||{}; d.c[uid]=id; sv(d); cb(null); } };
     }
     firebase.initializeApp(FB); var fs=firebase.firestore(), au=firebase.auth(), uid=null, rcb=[];
     au.onAuthStateChanged(function(u){ if(u){ uid=u.uid; for(var i=0;i<rcb.length;i++) rcb[i](uid); rcb=[]; } else au.signInAnonymously().catch(function(e){ toast('Gagal tersambung: '+e.message); }); });
@@ -2702,30 +2770,34 @@ var KAT=[['men','Men Beginner','Ganda putra'],['mix','Mix Beginner','1 putra + 1
       cfg:function(cb){ fs.collection('pengaturan').doc('umum').get().then(function(d){ cb(d.exists?d.data():{}); }).catch(function(){ cb({}); }); },
       foto:function(id,cb){ if(FC[id]!=null) return cb(FC[id]); fs.collection('foto').doc(id).get().then(function(d){ FC[id]=d.exists?d.data().d:''; cb(FC[id]); }).catch(function(){ cb(''); }); },
       priv:function(id,cb){ fs.collection('privat').doc(id).get().then(function(d){ cb(d.exists?d.data():{}); }).catch(function(){ cb({}); }); },
-      save:function(id,isNew,pub,pv,fotos,del,cb){ pub.owner=uid; pv.owner=uid; var b=fs.batch(), n, i;
+      save:function(id,isNew,pub,pv,fotos,del,cb){ if(!pub.owner) pub.owner=uid; pv.owner=pub.owner; var b=fs.batch(), n, i;
         b.set(fs.collection('daftar').doc(id),pub); b.set(fs.collection('privat').doc(id),pv);
-        for(n in fotos){ b.set(fs.collection('foto').doc(n),{owner:uid,d:fotos[n]}); FC[n]=fotos[n]; }
+        for(n in fotos){ b.set(fs.collection('foto').doc(n),{owner:pub.owner,d:fotos[n]}); FC[n]=fotos[n]; }
         for(i=0;i<del.length;i++){ b.delete(fs.collection('foto').doc(del[i])); delete FC[del[i]]; }
         b.commit().then(function(){ cb(null); }).catch(function(e){ cb(isNew&&/permission/i.test(e.message)?{message:'DPC ini sudah didaftarkan oleh PIC lain, atau waktu pendaftaran sudah lewat. Hubungi narahubung panitia.'}:e); }); },
-      remove:function(id,cb){ var b=fs.batch(); b.delete(fs.collection('daftar').doc(id)); b.delete(fs.collection('privat').doc(id)); for(var k=0;k<KAT.length;k++) for(var n=1;n<=2;n++) b.delete(fs.collection('foto').doc(id+'_'+KAT[k][0]+'_'+n)); b.commit().then(function(){ cb(null); }).catch(function(e){ cb(e); }); } };
+      remove:function(id,cb){ var b=fs.batch(); b.delete(fs.collection('daftar').doc(id)); b.delete(fs.collection('privat').doc(id)); for(var k=0;k<KAT.length;k++) for(var n=1;n<=2;n++) b.delete(fs.collection('foto').doc(id+'_'+KAT[k][0]+'_'+n)); b.commit().then(function(){ cb(null); }).catch(function(e){ cb(e); }); },
+      // kode ubah data: kode/{dpc}_{KODE} hanya bisa dicek lewat rules (tidak bisa dibaca publik); klaim/{uid} = bukti perangkat ini tahu kodenya
+      newKode:function(id,cb){ var K=mkKode(); fs.collection('kode').doc(id+'_'+K).set({dpc:id,t:Date.now()}).then(function(){ return fs.collection('privat').doc(id).update({kode:K}); }).then(function(){ cb(null,K); }).catch(function(e){ cb(e); }); },
+      klaimGet:function(cb){ fs.collection('klaim').doc(uid).get().then(function(d){ cb(d.exists?(d.data().dpc||''):''); }).catch(function(){ cb(''); }); },
+      claim:function(id,kode,cb){ fs.collection('klaim').doc(uid).set({dpc:id,kode:kode,t:Date.now()}).then(function(){ cb(null); }).catch(function(e){ cb(e); }); } };
   })();
 
   // ---------- form
-  var EDIT=null, FOTO={}, ALL=[], VIEW='p', FD='', ADA={men:'',mix:'',women:''};
+  var EDIT=null, EDITK='', KLAIM='', FOTO={}, ALL=[], VIEW='p', FD='', ADA={men:'',mix:'',women:''};
   var o='<option value="">Pilih DPC</option>'; for(var i=0;i<DPCS.length;i++) o+='<option>'+DPCS[i]+'</option>'; $('dpc').innerHTML=o;
-  o='<option value="">Pilih jumlah</option>'; for(i=0;i<=10;i++) o+='<option value="'+i+'">'+(i?i+' orang':'Tidak ada pendamping')+'</option>'; $('pdn').innerHTML=o;
-  var PDV=[];
+  o='<option value="">Pilih jumlah</option>'; for(i=0;i<=10;i++) o+='<option value="'+i+'">'+(i?i+' orang':'Tidak ada supporter')+'</option>'; $('pdn').innerHTML=o;
+  var PDV=[], KTAH='Format xx/xx/xx/xx/xxx (11 angka), boleh tanpa garis miring.', FFH='Wajib. Foto yang terlihat wajah; tidak harus pas foto.';
   function pdKeep(){ var n=PDV.length; for(var i=0;i<n;i++){ var e=$('pd'+i); if(e) PDV[i]=e.value; } }
   window.__pdn=function(keep){ pdKeep(); var n=parseInt($('pdn').value,10)||0, h=''; while(PDV.length<n) PDV.push('');
-    for(var i=0;i<n;i++) h+='<div class="fc"><label class="fl" for="pd'+i+'">Nama pendamping '+(i+1)+'</label><input class="in2" id="pd'+i+'" maxlength="60" placeholder="Nama lengkap" value="'+esc(PDV[i]||'')+'"><span class="hint" id="e-pd'+i+'"></span></div>';
+    for(var i=0;i<n;i++) h+='<div class="fc"><label class="fl" for="pd'+i+'">Nama supporter '+(i+1)+'</label><input class="in2" id="pd'+i+'" maxlength="60" placeholder="Nama lengkap" value="'+esc(PDV[i]||'')+'"><span class="hint" id="e-pd'+i+'"></span></div>';
     $('pdl').innerHTML=h; $('e-pdn').innerHTML=''; $('e-pdn').className='hint'; $('pdn').className='in2'; };
   function waN(w){ w=String(w||'').replace(/[^0-9]/g,''); if(w.indexOf('62')==0) w='0'+w.slice(2); return w; }
   function sha(t,cb){ try{ crypto.subtle.digest('SHA-256',new TextEncoder().encode(t)).then(function(b){ var a=new Uint8Array(b), h=''; for(var i=0;i<a.length;i++) h+=(a[i]<16?'0':'')+a[i].toString(16); cb(h); },function(){ cb(''); }); }catch(e){ cb(''); } }
   function plHtml(k,n){ var id=k+n; return '<div class="pc2"><div class="pl"><div class="ph">Pemain '+n+'</div>'+
-    '<div class="fotoc"><label class="fotob" id="fp'+id+'" for="ff'+id+'"><span>+ Foto</span></label><input type="file" accept="image/*" id="ff'+id+'" onchange="__foto(\''+k+'\','+n+',this)" class="fhid"><span class="hint" id="e-ff'+id+'">Wajib. Tidak harus pas foto.</span></div>'+
+    '<div class="fotoc"><label class="fotob" id="fp'+id+'" for="ff'+id+'"><span>+ Foto</span></label><input type="file" accept="image/*" id="ff'+id+'" onchange="__foto(\''+k+'\','+n+',this)" class="fhid"><span class="hint" id="e-ff'+id+'">'+FFH+'</span></div>'+
     '<label class="fl" for="nm'+id+'">Nama lengkap</label><input class="in2" id="nm'+id+'" maxlength="60" placeholder="Sesuai KTA"><span class="hint" id="e-nm'+id+'"></span>'+
     '<label class="fl" for="pg'+id+'">Nama panggilan <i>(untuk jersey)</i></label><input class="in2" id="pg'+id+'" maxlength="14" placeholder="Maks. 14 huruf"><span class="hint" id="e-pg'+id+'"></span>'+
-    '<label class="fl" for="kta'+id+'">Nomor KTA Hiswana</label><input class="in2" id="kta'+id+'" inputmode="numeric" maxlength="16" placeholder="05/09/01/09/036" oninput="__kta(this)"><span class="hint" id="e-kta'+id+'">05/09/01/09/036 atau tanpa garis miring</span>'+
+    '<label class="fl" for="kta'+id+'">Nomor KTA Hiswana</label><input class="in2" id="kta'+id+'" inputmode="numeric" maxlength="16" placeholder="xx/xx/xx/xx/xxx" oninput="__kta(this)"><span class="hint" id="e-kta'+id+'">'+KTAH+'</span>'+
     '<label class="fl" for="wp'+id+'">No. WhatsApp peserta</label><input class="in2" id="wp'+id+'" maxlength="20" inputmode="tel" placeholder="08xx"><span class="hint" id="e-wp'+id+'"></span>'+
     '<label class="fl" for="rc'+id+'">Link profil Reclub <i>(opsional)</i></label><input class="in2" id="rc'+id+'" maxlength="200" placeholder="https://reclub.co/..."><span class="hint" id="e-rc'+id+'">Opsional, bila punya.</span>'+
     '</div></div>'; }
@@ -2740,13 +2812,13 @@ var KAT=[['men','Men Beginner','Ganda putra'],['mix','Mix Beginner','1 putra + 1
     var r=new FileReader(); r.onload=function(){ var im=new Image(); im.onload=function(){ var M=480, w=im.width, hh=im.height, s=Math.min(1,M/Math.max(w,hh)), c=document.createElement('canvas'); c.width=Math.round(w*s); c.height=Math.round(hh*s); c.getContext('2d').drawImage(im,0,0,c.width,c.height); var q=0.82, u=c.toDataURL('image/jpeg',q); while(u.length>200000&&q>0.4){ q-=0.1; u=c.toDataURL('image/jpeg',q); } FOTO[id]=u; $('fp'+id).style.backgroundImage='url('+u+')'; $('fp'+id).className='fotob has'; $('e-ff'+id).className='hint'; $('e-ff'+id).innerHTML='Foto siap. Klik foto untuk mengganti.'; }; im.onerror=function(){ $('e-ff'+id).innerHTML='Gambar tidak bisa dibaca. Coba foto lain (JPG/PNG).'; $('e-ff'+id).className='hint err'; }; im.src=r.result; }; r.readAsDataURL(f); };
   function tr(s){ return String(s||'').replace(/^\s+|\s+$/g,''); }
   function err(id,m){ var e=$('e-'+id); if(e){ e.innerHTML=m; e.className='hint err'; } var f=$(id); if(f&&f.className.indexOf('in2')>=0) f.className='in2 err'; return 1; }
-  function clr(){ var els=document.querySelectorAll('#form .in2'); for(var i=0;i<els.length;i++) els[i].className='in2'; var hs=document.querySelectorAll('#form .hint.err'); for(i=0;i<hs.length;i++){ hs[i].className='hint'; if(/^e-(dpc|pic|wa|em|nm|pg|wp|ada|kats|pd)/.test(hs[i].id)) hs[i].innerHTML=''; if(/^e-kta/.test(hs[i].id)) hs[i].innerHTML='05/09/01/09/036 atau tanpa garis miring'; if(/^e-rc/.test(hs[i].id)) hs[i].innerHTML='Opsional, bila punya.'; if(/^e-ff/.test(hs[i].id)) hs[i].innerHTML='Wajib. Tidak harus pas foto.'; } }
+  function clr(){ var els=document.querySelectorAll('#form .in2'); for(var i=0;i<els.length;i++) els[i].className='in2'; var hs=document.querySelectorAll('#form .hint.err'); for(i=0;i<hs.length;i++){ hs[i].className='hint'; if(/^e-(dpc|pic|wa|em|nm|pg|wp|ada|kats|pd)/.test(hs[i].id)) hs[i].innerHTML=''; if(/^e-kta/.test(hs[i].id)) hs[i].innerHTML=KTAH; if(/^e-rc/.test(hs[i].id)) hs[i].innerHTML='Opsional, bila punya.'; if(/^e-ff/.test(hs[i].id)) hs[i].innerHTML=FFH; } }
   function taken(d){ for(var i=0;i<ALL.length;i++) if(ALL[i].dpc==d&&(!EDIT||ALL[i].id!=EDIT.id)) return ALL[i]; return null; }
-  window.__dpcChk=function(){ var t=taken($('dpc').value); if(t){ err('dpc','DPC '+esc(t.dpc)+' sudah didaftarkan oleh '+esc(t.pic)+'. Hubungi narahubung panitia bila perlu diubah.'); } else { $('e-dpc').innerHTML=''; $('e-dpc').className='hint'; $('dpc').className='in2'; } };
+  window.__dpcChk=function(){ var t=taken($('dpc').value); if(t){ err('dpc','DPC '+esc(t.dpc)+' sudah didaftarkan oleh '+esc(t.pic)+'. Untuk mengubah data, pakai tombol <b>Ubah data</b> dan kode ubah data DPC.'); } else { $('e-dpc').innerHTML=''; $('e-dpc').className='hint'; $('dpc').className='in2'; } };
   window.__save=function(){
     if(!open()){ toast('Pendaftaran sudah ditutup'); return; }
     clr(); var bad=0, dpc=$('dpc').value, pic=tr($('pic').value), wa=$('wa').value.replace(/[^0-9+]/g,''), em=tr($('em').value);
-    if(!dpc) bad+=err('dpc','Pilih DPC.'); else if(taken(dpc)) bad+=err('dpc','DPC ini sudah didaftarkan. Hubungi narahubung panitia.');
+    if(!dpc) bad+=err('dpc','Pilih DPC.'); else if(taken(dpc)) bad+=err('dpc','DPC ini sudah didaftarkan. Pakai tombol Ubah data dan kode ubah data DPC.');
     if(pic.length<3) bad+=err('pic','Isi nama PIC.');
     if(wa.replace(/[^0-9]/g,'').length<9) bad+=err('wa','Isi nomor WhatsApp PIC yang aktif.');
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) bad+=err('em','Isi email DPC yang valid.');
@@ -2758,58 +2830,84 @@ var KAT=[['men','Men Beginner','Ganda putra'],['mix','Mix Beginner','1 putra + 1
       for(var n=1;n<=2;n++){ var id=k+n, nm=tr($('nm'+id).value), pg=tr($('pg'+id).value), kd=$('kta'+id).value.replace(/[^0-9]/g,''), wp=$('wp'+id).value.replace(/[^0-9+]/g,''), rc=tr($('rc'+id).value);
         if(nm.length<3) bad+=err('nm'+id,'Isi nama lengkap.');
         if(pg.length<2) bad+=err('pg'+id,'Isi nama panggilan untuk jersey.');
-        if(kd.length!=11) bad+=err('kta'+id,'Nomor KTA harus 11 angka, misalnya 05/09/01/09/036.'); else if(ktaAll.indexOf(kd)>=0) bad+=err('kta'+id,'Nomor KTA ini sudah dipakai pemain lain di formulir ini.'); else ktaAll.push(kd);
+        if(kd.length!=11) bad+=err('kta'+id,'Nomor KTA harus 11 angka, format xx/xx/xx/xx/xxx.'); else if(ktaAll.indexOf(kd)>=0) bad+=err('kta'+id,'Nomor KTA ini sudah dipakai pemain lain di formulir ini.'); else ktaAll.push(kd);
         if(wp.replace(/[^0-9]/g,'').length<9) bad+=err('wp'+id,'Isi nomor WhatsApp peserta.');
         if(rc&&!/^https?:\/\/\S+\.\S+/.test(rc)) bad+=err('rc'+id,'Link harus diawali https://');
         var had=EDIT&&EDIT.kat&&EDIT.kat[k]&&EDIT.kat[k].ada&&EDIT.kat[k].p&&EDIT.kat[k].p[n-1]&&EDIT.kat[k].p[n-1].f;
-        if(!FOTO[id]&&!had){ $('e-ff'+id).innerHTML='Wajib melampirkan foto.'; $('e-ff'+id).className='hint err'; bad++; }
+        if(!FOTO[id]&&!had){ $('e-ff'+id).innerHTML='Wajib melampirkan foto yang terlihat wajah.'; $('e-ff'+id).className='hint err'; bad++; }
         P.push({nama:nm,panggilan:pg,reclub:rc,f:true}); V.push({kta:kd.substr(0,2)+'/'+kd.substr(2,2)+'/'+kd.substr(4,2)+'/'+kd.substr(6,2)+'/'+kd.substr(8,3),wa:wp});
         if(FOTO[id]) fotos[slug(dpc)+'_'+k+'_'+n]=FOTO[id]; }
       pub.kat[k]={ada:true,p:P}; pv.kat[k]=V; }
     var pdn=$('pdn').value, PD={n:0,nama:[]};
-    if(pdn===''){ bad+=err('pdn','Pilih jumlah pendamping (pilih "Tidak ada pendamping" bila tidak ada).'); }
-    else { pdKeep(); PD.n=parseInt(pdn,10); for(var q=0;q<PD.n;q++){ var pn=tr($('pd'+q).value); if(pn.length<3) bad+=err('pd'+q,'Isi nama pendamping.'); PD.nama.push(pn); } }
+    if(pdn===''){ bad+=err('pdn','Pilih jumlah supporter (pilih "Tidak ada supporter" bila tidak ada).'); }
+    else { pdKeep(); PD.n=parseInt(pdn,10); for(var q=0;q<PD.n;q++){ var pn=tr($('pd'+q).value); if(pn.length<3) bad+=err('pd'+q,'Isi nama supporter.'); PD.nama.push(pn); } }
     pub.pd=PD;
     if(!bad&&!any){ $('e-kats').innerHTML='Pilih Ada pada minimal satu kategori.'; $('e-kats').className='hint err'; bad++; }
     if(bad){ $('fmsg').innerHTML='<div class="note warn">Periksa kembali '+bad+' isian yang ditandai merah.</div>'; return; }
     var id0=slug(dpc), isNew=!EDIT;
     if(EDIT&&EDIT.id!=id0){ toast('DPC tidak bisa diganti saat mengubah data'); return; }
+    if(EDIT){ pub.owner=EDIT.owner||''; if(EDITK) pv.kode=EDITK; }
     $('save').disabled=true; $('save').innerHTML='Menyimpan...';
     sha('hpc|'+id0+'|'+waN(wa),function(wh){ pub.wh=wh;
     DB.save(id0,isNew,pub,pv,fotos,del,function(e){ $('save').disabled=false; $('save').innerHTML=EDIT?'Simpan perubahan':'Daftar';
       if(e){ $('fmsg').innerHTML='<div class="note warn">Gagal menyimpan: '+esc(e.message||e)+'</div>'; return; }
-      toast(EDIT?'Perubahan tersimpan':'Pendaftaran terkirim'); __reset(); $('fmsg').innerHTML='<div class="note ok">Pendaftaran DPC '+esc(dpc)+' tersimpan. Data masih bisa diubah lewat kotak di atas sampai 10 November 2026.</div>'; location.hash='daftar'; }); });
+      var wasEdit=!!EDIT, K0=EDITK; toast(wasEdit?'Perubahan tersimpan':'Pendaftaran terkirim'); __reset();
+      function done(K){ $('fmsg').innerHTML='<div class="note ok">'+(wasEdit?'Perubahan data DPC '+esc(dpc)+' tersimpan.':'Pendaftaran DPC '+esc(dpc)+' tersimpan.')+' Data masih bisa diubah sampai 10 November 2026 pukul 23.59 WIB.</div>'+(K?kodeBox(dpc,K,wa):''); $('fmsg').scrollIntoView(); }
+      if(wasEdit) return done(K0);
+      DB.newKode(id0,function(e2,K){ if(e2){ done(''); $('fmsg').innerHTML+='<div class="note warn">Kode ubah data belum bisa dibuat. Data tetap bisa diubah dari HP/browser ini; untuk kode, hubungi narahubung.</div>'; return; } done(K); render(); }); }); });
   };
-  window.__reset=function(){ EDIT=null; FOTO={}; PDV=[]; if($('pdl')) $('pdl').innerHTML=''; ADA={men:'',mix:'',women:''}; $('form').reset(); for(var i=0;i<KAT.length;i++){ var k=KAT[i][0]; $('kbb-'+k).style.display='none'; $('kb-'+k).className='kb'; for(var n=1;n<=2;n++){ $('fp'+k+n).style.backgroundImage=''; $('fp'+k+n).className='fotob'; } } clr(); $('dpc').disabled=false; $('save').innerHTML='Daftar'; $('cancel').style.display='none'; $('fmsg').innerHTML=''; };
+  function kodeBox(dpc,K,wa){ var t='Kode ubah data pendaftaran Turnamen Padel DPC '+dpc+': '+kodeShow(K)+' (simpan, jangan dibagikan). '+location.href.split('#')[0], w=waN(wa); if(w.indexOf('0')==0) w='62'+w.slice(1);
+    return '<div class="kodebox"><div class="lbl">Kode ubah data DPC '+esc(dpc)+'</div><span class="kodev">'+kodeShow(K)+'</span><div class="small">Simpan kode ini. Dengan kode ini data bisa diubah dari HP atau browser mana pun. Jangan bagikan ke orang lain.</div><button type="button" class="btn nv" onclick="__copy(\''+kodeShow(K)+'\')">Salin kode</button>'+(w.length>=10?'<a class="btn ln" target="_blank" rel="noopener" href="https://wa.me/'+w+'?text='+encodeURIComponent(t)+'">Simpan ke WhatsApp saya</a>':'')+'</div>'; }
+  window.__copy=function(t){ function ok(){ toast('Kode disalin'); } try{ navigator.clipboard.writeText(t).then(ok,function(){ window.prompt('Salin kode ini:',t); }); }catch(e){ window.prompt('Salin kode ini:',t); } };
+  window.__reset=function(){ EDIT=null; EDITK=''; FOTO={}; PDV=[]; if($('pdl')) $('pdl').innerHTML=''; ADA={men:'',mix:'',women:''}; $('form').reset(); for(var i=0;i<KAT.length;i++){ var k=KAT[i][0]; $('kbb-'+k).style.display='none'; $('kb-'+k).className='kb'; for(var n=1;n<=2;n++){ $('fp'+k+n).style.backgroundImage=''; $('fp'+k+n).className='fotob'; } } clr(); $('dpc').disabled=false; $('save').innerHTML='Daftar'; $('cancel').style.display='none'; $('fmsg').innerHTML=''; };
   window.__edit=function(id){ if(!open()) return; var x=null; for(var i=0;i<ALL.length;i++) if(ALL[i].id==id) x=ALL[i]; if(!x) return; __reset(); EDIT=x;
     $('dpc').value=x.dpc; $('dpc').disabled=true; $('pic').value=x.pic||'';
     var pd=x.pd||null; PDV=pd&&pd.nama?pd.nama.slice():[]; $('pdn').value=pd?String(pd.n||0):''; __pdn();
-    DB.priv(id,function(v){ $('wa').value=v.wa||''; $('em').value=v.email||'';
+    DB.priv(id,function(v){ EDITK=v.kode||''; $('wa').value=v.wa||''; $('em').value=v.email||'';
       for(var i=0;i<KAT.length;i++){ var k=KAT[i][0], c=x.kat&&x.kat[k]; if(!c) continue; setAda(k,c.ada?'1':'0'); if(!c.ada) continue;
         for(var n=1;n<=2;n++){ var p=(c.p||[])[n-1]||{}, q=((v.kat||{})[k]||[])[n-1]||{}, idd=k+n; $('nm'+idd).value=p.nama||''; $('pg'+idd).value=p.panggilan||''; $('rc'+idd).value=p.reclub||''; $('kta'+idd).value=q.kta||''; $('wp'+idd).value=q.wa||'';
           (function(idd,fid){ DB.foto(fid,function(d){ if(d){ $('fp'+idd).style.backgroundImage='url('+d+')'; $('fp'+idd).className='fotob has'; $('e-ff'+idd).innerHTML='Foto sudah ada. Klik foto untuk mengganti.'; } }); })(idd,id+'_'+k+'_'+n); } } });
     $('save').innerHTML='Simpan perubahan'; $('cancel').style.display='inline-block'; $('daftar').scrollIntoView(); };
   window.__del=function(id){ if(!open()) return; if(!window.confirm('Hapus seluruh pendaftaran DPC ini?')) return; DB.remove(id,function(e){ toast(e?'Gagal menghapus':'Pendaftaran dihapus'); if(EDIT&&EDIT.id==id) __reset(); }); };
 
+  window.__mkKode=function(id){ DB.newKode(id,function(e,K){ if(e){ toast('Gagal membuat kode'); return; } var x=null; for(var i=0;i<ALL.length;i++) if(ALL[i].id==id) x=ALL[i]; DB.priv(id,function(v){ $('fmsg').innerHTML=kodeBox(x?x.dpc:id,K,v.wa); $('fmsg').scrollIntoView(); }); render(); }); };
+  // ---------- ubah data dari HP/browser lain
+  (function(){ var o='<option value="">Pilih DPC</option>'; for(var i=0;i<DPCS.length;i++) o+='<option>'+DPCS[i]+'</option>'; $('ubD').innerHTML=o; })();
+  window.__ubOpen=function(v){ var on=v!==0; $('ubForm').style.display=on?'block':'none'; $('ubBtn').style.display=on?'none':'inline-block'; if(on) $('ubD').focus(); };
+  window.__kodeFmt=function(el){ var k=el.value.toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,8); el.value=k.length>4?k.slice(0,4)+'-'+k.slice(4):k; };
+  window.__ubGo=function(){ var d=$('ubD').value, K=$('ubK').value.toUpperCase().replace(/[^A-Z0-9]/g,''), x=null, i;
+    function no(m){ $('e-ub').innerHTML=m; $('e-ub').className='hint err'; }
+    if(!open()){ no('Masa ubah data sudah berakhir.'); return false; }
+    for(i=0;i<ALL.length;i++) if(ALL[i].dpc==d) x=ALL[i];
+    if(!d){ no('Pilih DPC.'); return false; } if(!x){ no('DPC '+esc(d)+' belum terdaftar. Silakan daftar lewat formulir di bawah.'); return false; }
+    function go(){ $('e-ub').className='hint'; $('e-ub').innerHTML='Kode cocok.'; $('ubK').value=''; __ubOpen(0); render(); __edit(x.id); toast('Data DPC '+x.dpc+' dibuka'); }
+    if(x.owner==DB.uid()||x.id==KLAIM){ go(); return false; }
+    if(K.length!=8){ no('Kode ubah data terdiri dari 8 huruf/angka, misalnya ABCD-2345.'); return false; }
+    $('ubGo').disabled=true; $('ubGo').innerHTML='Memeriksa...';
+    DB.claim(x.id,K,function(e){ $('ubGo').disabled=false; $('ubGo').innerHTML='Buka data'; if(e){ no('Kode tidak cocok untuk DPC '+esc(d)+'. Periksa kembali, atau hubungi narahubung.'); return; } KLAIM=x.id; go(); });
+    return false; };
   // ---------- list
   function avatar(fid){ var aid='av-'+fid; setTimeout(function(){ DB.foto(fid,function(d){ var e=document.getElementById(aid); if(e&&d) e.style.backgroundImage='url('+d+')'; }); },0); return '<span class="av" id="'+aid+'"></span>'; }
   function rcl(p){ return p.reclub?' · <a href="'+esc(p.reclub)+'" target="_blank" rel="noopener">Reclub</a>':''; }
   function pairs(){ var R=[]; for(var i=0;i<ALL.length;i++){ var x=ALL[i]; for(var j=0;j<KAT.length;j++){ var c=x.kat&&x.kat[KAT[j][0]]; if(c&&c.ada) R.push({x:x,k:KAT[j][0],kn:KAT[j][1],p:c.p||[]}); } } return R; }
   function render(){
     var uid=DB.uid(), mine=[], i, j, h='';
-    for(i=0;i<ALL.length;i++) if(ALL[i].owner==uid) mine.push(ALL[i]);
+    for(i=0;i<ALL.length;i++) if(ALL[i].owner==uid||ALL[i].id==KLAIM) mine.push(ALL[i]);
     bcRender();
-    if(mine.length){ h='<div class="mine"><b>Pendaftaran yang Anda kirim dari perangkat ini</b>'+(open()?'':' · masa ubah data sudah berakhir')+'<div class="tbl"><table><tr><th>DPC</th><th>Kategori</th><th></th></tr>';
-      for(i=0;i<mine.length;i++){ var m=mine[i], ks=[]; for(j=0;j<KAT.length;j++) if(m.kat&&m.kat[KAT[j][0]]&&m.kat[KAT[j][0]].ada) ks.push(KAT[j][1].replace(' Beginner','')); if(m.pd&&m.pd.n) ks.push(m.pd.n+' pendamping');
-        h+='<tr><td><b>'+esc(m.dpc)+'</b><br><span class="small muted">PIC '+esc(m.pic)+'</span></td><td>'+(ks.join(', ')||'-')+'</td><td style="white-space:nowrap;text-align:right">'+(open()?'<button type="button" class="btn sm ln" onclick="__edit(\''+m.id+'\')">Ubah</button><button type="button" class="btn sm red" onclick="__del(\''+m.id+'\')">Hapus</button>':'')+'</td></tr>'; }
-      $('mine').innerHTML=h+'</table></div></div>'; } else $('mine').innerHTML='';
+    if(mine.length){ h='<div class="mine"><b>Pendaftaran yang bisa Anda ubah dari HP/browser ini</b>'+(open()?'':' · masa ubah data sudah berakhir')+'<div class="tbl"><table><tr><th>DPC</th><th>Kategori</th><th></th></tr>';
+      for(i=0;i<mine.length;i++){ var m=mine[i], ks=[]; for(j=0;j<KAT.length;j++) if(m.kat&&m.kat[KAT[j][0]]&&m.kat[KAT[j][0]].ada) ks.push(KAT[j][1].replace(' Beginner','')); if(m.pd&&m.pd.n) ks.push(m.pd.n+' supporter');
+        h+='<tr><td><b>'+esc(m.dpc)+'</b><br><span class="small muted">PIC '+esc(m.pic)+'</span><br><span class="small" id="mk-'+m.id+'"></span></td><td>'+(ks.join(', ')||'-')+'</td><td style="white-space:nowrap;text-align:right">'+(open()?'<button type="button" class="btn sm ln" onclick="__edit(\''+m.id+'\')">Ubah</button><button type="button" class="btn sm red" onclick="__del(\''+m.id+'\')">Hapus</button>':'')+'</td></tr>'; }
+      $('mine').innerHTML=h+'</table></div></div>';
+      for(i=0;i<mine.length;i++) (function(m){ DB.priv(m.id,function(v){ var e=$('mk-'+m.id); if(!e) return; if(v.kode) e.innerHTML='Kode ubah data: <span class="mk">'+kodeShow(v.kode)+'</span> <a href="javascript:void(0)" onclick="__copy(\''+kodeShow(v.kode)+'\')">salin</a>'; else if(open()&&m.owner==uid) e.innerHTML='<a href="javascript:void(0)" onclick="__mkKode(\''+m.id+'\')">Buat kode ubah data</a> agar bisa diubah dari HP lain'; }); })(mine[i]);
+    } else $('mine').innerHTML='';
   }
-  var FRM=$('form'); function unErr(ev){ ev=ev||window.event; var el=ev.target||ev.srcElement; if(!el||!el.id) return; if(el.className=='in2 err') el.className='in2'; var hh=$('e-'+el.id); if(hh&&hh.className=='hint err'){ hh.className='hint'; hh.innerHTML=/^kta/.test(el.id)?'05/09/01/09/036 atau tanpa garis miring':(/^rc/.test(el.id)?'Opsional, bila punya.':''); } }
+  var FRM=$('form'); function unErr(ev){ ev=ev||window.event; var el=ev.target||ev.srcElement; if(!el||!el.id) return; if(el.className=='in2 err') el.className='in2'; var hh=$('e-'+el.id); if(hh&&hh.className=='hint err'){ hh.className='hint'; hh.innerHTML=/^kta/.test(el.id)?KTAH:(/^rc/.test(el.id)?'Opsional, bila punya.':''); } }
   if(FRM.addEventListener){ FRM.addEventListener('input',unErr,false); FRM.addEventListener('change',unErr,false); }
   // ---------- barcode
   var CFG=null, BCX=null;
   function bcRender(){ var el=$('bcBox'); if(!el||CFG===null) return;
-    if(!CFG.barcode){ el.innerHTML='<div class="note" style="margin:0">Barcode belum bisa diunduh. Barcode tersedia setelah pendaftaran fase 1 ditutup atau saat technical meeting (tanggal menyusul). PIC akan diberi tahu panitia.</div>'; $('bcOut').innerHTML=''; return; }
+    if(!CFG.barcode){ el.innerHTML=''; $('bcOut').innerHTML=''; $('bcSoon').style.display=''; return; }
+    $('bcSoon').style.display='none';
     if(el.getAttribute('data-on')) return; el.setAttribute('data-on','1');
     var o='<option value="">Pilih DPC</option>'; for(var i=0;i<DPCS.length;i++) o+='<option>'+DPCS[i]+'</option>';
     el.innerHTML='<div class="small muted" style="margin-bottom:10px">Masukkan DPC dan nomor WhatsApp PIC yang dipakai saat mendaftar.</div><form class="bcf" onsubmit="return __bc()"><div class="fc"><select class="in2" id="bcD">'+o+'</select></div><div class="fc"><input class="in2" id="bcW" inputmode="tel" maxlength="20" placeholder="No. WhatsApp PIC"></div><div class="fc"><button type="submit" class="btn nv" style="margin:0">Tampilkan barcode</button></div></form><span class="hint" id="e-bc"></span>'; }
@@ -2817,19 +2915,22 @@ var KAT=[['men','Men Beginner','Ganda putra'],['mix','Mix Beginner','1 putra + 1
   window.__bc=function(){ var d=$('bcD').value, w=waN($('bcW').value), x=null; for(var i=0;i<ALL.length;i++) if(ALL[i].dpc==d) x=ALL[i];
     function no(m){ $('e-bc').innerHTML=m; $('e-bc').className='hint err'; $('bcOut').innerHTML=''; }
     if(!d) return no('Pilih DPC.'), false; if(!x) return no('DPC '+esc(d)+' belum terdaftar.'), false;
-    if(x.owner&&x.owner==DB.uid()){ bcShow(x); return false; }
+    if((x.owner&&x.owner==DB.uid())||x.id==KLAIM){ bcShow(x); return false; }
     if(w.length<9) return no('Isi nomor WhatsApp PIC.'), false;
     sha('hpc|'+x.id+'|'+w,function(h){ if(h&&x.wh&&h==x.wh) bcShow(x); else no('Nomor WhatsApp tidak cocok dengan data PIC DPC '+esc(d)+'. Hubungi narahubung panitia.'); });
     return false; };
   DB.cfg(function(c){ CFG=c||{}; bcRender(); });
 
-  if(!open()){ $('closed').style.display='block'; $('closed').innerHTML='Pendaftaran fase 1 dan perubahan data sudah ditutup (batas 10 November 2026 pukul 23.59 WIB). Hubungi narahubung panitia bila ada kendala.'; $('form').style.display='none'; }
-  DB.ready(function(){ DB.listen(function(a){ ALL=a; render(); }); });
-  var secs=['info','kategori','aturan','alur','tanya','daftar'];
-  function onScroll(){ var y=(window.pageYOffset||document.documentElement.scrollTop)+90, cur='', i; for(i=0;i<secs.length;i++){ var e=$(secs[i]); if(e&&e.offsetTop<=y) cur=secs[i]; } var as=$('nav').getElementsByTagName('a'); for(i=0;i<as.length;i++){ var on=as[i].getAttribute('href')=='#'+cur; as[i].className=(as[i].className.indexOf('reg')>=0?'reg':'')+(on?' on':''); } }
-  if(window.addEventListener) window.addEventListener('scroll',onScroll,false); onScroll();
+  if(!open()){ $('closed').style.display='block'; $('closed').innerHTML='Pendaftaran dan perubahan data sudah ditutup (batas 10 November 2026 pukul 23.59 WIB). Hubungi narahubung panitia bila ada kendala.'; $('form').style.display='none'; }
+  DB.ready(function(){ DB.klaimGet(function(k){ KLAIM=k||''; DB.listen(function(a){ ALL=a; render(); }); }); });
+  var secs=['info','aturan','kategori','daftar','barcode','kontak'];
+  function isFaq(){ return location.hash=='#faq'; }
+  function route(){ var f=isFaq(); $('main').style.display=f?'none':'block'; $('faqv').style.display=f?'block':'none';
+    if(f){ window.scrollTo(0,$('nav').offsetTop); } else if(location.hash.length>1){ var t=document.getElementById(location.hash.slice(1)); if(t) setTimeout(function(){ t.scrollIntoView(); },0); } onScroll(); }
+  function onScroll(){ var y=(window.pageYOffset||document.documentElement.scrollTop)+90, cur='', i; if(isFaq()) cur='faq'; else for(i=0;i<secs.length;i++){ var e=$(secs[i]); if(e&&e.offsetTop<=y) cur=secs[i]; } if(cur=='barcode') cur='daftar'; var as=$('nav').getElementsByTagName('a'); for(i=0;i<as.length;i++){ var on=as[i].getAttribute('href')=='#'+cur; as[i].className=(as[i].className.indexOf('reg')>=0?'reg':'')+(on?' on':''); } }
+  if(window.addEventListener){ window.addEventListener('scroll',onScroll,false); window.addEventListener('hashchange',route,false); } route();
 })();
 </script>
-<script src="faq.js?v=1"></script>
+<script src="faq.js?v=2"></script>
 </body>
 </html>

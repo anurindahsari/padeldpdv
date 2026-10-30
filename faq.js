@@ -1,9 +1,9 @@
-/* Tanya panitia — FAQ turnamen padel.
+/* FAQ turnamen padel.
    Untuk menambah pertanyaan: tambahkan satu objek di FAQ.
    q = pertanyaan, a = jawaban (boleh HTML sederhana), k = kata kunci (huruf kecil). */
 var FAQ = [
   {q:'Kapan dan di mana turnamennya?',
-   a:'Turnamen berlangsung <b>satu hari</b> di <b>Surabaya</b>. Tanggal dan lapangan masih menyusul dan akan diumumkan bersamaan.',
+   a:'Tanggal dan lokasi masih <b>menyusul</b> dan akan diumumkan bersamaan.',
    k:['kapan','tanggal','jadwal','dimana','lokasi','venue','tempat','lapangan','court','surabaya','alamat','turnamen','acara','event']},
   {q:'Berapa biaya pendaftarannya?',
    a:'<b>Gratis.</b> Peserta tidak dipungut biaya.',
@@ -12,7 +12,7 @@ var FAQ = [
    a:'Setiap pemain wajib <b>anggota Hiswana Migas</b> dan mencantumkan nomor KTA saat didaftarkan.',
    k:['syarat','anggota','member','umum','luar','non','peserta']},
   {q:'Di mana saya bisa melihat nomor KTA?',
-   a:'Nomor KTA tertera di Kartu Tanda Anggota Hiswana Migas, formatnya seperti <b>05/09/01/09/036</b>. Bila tidak tahu, tanyakan ke sekretariat DPC Anda.',
+   a:'Nomor KTA tertera di Kartu Tanda Anggota Hiswana Migas, formatnya <b>xx/xx/xx/xx/xxx</b> (11 angka). Bila tidak tahu, tanyakan ke sekretariat DPC Anda.',
    k:['kta','nomor','kartu','lihat','lupa','cek']},
   {q:'Kategori apa saja yang dipertandingkan?',
    a:'Tiga kategori, semuanya level beginner: <b>Men Beginner</b> (ganda putra), <b>Mix Beginner</b> (1 putra + 1 putri), dan <b>Women Beginner</b> (ganda putri).',
@@ -24,28 +24,31 @@ var FAQ = [
    a:'Tidak. Setiap pemain hanya boleh ikut <b>satu kategori</b>.',
    k:['dua','lebih','rangkap','double','dobel','merangkap','sekaligus','kategori','men','mix','women']},
   {q:'Berapa pasangan yang bisa dikirim setiap DPC?',
-   a:'Di fase 1, setiap DPC mendapat <b>1 slot di tiap kategori</b>: Men, Mix, dan Women.',
-   k:['pasangan','pasang','slot','kuota','jumlah','dpc','tim','kirim','wakil','perwakilan','fase']},
+   a:'Setiap DPC mendapat <b>1 slot di tiap kategori</b>: Men, Mix, dan Women.',
+   k:['pasangan','pasang','slot','kuota','jumlah','dpc','tim','kirim','wakil','perwakilan']},
   {q:'Siapa yang mengisi formulir pendaftaran?',
    a:'<b>PIC DPC</b>. Satu formulir untuk satu DPC, sekaligus semua kategori. PIC tidak harus ikut bertanding dan menjadi narahubung panitia untuk DPC-nya.',
    k:['daftar','mendaftar','formulir','form','isi','pic','online','web']},
   {q:'Sampai kapan pendaftaran dan bisakah data diubah?',
-   a:'Data bisa diubah sampai <b>10 November 2026 pukul 23.59 WIB</b>, dari perangkat (HP/laptop) yang sama dengan saat mendaftar. Setelah itu data terkunci.',
+   a:'Data bisa diubah sampai <b>10 November 2026 pukul 23.59 WIB</b>, dari HP atau browser mana pun. Di bagian Daftar, tekan <b>Ubah data</b>, pilih DPC, lalu masukkan <b>kode ubah data</b> yang muncul saat pertama kali mendaftar. Setelah batas waktu, data terkunci.',
    k:['batas','deadline','tutup','sampai','ubah','edit','ganti','koreksi','salah','revisi','terakhir','10','november']},
-  {q:'Saya ganti HP atau perlu mengubah data setelah batas waktu. Bagaimana?',
-   a:'Data hanya bisa diubah dari perangkat yang sama dan sebelum 10 Nov 2026 23.59 WIB. Untuk kasus lain, chat narahubung lewat WhatsApp.',
-   k:['hp','perangkat','laptop','device','terkunci','lewat','tukar','cadangan','pengganti']},
+  {q:'Saya lupa atau kehilangan kode ubah data. Bagaimana?',
+   a:'Kode ubah data bisa dilihat lagi di bagian Daftar bila dibuka dari HP/browser yang dipakai saat mendaftar. Bila tidak bisa, chat narahubung lewat WhatsApp; panitia akan mengirimkan kode ke PIC DPC yang terdaftar.',
+   k:['kode','lupa','hilang','hp','perangkat','laptop','device','browser','ganti','tukar','pengganti','terkunci','ubah']},
+  {q:'Apa itu kode ubah data?',
+   a:'Kode 8 huruf/angka (misalnya ABCD-2345) yang muncul setelah PIC mendaftar. Kode ini membuktikan bahwa yang mengubah data memang PIC DPC tersebut, sehingga orang lain tidak bisa mengubah data DPC Anda. <b>Simpan dan jangan bagikan</b> kode ini.',
+   k:['kode','aman','keamanan','password','sandi','pin','orang','lain','bobol']},
   {q:'Apakah link Reclub wajib?',
    a:'Tidak wajib. Bila punya, cantumkan link profil Reclub setiap pemain.',
    k:['reclub','link','profil','aplikasi','akun']},
   {q:'Apakah wajib melampirkan foto?',
-   a:'Ya, <b>foto setiap pemain wajib</b> dilampirkan. Tidak harus pas foto.',
+   a:'Ya, <b>foto setiap pemain wajib</b> dilampirkan, dengan wajah terlihat jelas. Tidak harus pas foto.',
    k:['foto','gambar','pas','upload','unggah','selfie']},
-  {q:'Bolehkah membawa pendamping?',
-   a:'Boleh, <b>maksimal 10 orang</b> per DPC di luar peserta. Isi jumlahnya di formulir untuk perhitungan kapasitas dan konsumsi. Setiap pendamping mendapat barcode masuk atas namanya.',
+  {q:'Bolehkah membawa supporter?',
+   a:'Boleh, <b>maksimal 10 orang</b> per DPC di luar peserta. Isi jumlahnya di formulir untuk perhitungan kapasitas dan konsumsi. Setiap supporter mendapat barcode masuk atas namanya.',
    k:['pendamping','tamu','supporter','suporter','bawa','teman','keluarga','anak','istri','suami','penonton','nonton','ajak']},
   {q:'Bagaimana cara masuk di hari H? Apa itu barcode?',
-   a:'Setiap orang, peserta maupun pendamping, masuk dengan <b>barcode pribadi</b>. PIC mengunduh barcode di bagian Alur masuk setelah pendaftaran ditutup atau saat technical meeting, lalu mengirimkannya ke tiap orang. Di meja registrasi barcode discan, lalu Anda menerima <b>gelang akses</b> Peserta atau Tamu.',
+   a:'Setiap orang, peserta maupun tamu, masuk dengan <b>barcode pribadi</b>. Barcode <b>belum tersedia</b>; setelah tersedia, PIC mengunduhnya di bagian Unduh barcode di web ini lalu mengirimkannya ke tiap orang. Di meja registrasi barcode discan, lalu Anda menerima <b>gelang akses</b> Peserta atau Tamu.',
    k:['barcode','qr','masuk','gelang','tiket','unduh','download','scan','akses','registrasi','ulang','hari']},
   {q:'Jam berapa harus datang?',
    a:'Registrasi ulang <b>07.00–08.00</b>. Acara dimulai pukul <b>08.00</b>.',
@@ -90,9 +93,9 @@ var FAQ = [
     return '<details class="fq"'+(open?' open':'')+'><summary>'+esc(item.q)+'</summary><div class="fa">'+item.a+'</div></details>';
   }
   function waLinks(text){
-    var t = encodeURIComponent('Halo, saya mau tanya soal Turnamen Padel Hiswana: '+text);
+    var t = encodeURIComponent('Halo, saya mau tanya soal Turnamen Padel Hiswana: '+text), ic = (document.querySelector('#kontak .wi')||{}).innerHTML||'';
     var h = '';
-    for (var i=0;i<WA.length;i++) h += '<div class="c2"><a class="wa" href="https://wa.me/'+WA[i][1]+'?text='+t+'" target="_blank" rel="noopener"><span class="wi">WA</span><b>Tanya '+WA[i][0]+'</b><span>Pertanyaan Anda sudah terisi</span></a></div>';
+    for (var i=0;i<WA.length;i++) h += '<div class="c2"><a class="wa" href="https://wa.me/'+WA[i][1]+'?text='+t+'" target="_blank" rel="noopener"><span class="wi">'+ic+'</span><b>Tanya '+WA[i][0]+'</b><span>Pertanyaan Anda sudah terisi</span></a></div>';
     return h;
   }
 
@@ -119,7 +122,7 @@ var FAQ = [
   }
 
   function init(){
-    var box = document.getElementById('tanya');
+    var box = document.getElementById('faq');
     if (!box) return;
     var all = '';
     for (var i=0;i<FAQ.length;i++) all += card(FAQ[i], false);
@@ -127,7 +130,7 @@ var FAQ = [
     var inp = document.getElementById('fqIn'), t = null;
     document.getElementById('fqForm').onsubmit = function(e){ if (e && e.preventDefault) e.preventDefault(); ask(); return false; };
     inp.oninput = function(){ clearTimeout(t); t = setTimeout(ask, 350); };
-    var chips = document.querySelectorAll('#tanya .fqchip');
+    var chips = document.querySelectorAll('#faq .fqchip');
     for (var c=0;c<chips.length;c++) chips[c].onclick = function(){ inp.value = this.getAttribute('data-q'); ask(); };
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();

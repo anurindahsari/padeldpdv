@@ -2371,7 +2371,7 @@ var BC=(function(){
     for(var i=0;i<ks.length;i++){ k=ks[i]; var c=x.kat&&x.kat[k]; if(!c||!c.ada) continue;
       for(n=1;n<=2;n++){ var p=(c.p||[])[n-1]||{}; o.push({id:x.id+'-'+k+'-'+n, q:'HPC1:'+x.id+':'+k+':'+n, nama:p.nama||'', panggilan:p.panggilan||'', peran:'Peserta', ket:KN[k], dpc:x.dpc, jenis:'peserta'}); } }
     var pd=x.pd||{}, nm=pd.nama||[];
-    for(n=1;n<=nm.length;n++) o.push({id:x.id+'-pd-'+n, q:'HPC1:'+x.id+':pd:'+n, nama:nm[n-1]||'', peran:'Pendamping', ket:'', dpc:x.dpc, jenis:'tamu'});
+    for(n=1;n<=nm.length;n++) o.push({id:x.id+'-pd-'+n, q:'HPC1:'+x.id+':pd:'+n, nama:nm[n-1]||'', peran:'Supporter', ket:'', dpc:x.dpc, jenis:'tamu'});
     return o; }
   function wrap(ctx,t,maxW){ var w=String(t).split(/\s+/), L=[], cur=''; for(var i=0;i<w.length;i++){ var tt=cur?cur+' '+w[i]:w[i]; if(ctx.measureText(tt).width>maxW&&cur){ L.push(cur); cur=w[i]; } else cur=tt; } if(cur) L.push(cur); return L; }
   function card(o){
@@ -2397,7 +2397,7 @@ var BC=(function(){
   function dl(url,name){ var a=document.createElement('a'); a.href=url; a.download=name; document.body.appendChild(a); a.click(); setTimeout(function(){ document.body.removeChild(a); },100); }
   // tampilkan grid kartu di elemen el
   function grid(el,list){
-    if(!list.length){ el.innerHTML='<div class="small muted">Belum ada data peserta atau pendamping.</div>'; return; }
+    if(!list.length){ el.innerHTML='<div class="small muted">Belum ada data peserta atau supporter.</div>'; return; }
     var h='<div class="bcbar"><b>'+list.length+' barcode</b> · '+list[0].dpc+'<button type="button" class="btn sm nv" onclick="BC.all()">Unduh semua</button></div><div class="bcg">';
     for(var i=0;i<list.length;i++){ var u=card(list[i]); list[i].u=u; h+='<div class="bcc"><img src="'+u+'" alt="Barcode '+String(list[i].nama).replace(/"/g,'')+'"><div class="bcn"><b>'+String(list[i].nama).replace(/</g,'&lt;')+'</b><span>'+list[i].peran+(list[i].ket?' · '+list[i].ket:'')+'</span></div><button type="button" class="btn sm ln" onclick="BC.one('+i+')">Unduh</button></div>'; }
     el.innerHTML=h+'</div>'; CUR=list; }
@@ -2448,10 +2448,10 @@ var DPCS=['Surabaya','Malang','Madura','Kediri','Besuki','Madiun','Bali','NTT','
     for(var kk in cnt) if(cnt[kk].length>1) dups.push(kk+': '+cnt[kk].join('; '));
     var belum=DPCS.filter(function(d){ for(var j=0;j<D.length;j++) if(D[j].dpc==d) return false; return true; });
     var npd=0; for(i=0;i<D.length;i++) npd+=(D[i].pd&&D[i].pd.n)||0;
-    $('stat').innerHTML='<span><b>'+D.length+'</b>DPC mendaftar</span><span><b>'+npair+'</b>pasangan</span><span><b>'+npd+'</b>pendamping</span><span><b>'+(npair*2+npd)+'</b>perkiraan hadir (pemain + pendamping)</span>'+KAT.map(function(k){ return '<span><b>'+c[k[0]]+'</b>'+k[1]+'</span>'; }).join('')+(belum.length?'<div class="small" style="color:#4A5D72;margin-bottom:8px">Belum mendaftar: '+belum.join(', ')+'</div>':'');
+    $('stat').innerHTML='<span><b>'+D.length+'</b>DPC mendaftar</span><span><b>'+npair+'</b>pasangan</span><span><b>'+npd+'</b>supporter</span><span><b>'+(npair*2+npd)+'</b>perkiraan hadir (pemain + supporter)</span>'+KAT.map(function(k){ return '<span><b>'+c[k[0]]+'</b>'+k[1]+'</span>'; }).join('')+(belum.length?'<div class="small" style="color:#4A5D72;margin-bottom:8px">Belum mendaftar: '+belum.join(', ')+'</div>':'');
     $('dupw').innerHTML=dups.length?'<div class="warn"><b>Nomor KTA ganda</b> (satu pemain hanya boleh satu kategori):<br>'+dups.map(esc).join('<br>')+'</div>':'';
-    var h='<h3 style="margin:0 0 8px">PIC DPC</h3><table><tr><th>DPC</th><th>PIC</th><th>WhatsApp</th><th>Email</th><th>Kategori</th><th>Pendamping</th><th>Terakhir diubah</th><th></th></tr>';
-    for(i=0;i<D.length;i++){ var y=D[i], w=V[y.id]||{}; h+='<tr><td><b>'+esc(y.dpc)+'</b></td><td>'+esc(y.pic)+'</td><td>'+wa(w.wa)+'</td><td>'+(w.email?'<a href="mailto:'+esc(w.email)+'">'+esc(w.email)+'</a>':'-')+'</td><td>'+KAT.map(function(k){ var cc=y.kat&&y.kat[k[0]]; return k[1].replace(' Beginner','')+': '+(cc&&cc.ada?'ada':'tidak'); }).join(' · ')+'</td><td>'+(y.pd?'<b>'+(y.pd.n||0)+'</b>'+(y.pd.n?'<br><span style="color:#4A5D72">'+esc((y.pd.nama||[]).join(', '))+'</span>':''):'<span style="color:#B42318">belum diisi</span>')+'</td><td>'+new Date(y.u||y.t).toLocaleString('id-ID')+'</td><td><button class="btn sm red" onclick="__del(\''+y.id+'\')">Hapus</button></td></tr>'; }
+    var h='<h3 style="margin:0 0 8px">PIC DPC</h3><table><tr><th>DPC</th><th>PIC</th><th>WhatsApp</th><th>Email</th><th>Kategori</th><th>Supporter</th><th>Kode ubah data</th><th>Terakhir diubah</th><th></th></tr>';
+    for(i=0;i<D.length;i++){ var y=D[i], w=V[y.id]||{}; h+='<tr><td><b>'+esc(y.dpc)+'</b></td><td>'+esc(y.pic)+'</td><td>'+wa(w.wa)+'</td><td>'+(w.email?'<a href="mailto:'+esc(w.email)+'">'+esc(w.email)+'</a>':'-')+'</td><td>'+KAT.map(function(k){ var cc=y.kat&&y.kat[k[0]]; return k[1].replace(' Beginner','')+': '+(cc&&cc.ada?'ada':'tidak'); }).join(' · ')+'</td><td>'+(y.pd?'<b>'+(y.pd.n||0)+'</b>'+(y.pd.n?'<br><span style="color:#4A5D72">'+esc((y.pd.nama||[]).join(', '))+'</span>':''):'<span style="color:#B42318">belum diisi</span>')+'</td><td style="white-space:nowrap">'+(w.kode?'<b style="font-family:monospace;letter-spacing:1px">'+esc(w.kode.slice(0,4)+'-'+w.kode.slice(4))+'</b><br>':'')+'<button class="btn sm ln" onclick="__kode(\''+y.id+'\')">'+(w.kode?'Kode baru':'Buat kode')+'</button></td><td>'+new Date(y.u||y.t).toLocaleString('id-ID')+'</td><td><button class="btn sm red" onclick="__del(\''+y.id+'\')">Hapus</button></td></tr>'; }
     h+='</table><h3 style="margin:18px 0 8px">Pasangan</h3>';
     var R=rows(); h+='<table><tr><th>#</th><th>Kategori</th><th>DPC</th><th>Pemain 1</th><th>Pemain 2</th></tr>';
     for(i=0;i<R.length;i++){ var r=R[i]; h+='<tr><td>'+(i+1)+'</td><td>'+esc(r.kn)+'</td><td><b>'+esc(r.x.dpc)+'</b></td>';
@@ -2461,6 +2461,11 @@ var DPCS=['Surabaya','Malang','Madura','Kediri','Besuki','Madiun','Bali','NTT','
     var av=$('tbl').querySelectorAll('.av'); for(i=0;i<av.length;i++){ (function(el){ foto(el.getAttribute('data-f'),el); el.onclick=function(){ var u=el.style.backgroundImage.replace(/^url\(["']?|["']?\)$/g,''); if(u){ $('bigi').src=u; $('big').style.display='block'; } }; })(av[i]); }
   }
   window.__r=render;
+  // kode ubah data: admin bisa membuat kode untuk DPC (mis. PIC lupa kode / pendaftaran lama belum punya kode)
+  window.__kode=function(id){ var old=(V[id]||{}).kode||''; if(!confirm(old?'Ganti kode ubah data DPC ini? Kode lama ('+old.slice(0,4)+'-'+old.slice(4)+') tidak berlaku lagi.':'Buat kode ubah data untuk DPC ini?')) return;
+    var A='ABCDEFGHJKMNPQRSTUVWXYZ23456789', a=new Uint32Array(8), K=''; crypto.getRandomValues(a); for(var i=0;i<8;i++) K+=A.charAt(a[i]%A.length);
+    if(DEMO){ V[id]=V[id]||{}; V[id].kode=K; render(); return; }
+    var fs=firebase.firestore(), b=fs.batch(); b.set(fs.collection('kode').doc(id+'_'+K),{dpc:id,t:Date.now()}); if(old) b.delete(fs.collection('kode').doc(id+'_'+old)); b.update(fs.collection('privat').doc(id),{kode:K}); b.commit().then(function(){ alert('Kode baru: '+K.slice(0,4)+'-'+K.slice(4)+'\nKirimkan ke PIC DPC lewat WhatsApp.'); }).catch(function(e){ alert('Gagal: '+e.message); }); };
   var BCON=false;
   function swR(){ $('bcSw').innerHTML='<span class="sw">'+(BCON?'<b class="on">Unduhan barcode DIBUKA untuk PIC</b><button class="btn ln" onclick="__bcSet(false)">Tutup unduhan</button>':'<b class="off">Unduhan barcode masih DITUTUP</b><button class="btn" onclick="__bcSet(true)">Buka unduhan untuk PIC</button>')+'</span>'; }
   function cfgLoad(){ if(DEMO){ try{ BCON=localStorage.getItem('hpc-demo-bc')=='1'; }catch(e){} swR(); return; }
