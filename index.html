@@ -179,6 +179,26 @@ tr.na td{background:#FAFBFC}
 @media (max-width:980px){ .bcc{width:33.333%} }
 @media (max-width:600px){ .bcc{width:50%} .bcf .fc{width:100%;float:none} .bcf .in2{min-width:0} }
 @media (max-width:600px){ .pc2{width:100%} .kbo{float:none;margin-top:8px} .kbt{float:none} }
+/* tanya panitia */
+#fqForm{display:flex;margin:0 0 10px}
+#fqForm .in2{flex:1;min-width:0;font-size:16px}
+#fqForm .btn{margin:0 0 0 8px}
+.fqchips{margin:0 0 12px}
+.fqchip{display:inline-block;font-family:inherit;font-size:13px;font-weight:600;color:#0270B5;background:#E3F1FB;border:0;padding:6px 10px;margin:0 6px 6px 0;cursor:pointer}
+.fqchip:hover{background:#CFE7F8}
+#fqOut{margin-bottom:6px}
+.fq{border:1px solid #CBD8E5;background:#FFFFFF;margin:0 0 8px}
+.fq summary{cursor:pointer;padding:12px 14px;font-weight:700;list-style:none;position:relative;padding-right:36px}
+.fq summary::-webkit-details-marker{display:none}
+.fq summary:after{content:"+";position:absolute;right:14px;top:9px;font-family:Archivo,Arial,sans-serif;font-weight:800;font-size:18px;color:#0270B5}
+.fq[open] summary:after{content:"\2013"}
+.fq[open]{border-color:#0089D9}
+.fa{padding:0 14px 12px;color:#08203D}
+#fqOut .fq{border-left:4px solid #DDF247}
+.fqno{margin:6px 0 4px}
+.fqall{margin-top:18px}
+.fqall .lbl{margin-bottom:8px}
+@media (max-width:600px){ #fqForm .btn{padding:11px 12px} }
 </style>
 </head>
 <body>
@@ -190,7 +210,7 @@ tr.na td{background:#FAFBFC}
   <div class="facts"><span>Tanggal menyusul</span><span>Surabaya</span><span>Gratis untuk peserta</span></div>
   <a class="cta" href="#daftar">Daftar</a><a class="cta ln" href="#alur">Alur masuk</a>
 </div></div>
-<div id="nav"><div class="in"><a href="#info">Info</a><a href="#kategori">Kategori</a><a href="#aturan">Syarat &amp; aturan</a><a href="#alur">Alur masuk</a><a href="#daftar" class="reg">Daftar</a></div></div>
+<div id="nav"><div class="in"><a href="#info">Info</a><a href="#kategori">Kategori</a><a href="#aturan">Syarat &amp; aturan</a><a href="#alur">Alur masuk</a><a href="#tanya">Tanya</a><a href="#daftar" class="reg">Daftar</a></div></div>
 
 <div class="wrap">
   <div class="sec" id="info">
@@ -251,6 +271,15 @@ tr.na td{background:#FAFBFC}
       <div id="bcBox"><div class="small muted">Memuat...</div></div>
       <div id="bcOut"></div>
     </div>
+  </div>
+
+  <div class="sec" id="tanya">
+    <h2>Tanya panitia</h2>
+    <div class="s">Ketik pertanyaan Anda. Jawaban diambil dari juknis turnamen; bila belum ada, pertanyaan bisa langsung dikirim ke panitia lewat WhatsApp.</div>
+    <form id="fqForm" autocomplete="off"><input id="fqIn" class="in2" type="search" placeholder="Contoh: boleh ikut dua kategori?" aria-label="Pertanyaan"><button class="btn nv" type="submit">Tanya</button></form>
+    <div class="fqchips"><button type="button" class="fqchip" data-q="Berapa biayanya?">Biaya</button><button type="button" class="fqchip" data-q="Kapan dan di mana?">Tanggal &amp; lokasi</button><button type="button" class="fqchip" data-q="Syarat level pemain">Syarat level</button><button type="button" class="fqchip" data-q="Sampai kapan bisa ubah data?">Batas ubah data</button><button type="button" class="fqchip" data-q="Cara masuk barcode">Barcode masuk</button></div>
+    <div id="fqOut" aria-live="polite"></div>
+    <div class="fqall"><div class="lbl">Semua pertanyaan</div><div id="fqAll"></div></div>
   </div>
 
   <div class="sec" id="daftar">
@@ -2796,10 +2825,11 @@ var KAT=[['men','Men Beginner','Ganda putra'],['mix','Mix Beginner','1 putra + 1
 
   if(!open()){ $('closed').style.display='block'; $('closed').innerHTML='Pendaftaran fase 1 dan perubahan data sudah ditutup (batas 10 November 2026 pukul 23.59 WIB). Hubungi narahubung panitia bila ada kendala.'; $('form').style.display='none'; }
   DB.ready(function(){ DB.listen(function(a){ ALL=a; render(); }); });
-  var secs=['info','kategori','aturan','alur','daftar'];
+  var secs=['info','kategori','aturan','alur','tanya','daftar'];
   function onScroll(){ var y=(window.pageYOffset||document.documentElement.scrollTop)+90, cur='', i; for(i=0;i<secs.length;i++){ var e=$(secs[i]); if(e&&e.offsetTop<=y) cur=secs[i]; } var as=$('nav').getElementsByTagName('a'); for(i=0;i<as.length;i++){ var on=as[i].getAttribute('href')=='#'+cur; as[i].className=(as[i].className.indexOf('reg')>=0?'reg':'')+(on?' on':''); } }
   if(window.addEventListener) window.addEventListener('scroll',onScroll,false); onScroll();
 })();
 </script>
+<script src="faq.js?v=1"></script>
 </body>
 </html>
