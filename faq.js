@@ -33,7 +33,7 @@ var FAQ = [
    a:'Data bisa diubah sampai <b>10 November 2026 pukul 23.59 WIB</b>, dari HP atau browser mana pun. Di bagian Daftar, tekan <b>Ubah data</b>, pilih DPC, lalu masukkan <b>kode ubah data</b> yang muncul saat pertama kali mendaftar. Setelah batas waktu, data terkunci.',
    k:['batas','deadline','tutup','sampai','ubah','edit','ganti','koreksi','salah','revisi','terakhir','10','november']},
   {q:'Saya lupa atau kehilangan kode ubah data. Bagaimana?',
-   a:'Kode ubah data bisa dilihat lagi di bagian Daftar bila dibuka dari HP/browser yang dipakai saat mendaftar. Bila tidak bisa, chat narahubung lewat WhatsApp; panitia akan mengirimkan kode ke PIC DPC yang terdaftar.',
+   a:'Kode ubah data bisa dilihat lagi di bagian Daftar bila dibuka dari HP/browser yang dipakai saat mendaftar. Bila tidak bisa, hubungi panitia lewat menu Kontak; panitia akan mengirimkan kode ke PIC DPC yang terdaftar.',
    k:['kode','lupa','hilang','hp','perangkat','laptop','device','browser','ganti','tukar','pengganti','terkunci','ubah']},
   {q:'Apa itu kode ubah data?',
    a:'Kode 8 huruf/angka (misalnya ABCD-2345) yang muncul setelah PIC mendaftar. Kode ini membuktikan bahwa yang mengubah data memang PIC DPC tersebut, sehingga orang lain tidak bisa mengubah data DPC Anda. <b>Simpan dan jangan bagikan</b> kode ini.',
@@ -60,7 +60,7 @@ var FAQ = [
    a:'Tanggal technical meeting masih menyusul dan akan diumumkan ke PIC DPC.',
    k:['technical','meeting','tm','rapat','briefing']},
   {q:'Siapa yang bisa dihubungi?',
-   a:'Narahubung lewat chat WhatsApp: <a href="https://wa.me/6281333526593" target="_blank" rel="noopener">Kenny (0813 3352 6593)</a> dan <a href="https://wa.me/628195002295" target="_blank" rel="noopener">Arinta (0819 5002 295)</a>.',
+   a:'Lewat chat WhatsApp (menu Kontak): <a href="https://wa.me/6281333526593" target="_blank" rel="noopener">Kenny (0813 3352 6593)</a> dan <a href="https://wa.me/628195002295" target="_blank" rel="noopener">Arinta (0819 5002 295)</a>.',
    k:['kontak','hubungi','narahubung','cp','wa','whatsapp','telepon','telpon','nomor','panitia','tanya']}
 ];
 
