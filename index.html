@@ -497,6 +497,14 @@ textarea.in2.ta{height:auto;min-height:110px;resize:vertical;line-height:1.5}
   #court{grid-column:2;grid-row:1 / span 3;align-self:center;margin:0 0 18px}
 }
 @media (max-width:374px){ #hd h1{font-size:38px} }
+
+/* deskripsi rata kanan-kiri */
+.item .tx .small{display:block}
+.lead,.sec .s,.fmi,.item .tx .small,#kategori .card p,.mgb p,.aw span,.fp span,.fa,.kodebox .small,.fm>.small{text-align:justify;-webkit-hyphens:auto;hyphens:auto}
+.rdf{margin:-2px 0 14px;font-size:13px;color:#64748B;font-style:italic}
+.eyb{font-family:Archivo,Arial,sans-serif;font-weight:800;font-size:12px;letter-spacing:1.6px;text-transform:uppercase;color:#0270B5;margin:0 0 6px}
+.btn.bcsoon{display:block;width:100%;min-height:56px;margin:14px 0 0;border-radius:14px;font-size:17px;background:#E2E8F0;color:#64748B;cursor:not-allowed;opacity:1;box-shadow:none}
+@media (min-width:760px){ .btn.bcsoon{width:auto;min-width:240px;display:inline-block} }
 </style>
 </head>
 <body>
@@ -522,8 +530,8 @@ textarea.in2.ta{height:auto;min-height:110px;resize:vertical;line-height:1.5}
 
   <div class="sec" id="rundown">
     <h2>Susunan acara</h2>
-    <ol class="rd"><li><time>07.00–08.00</time><span>Registrasi ulang</span></li><li><time>08.00–08.30</time><span>Pembukaan</span></li><li><time>08.30–11.10</time><span>Fase grup</span></li><li><time>11.10–11.30</time><span>Quarter final Men Beginner</span></li><li><time>11.30–11.50</time><span>Semifinal</span></li><li><time>11.50–12.10</time><span>Perebutan juara 3</span></li><li class="hl"><time>12.10–12.50</time><span>2 exhibition matches</span></li><li class="hl"><time>12.50–13.25</time><span>Final 3 kategori bersamaan</span></li><li><time>13.25–13.55</time><span>Penyerahan trofi, doorprize, dan penutupan</span></li><li class="hl"><time>13.55</time><span>Makan siang bersama <span class="rdn">(konsumsi disediakan)</span></span></li></ol>
-    <p class="rdf">*Dapat berubah sewaktu-waktu.</p>
+    <p class="rdf">*dapat berubah sewaktu-waktu</p>
+    <ol class="rd"><li><time>07.00–08.00</time><span>Registrasi ulang</span></li><li><time>08.00–08.30</time><span>Pembukaan</span></li><li><time>08.30–11.10</time><span>Fase grup</span></li><li><time>11.10–11.30</time><span>Quarter final</span></li><li><time>11.30–11.50</time><span>Semifinal</span></li><li><time>11.50–12.10</time><span>Perebutan juara 3</span></li><li class="hl"><time>12.10–12.50</time><span>2 exhibition matches</span></li><li class="hl"><time>12.50–13.25</time><span>Final 3 kategori bersamaan</span></li><li><time>13.25–13.55</time><span>Penyerahan trofi, doorprize, dan penutupan</span></li><li class="hl"><time>13.55</time><span>Makan siang bersama <span class="rdn">(konsumsi disediakan)</span></span></li></ol>
   </div>
 
   <div class="sec" id="aturan">
@@ -639,8 +647,9 @@ textarea.in2.ta{height:auto;min-height:110px;resize:vertical;line-height:1.5}
   </div>
 
   <div class="sec" id="barcode">
-    <span class="chip" id="bcSoon">Belum tersedia</span>
-    <h2>Unduh barcode untuk memasuki venue acara</h2>
+    <div class="eyb">Untuk memasuki venue acara</div>
+    <h2>Unduh barcode</h2>
+    <button type="button" class="btn nv bcsoon" id="bcSoon" disabled aria-disabled="true">Belum tersedia</button>
     <div id="bcBox"></div>
     <div id="bcOut"></div>
   </div>
