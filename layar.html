@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Layar · Turnamen Padel DPC Surabaya</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,800;1,900&amp;family=Plus+Jakarta+Sans:wght@500;700;800&amp;display=swap">
+<style>
+html,body{margin:0;height:100%;overflow:hidden}*{box-sizing:border-box}
+body{background:#08203D;background-image:radial-gradient(90% 70% at 100% 0%,rgba(0,137,217,.25),rgba(0,137,217,0) 60%);color:#fff;font-family:"Plus Jakarta Sans",Arial,sans-serif;font-size:1.6vw}
+i.fx{font-style:italic}
+.top{display:flex;align-items:center;gap:1.2vw;padding:1.6vw 2.4vw 1vw}
+.top img{width:3.4vw;height:3.4vw}
+.top .t{flex:1}
+.top .t b{display:block;font-family:Archivo,Arial,sans-serif;font-style:italic;font-weight:900;font-size:2.6vw;line-height:1}
+.top .t span{font-size:1.1vw;letter-spacing:.3vw;text-transform:uppercase;color:#9FC3E6}
+.clock{font-family:Archivo,Arial,sans-serif;font-weight:800;font-size:2.6vw;color:#DDF247}
+.main{position:absolute;left:0;right:0;top:7.4vw;bottom:3.4vw;padding:0 2.4vw}
+.ttl{font-family:Archivo,Arial,sans-serif;font-style:italic;font-weight:900;font-size:2.4vw;margin:0 0 1vw}
+.ttl small{font-family:"Plus Jakarta Sans",Arial,sans-serif;font-style:normal;font-weight:700;font-size:1.1vw;color:#9FC3E6;margin-left:1vw}
+.courts{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:1.2vw;height:calc(100% - 3.6vw)}
+.ct{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:1.4vw;padding:1.2vw 1.4vw;display:flex;flex-direction:column}
+.ct .h{display:flex;justify-content:space-between;align-items:center;margin-bottom:.6vw}
+.ct .h b{font-family:Archivo,Arial,sans-serif;font-weight:800;font-size:1.3vw;letter-spacing:.2vw;text-transform:uppercase;color:#9FC3E6}
+.pill{border-radius:99px;padding:.2vw .8vw;font-size:1vw;font-weight:800;background:rgba(255,255,255,.12)}
+.pill.live{background:#E5484D;color:#fff;animation:bl 1.4s infinite}
+@keyframes bl{50%{opacity:.55}}
+.tm{display:flex;align-items:center;justify-content:space-between;gap:1vw;padding:.5vw 0}
+.tm .n{font-weight:800;font-size:1.45vw;line-height:1.2}
+.tm .n span{display:block;font-weight:600;font-size:1vw;color:#9FC3E6}
+.tm .sc{font-family:Archivo,Arial,sans-serif;font-weight:900;font-size:3.4vw;min-width:4vw;text-align:right;color:#fff}
+.tm.w .sc{color:#DDF247}
+.ct .nx{margin-top:auto;border-top:1px solid rgba(255,255,255,.12);padding-top:.6vw;font-size:1.05vw;color:#B8CCE0}
+.ct .nx b{color:#fff}
+.ct.idle{opacity:.5}
+.foot{position:absolute;left:0;right:0;bottom:0;height:3.4vw;display:flex;align-items:center;gap:2vw;padding:0 2.4vw;background:rgba(0,0,0,.25);font-size:1.15vw;white-space:nowrap;overflow:hidden}
+.foot b{color:#DDF247}
+.gps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4vw}
+.kc{background:rgba(255,255,255,.06);border-radius:1.4vw;padding:1.2vw 1.4vw}
+.kc h3{margin:0 0 .6vw;font-family:Archivo,Arial,sans-serif;font-style:italic;font-weight:900;font-size:1.9vw;color:#DDF247}
+.gr{margin:0 0 .9vw}
+.gr b{font-family:Archivo,Arial,sans-serif;font-weight:800;font-size:1.1vw;letter-spacing:.2vw;color:#9FC3E6}
+.gr div{font-weight:700;font-size:1.25vw;padding:.15vw 0;opacity:0;transform:translateY(.6vw);transition:opacity .5s,transform .5s}
+.gr div.in{opacity:1;transform:none}
+.gr div span{color:#9FC3E6;font-weight:500;font-size:1vw;margin-left:.5vw}
+.bk{display:flex;gap:1.2vw;align-items:stretch}
+.bk .col{flex:1;display:flex;flex-direction:column;justify-content:space-around;gap:.6vw}
+.bm{background:rgba(255,255,255,.08);border-radius:.8vw;padding:.5vw .8vw;font-size:1vw}
+.bm .r{display:flex;justify-content:space-between;gap:.6vw;font-weight:700}
+.bm .r.w{color:#DDF247}
+.bm .st{font-size:.8vw;color:#9FC3E6;text-transform:uppercase;letter-spacing:.15vw}
+.pod{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4vw}
+.pod .kc ol{margin:0;padding-left:1.8vw;font-size:1.35vw;font-weight:700;line-height:1.7}
+.aw{display:flex;gap:1.4vw;margin-top:1.4vw}
+.aw .kc{flex:1;text-align:center}
+.aw .kc b{display:block;font-family:Archivo,Arial,sans-serif;font-style:italic;font-weight:900;font-size:2.2vw;color:#fff}
+.lb{display:grid;grid-template-columns:1fr 1fr;gap:1.4vw}
+.lb table{width:100%;border-collapse:collapse;font-size:1.4vw}
+.lb td{padding:.45vw .4vw;border-bottom:1px solid rgba(255,255,255,.1)}
+.lb td:last-child{text-align:right;font-family:Archivo,Arial,sans-serif;font-weight:900;color:#DDF247}
+.empty{display:flex;align-items:center;justify-content:center;height:100%;flex-direction:column;text-align:center}
+.empty b{font-family:Archivo,Arial,sans-serif;font-style:italic;font-weight:900;font-size:5vw;line-height:1}
+.empty b span{display:block;color:#DDF247}
+.empty p{font-size:1.6vw;color:#B8CCE0}
+#dp{display:none;position:fixed;inset:0;background:rgba(4,15,30,.94);z-index:9;align-items:center;justify-content:center;flex-direction:column;text-align:center}
+#dp .l{font-family:Archivo,Arial,sans-serif;font-weight:800;font-size:1.6vw;letter-spacing:.5vw;text-transform:uppercase;color:#9FC3E6}
+#dp .n{font-family:Archivo,Arial,sans-serif;font-style:italic;font-weight:900;font-size:7vw;line-height:1.05;margin:1vw 4vw;color:#fff}
+#dp .n.win{color:#DDF247;transform:scale(1.04);transition:transform .3s}
+#dp .d{font-size:2.2vw;font-weight:700;color:#B8CCE0}
+#dp .h{margin-top:1.4vw;font-size:2vw;font-weight:800;background:#DDF247;color:#08203D;border-radius:99px;padding:.6vw 2vw;display:none}
+</style>
+</head>
+<body>
+<div class="top"><img src="logo.png" alt=""><div class="t"><span>Hiswana Migas DPC Surabaya</span><b>Turnamen Padel DPC Surabaya</b></div><div class="clock" id="clk"></div></div>
+<div class="main" id="main"><div class="empty"><b>Turnamen Padel<span>DPC Surabaya</span></b><p>Memuat...</p></div></div>
+<div class="foot" id="foot"></div>
+<div id="dp"><div class="l">Pemenang <i class="fx">doorprize</i></div><div class="n" id="dpN"></div><div class="d" id="dpD"></div><div class="h" id="dpH"></div></div>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="turnamen.js?v=1"></script>
+<script>
+(function(){
+var FB={"apiKey": "AIzaSyC2aiagZRzmXtjfBUC-Shg0VrAOL9MXVTU", "authDomain": "padeldpdv.firebaseapp.com", "projectId": "padeldpdv", "storageBucket": "padeldpdv.firebasestorage.app", "messagingSenderId": "529745328024", "appId": "1:529745328024:web:c3b1544ca47172b6255ded"};
+var $=function(i){ return document.getElementById(i); }, esc=TUR.esc;
+firebase.initializeApp(FB); var fs=firebase.firestore();
+var CFG={}, U=null, S={}, MG=[], DP=[], mode='', shownDp=null, first=true, undT=0;
+function clk(){ var d=new Date(); $('clk').innerHTML=(d.getHours()<10?'0':'')+d.getHours()+'.'+(d.getMinutes()<10?'0':'')+d.getMinutes(); } clk(); setInterval(clk,10000);
+fs.collection('pengaturan').doc('umum').onSnapshot(function(d){ CFG=d.exists?d.data():{}; render(); });
+fs.collection('turnamen').doc('undian').onSnapshot(function(d){ U=null; if(d.exists){ try{ U=JSON.parse(d.data().json); }catch(e){} } render(); });
+fs.collection('skor').onSnapshot(function(s){ S={}; s.forEach(function(d){ S[d.id]=d.data(); }); render(); });
+fs.collection('minigame').onSnapshot(function(s){ MG=[]; s.forEach(function(d){ MG.push(d.data()); }); foot(); if(mode=='mg') render(); });
+fs.collection('doorprize').orderBy('t','desc').limit(1).onSnapshot(function(s){ s.forEach(function(d){ var x=d.data(); x.id=d.id; if(first){ shownDp=x.id; } else if(x.id!==shownDp&&Date.now()-x.t<120000){ shownDp=x.id; spin(x); } }); first=false; });
+function nm(id,short){ return U&&id?esc(TUR.pairName(U,id,short)):''; }
+function dpc(id){ return U&&id&&U.pairs[id]?esc(U.pairs[id].dpc):''; }
+function tag(m){ return TUR.KN[m.k]+' · '+(m.st=='G'?'Grup '+TUR.gname(m.gr):TUR.STN[m.st]); }
+function render(){ var m=CFG.layar||'live'; if(m!==mode){ mode=m; undT=0; } var el=$('main');
+  if(!U){ el.innerHTML='<div class="empty"><b>Turnamen Padel<span>DPC Surabaya</span></b><p>Jadwal pertandingan tampil setelah undian grup.</p></div>'; foot(); return; }
+  if(mode=='undian') return undian(el); if(mode=='bagan') return bagan(el); if(mode=='mg') return mg(el); if(mode=='hasil') return hasil(el);
+  live(el); foot(); }
+function live(el){ var R=TUR.resolve(U,S), h='<div class="ttl">Skor <i class="fx">live</i><small>Lapangan 1–'+TUR.COURTS+'</small></div><div class="courts">';
+  for(var c=1;c<=TUR.COURTS;c++){ var L=R.filter(function(r){ return r.m.c==c; }).sort(function(a,b){ return a.m.t-b.m.t; }), cur=null, nx=null;
+    for(var i=0;i<L.length;i++){ if(!(L[i].s&&L[i].s.done)){ if(!cur) cur=L[i]; else if(!nx){ nx=L[i]; break; } } }
+    if(!cur){ h+='<div class="ct idle"><div class="h"><b>Court '+c+'</b></div><div class="tm"><div class="n">Tidak ada pertandingan</div></div></div>'; continue; }
+    var s=cur.s||{}, live=cur.s&&!cur.s.done, A=cur.a?nm(cur.a,true):esc(TUR.label(U,cur.m,'a')), B=cur.b?nm(cur.b,true):esc(TUR.label(U,cur.m,'b'));
+    h+='<div class="ct"><div class="h"><b>Court '+c+'</b><span class="pill'+(live?' live':'')+'">'+(live?'LIVE':TUR.hm(cur.m.t))+'</span></div><div class="pill" style="align-self:flex-start;margin-bottom:.4vw">'+tag(cur.m)+'</div>'+
+      '<div class="tm'+(s.a>s.b?' w':'')+'"><div class="n">'+A+'<span>'+dpc(cur.a)+'</span></div><div class="sc">'+(s.a!=null?s.a:'–')+'</div></div>'+
+      '<div class="tm'+(s.b>s.a?' w':'')+'"><div class="n">'+B+'<span>'+dpc(cur.b)+'</span></div><div class="sc">'+(s.b!=null?s.b:'–')+'</div></div>'+
+      (nx?'<div class="nx">Berikutnya '+TUR.hm(nx.m.t)+': <b>'+(nx.a?nm(nx.a,true):esc(TUR.label(U,nx.m,'a')))+'</b> vs <b>'+(nx.b?nm(nx.b,true):esc(TUR.label(U,nx.m,'b')))+'</b></div>':'')+'</div>'; }
+  el.innerHTML=h+'</div>'; }
+function undian(el){ var h='<div class="ttl">Hasil undian grup</div><div class="gps">', seq=[];
+  TUR.KAT.forEach(function(k){ var K=U.kat[k[0]]; if(!K) return; h+='<div class="kc"><h3>'+k[1]+'</h3>'; K.g.forEach(function(g,gi){ h+='<div class="gr"><b>GRUP '+TUR.gname(gi)+'</b>'; g.forEach(function(p){ var id='u'+seq.length; seq.push(id); h+='<div id="'+id+'">'+nm(p,true)+'<span>'+dpc(p)+'</span></div>'; }); h+='</div>'; }); h+='</div>'; });
+  el.innerHTML=h+'</div>'; var i=0; clearInterval(window.__ut); window.__ut=setInterval(function(){ var e=$(seq[i]); if(e) e.className='in'; i++; if(i>=seq.length) clearInterval(window.__ut); },700); }
+function bagan(el){ var R=TUR.resolve(U,S), h='<div class="ttl">Bagan</div><div class="gps">';
+  TUR.KAT.forEach(function(k){ var K=U.kat[k[0]]; if(!K) return; h+='<div class="kc"><h3>'+k[1]+'</h3><div class="bk">';
+    K.ko.filter(function(s){ return s!='J3'; }).forEach(function(st){ h+='<div class="col">'; R.filter(function(r){ return r.m.k==k[0]&&r.m.st==st; }).forEach(function(r){ var s=r.s||{}; h+='<div class="bm"><div class="st">'+TUR.STN[st]+'</div><div class="r'+(s.done&&s.a>s.b?' w':'')+'"><span>'+(r.a?nm(r.a,true):esc(TUR.label(U,r.m,'a')))+'</span><span>'+(s.a!=null?s.a:'')+'</span></div><div class="r'+(s.done&&s.b>s.a?' w':'')+'"><span>'+(r.b?nm(r.b,true):esc(TUR.label(U,r.m,'b')))+'</span><span>'+(s.b!=null?s.b:'')+'</span></div></div>'; }); h+='</div>'; });
+    h+='</div></div>'; }); el.innerHTML=h+'</div>'; foot(); }
+function mg(el){ var h='<div class="ttl">Klasemen <i class="fx">mini game</i></div><div class="lb">'; [['target','Target Challenge'],['king','King of the Court']].forEach(function(g){ var L=MG.filter(function(x){ return x.g==g[0]; }).sort(function(a,b){ return b.poin-a.poin||a.t-b.t; }).slice(0,10);
+    h+='<div class="kc"><h3><i class="fx">'+g[1]+'</i></h3><table>'+(L.length?L.map(function(x,i){ return '<tr><td>'+(i+1)+'. '+esc(x.nama)+' <span style="color:#9FC3E6">'+esc(x.dpc)+'</span></td><td>'+x.poin+'</td></tr>'; }).join(''):'<tr><td style="color:#9FC3E6">Belum ada poin</td><td></td></tr>')+'</table></div>'; });
+  el.innerHTML=h+'</div>'; }
+function hasil(el){ var R=TUR.results(U,S), h='<div class="ttl">Para juara</div><div class="pod">';
+  TUR.KAT.forEach(function(k){ var p=R.podium[k[0]]; if(!p) return; h+='<div class="kc"><h3>'+k[1]+'</h3><ol>'+[1,2,3].map(function(n){ return '<li>'+(p[n]?nm(p[n],true)+' <span style="color:#9FC3E6;font-weight:500">'+dpc(p[n])+'</span>':'–')+'</li>'; }).join('')+'</ol></div>'; });
+  h+='</div><div class="aw"><div class="kc"><div class="pill"><i class="fx">Best DPC</i></div><b>'+esc(R.best[0]||'–')+'</b></div><div class="kc"><div class="pill"><i class="fx">Best Dresscode</i></div><b>'+esc(CFG.bestDress||'–')+'</b></div><div class="kc"><div class="pill"><i class="fx">Best Supporter</i></div><b>'+esc(CFG.bestSupp||'–')+'</b></div></div>';
+  el.innerHTML=h; }
+function foot(){ var L=MG.slice().sort(function(a,b){ return b.poin-a.poin; }).slice(0,3), t='';
+  if(L.length) t='<span><b><i class="fx">Mini game</i></b> teratas: '+L.map(function(x){ return esc(x.nama)+' ('+x.poin+')'; }).join(' · ')+'</span>';
+  if(U){ var done=U.m.filter(function(m){ return S[m.id]&&S[m.id].done; }).length; t='<span>Pertandingan selesai: <b>'+done+'</b> dari '+U.m.length+'</span>'+t; }
+  $('foot').innerHTML=t; }
+function spin(x){ var box=$('dp'), n=$('dpN'), pool=[]; if(U) Object.keys(U.pairs).forEach(function(k){ pool.push(U.pairs[k].n1); pool.push(U.pairs[k].n2); }); if(pool.length<5) pool=['...','...','...'];
+  box.style.display='flex'; $('dpH').style.display='none'; $('dpD').innerHTML=''; n.className='n'; var i=0, d=60;
+  (function tick(){ n.innerHTML=esc(pool[Math.floor(Math.random()*pool.length)]); i++; d*=1.08; if(i<38) setTimeout(tick,d); else { n.innerHTML=esc(x.nama); n.className='n win'; $('dpD').innerHTML=esc(x.dpc||''); if(x.hadiah){ $('dpH').innerHTML=esc(x.hadiah); $('dpH').style.display='inline-block'; } setTimeout(function(){ box.style.display='none'; },15000); } })(); }
+document.addEventListener('click',function(){ if($('dp').style.display=='flex') $('dp').style.display='none'; });
+})();
+</script>
+<script src="asing.js?v=1"></script>
+</body>
+</html>

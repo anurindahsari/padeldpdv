@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#08203D">
+<title>Kelola Turnamen · Panitia</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,800;1,900&amp;family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;display=swap">
+<link rel="stylesheet" href="ui.css?v=1">
+<style>
+.gp{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-top:10px}
+.gp .card b{font-family:Archivo,Arial,sans-serif;font-style:italic}
+.gp ol{margin:6px 0 0;padding-left:20px;font-size:14px}
+.mrow td input{width:56px;height:38px;text-align:center;font-weight:800;font-size:16px;border:1px solid #D5DFEA;border-radius:10px}
+.dp{font-family:Archivo,Arial,sans-serif;font-style:italic;font-weight:900;font-size:28px;color:#0270B5}
+.nav2{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 14px}
+.nav2 a{display:inline-block;padding:8px 12px;border-radius:999px;background:#fff;color:#08203D;font-weight:700;font-size:14px;text-decoration:none;box-shadow:0 1px 2px rgba(8,32,61,.06)}
+</style>
+</head>
+<body>
+<div class="hd"><div class="in"><img src="logo.png" alt=""><div class="t"><b>Kelola turnamen</b><span>Pengumuman, undian, skor, <i class="fx">doorprize</i>, voting, dan hasil · khusus admin</span></div><div class="who" id="who"></div></div></div>
+<div class="wrap">
+  <div class="sec" id="login" style="display:none"><h2>Masuk</h2><p class="s">Masuk dengan akun Google admin untuk mengelola turnamen.</p><button class="btn nv" onclick="__login()">Masuk dengan Google</button><div id="lerr" class="small" style="color:#B42318;margin-top:8px"></div></div>
+  <div id="app" style="display:none">
+    <div class="nav2"><a href="#s-info">Info acara</a><a href="#s-undian">Undian</a><a href="#s-tampil">Tampil di web</a><a href="#s-skor">Skor</a><a href="#s-mg">Mini game</a><a href="#s-dp">Doorprize</a><a href="#s-vote">Voting</a><a href="#s-hasil">Hasil</a><a href="admin.html">Data pendaftaran</a><a href="layar.html" target="_blank">Layar besar</a></div>
+
+    <div class="sec" id="s-info"><h2>Info acara</h2><p class="s">Begitu disimpan, tanggal, lokasi, link peta, dan hitung mundur langsung tampil di web publik. Kosongkan bila belum pasti; web publik tetap menulis "Menyusul".</p>
+      <div class="fr">
+        <div class="fc"><label for="iTgl">Tanggal</label><input class="in2" id="iTgl" type="date"></div>
+        <div class="fc"><label for="iJam">Jam mulai registrasi ulang</label><input class="in2" id="iJam" type="time" value="07:00"></div>
+        <div class="fc"><label for="iVen">Nama venue</label><input class="in2" id="iVen" placeholder="mis. nama klub padel"></div>
+        <div class="fc"><label for="iMap">Link Google Maps</label><input class="in2" id="iMap" placeholder="https://maps.app.goo.gl/..."></div>
+        <div class="fc" style="grid-column:1/-1"><label for="iAl">Alamat</label><input class="in2" id="iAl" placeholder="Alamat lengkap venue"></div>
+      </div>
+      <button class="btn nv" onclick="__saveInfo()">Simpan info acara</button><span class="small muted" id="infoSt"></span>
+    </div>
+
+    <div class="sec" id="s-undian"><h2>Undian grup &amp; jadwal</h2><p class="s">Lakukan setelah pendaftaran ditutup (10 Nov 2026, 23.59 WIB). Grup, jadwal per pasangan, dan bagan dibuat otomatis untuk 6 lapangan, slot 20 menit mulai 08.30.</p>
+      <div id="uCnt" class="small"></div>
+      <h3>Pasangan tambahan <span class="small muted">(mis. Pertamina saat <i class="fx">last call</i>)</span></h3>
+      <textarea class="in2" id="uExt" placeholder="Satu pasangan per baris: kategori; nama 1; nama 2; tim&#10;contoh: men; Budi Santoso; Andi Wijaya; Pertamina"></textarea>
+      <div style="margin-top:8px"><button class="btn nv" onclick="__draw()">Lakukan undian</button><button class="btn ln" onclick="__layar('undian')">Tampilkan undian di layar besar</button></div>
+      <div id="uOut"></div>
+    </div>
+
+    <div class="sec" id="s-tampil"><h2>Tampil di web publik</h2><p class="s">Atur bagian mana yang terlihat pengunjung. Semua bisa dinyalakan atau dimatikan kapan saja.</p>
+      <div id="tgList"></div>
+      <h3>Layar besar di venue</h3>
+      <div><button class="btn sm ln" onclick="__layar('live')">Skor <i class="fx">live</i></button><button class="btn sm ln" onclick="__layar('undian')">Undian grup</button><button class="btn sm ln" onclick="__layar('bagan')">Bagan</button><button class="btn sm ln" onclick="__layar('mg')">Mini game</button><button class="btn sm ln" onclick="__layar('hasil')">Juara</button> <span class="small muted" id="layarSt"></span></div>
+      <p class="small muted">Buka <a href="layar.html" target="_blank">layar.html</a> di laptop yang tersambung ke TV, lalu tekan F11. Isi layar mengikuti pilihan di atas. Wasit memasukkan skor lewat <a href="wasit.html" target="_blank">wasit.html</a> (PIN wasit).</p>
+    </div>
+
+    <div class="sec" id="s-skor"><h2>Skor pertandingan</h2><p class="s">Wasit mengisi skor dari HP. Di sini admin bisa memperbaiki skor bila ada kesalahan.</p>
+      <select class="in2" id="sK" onchange="__rSkor()" style="max-width:260px"></select>
+      <div class="tbl" id="sOut" style="margin-top:10px"></div>
+    </div>
+
+    <div class="sec" id="s-mg"><h2>Mini game</h2><p class="s">Catat poin peserta mini game; klasemen langsung tampil di layar besar dan web publik (bila dinyalakan).</p>
+      <div class="fr">
+        <div class="fc"><label for="mG">Permainan</label><select class="in2" id="mG"><option value="target">Target Challenge</option><option value="king">King of the Court</option></select></div>
+        <div class="fc"><label for="mN">Nama</label><input class="in2" id="mN" placeholder="Nama peserta mini game"></div>
+        <div class="fc"><label for="mD">DPC / tim</label><input class="in2" id="mD" placeholder="mis. Malang"></div>
+        <div class="fc"><label for="mP">Poin</label><input class="in2" id="mP" type="number" inputmode="numeric" min="0"></div>
+      </div>
+      <button class="btn nv" onclick="__mgAdd()">Tambah poin</button>
+      <div id="mgOut"></div>
+    </div>
+
+    <div class="sec" id="s-dp"><h2>Undian <i class="fx">doorprize</i></h2><p class="s">Diundi dari semua orang yang tercatat hadir (registrasi ulang). Bila daftar hadir masih kosong, diundi dari semua peserta dan <i class="fx">supporter</i> terdaftar. Yang sudah menang tidak ikut diundi lagi.</p>
+      <div class="fr"><div class="fc"><label for="dH">Hadiah</label><input class="in2" id="dH" placeholder="mis. Voucher main 2 jam"></div><div class="fc"><label>&nbsp;</label><button class="btn nv" onclick="__dpDraw()" style="width:100%">Undi sekarang</button></div></div>
+      <div id="dpPool" class="small muted"></div>
+      <div id="dpOut"></div>
+    </div>
+
+    <div class="sec" id="s-vote"><h2>Voting <i class="fx">Best Dresscode</i> &amp; <i class="fx">Best Supporter</i></h2><p class="s">Pengunjung memilih lewat web publik (satu suara per HP) selama voting dibuka. Hasil di bawah hanya terlihat admin.</p>
+      <div id="vOut"></div>
+    </div>
+
+    <div class="sec" id="s-hasil"><h2>Hasil &amp; juara</h2><p class="s">Juara kategori dan <i class="fx">Best DPC</i> dihitung otomatis dari skor. <i class="fx">Best Dresscode</i> dan <i class="fx">Best Supporter</i> ditetapkan di sini.</p>
+      <div id="hOut"></div>
+      <div class="fr" style="margin-top:10px">
+        <div class="fc"><label for="hDs">Best Dresscode</label><select class="in2" id="hDs"></select></div>
+        <div class="fc"><label for="hSp">Best Supporter</label><select class="in2" id="hSp"></select></div>
+        <div class="fc" style="grid-column:1/-1"><label for="hFt">Link foto podium (opsional)</label><input class="in2" id="hFt" placeholder="https://drive.google.com/..."></div>
+      </div>
+      <button class="btn nv" onclick="__saveBest()">Simpan</button>
+    </div>
+  </div>
+</div>
+<div id="toast"></div>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="turnamen.js?v=1"></script>
+<script>
+(function(){
+var FB={"apiKey": "AIzaSyC2aiagZRzmXtjfBUC-Shg0VrAOL9MXVTU", "authDomain": "padeldpdv.firebaseapp.com", "projectId": "padeldpdv", "storageBucket": "padeldpdv.firebasestorage.app", "messagingSenderId": "529745328024", "appId": "1:529745328024:web:c3b1544ca47172b6255ded"};
+var ADMINS=['a.nurindahsari@gmail.com'], DPCS=['Surabaya','Malang','Madura','Kediri','Besuki','Madiun','Bali','NTT','NTB'];
+var $=function(i){ return document.getElementById(i); }, esc=TUR.esc;
+function toast(m){ var e=$('toast'); e.innerHTML=m; e.style.display='block'; clearTimeout(e.__t); e.__t=setTimeout(function(){ e.style.display='none'; },2600); }
+firebase.initializeApp(FB); var au=firebase.auth(), fs=firebase.firestore();
+var CFG={}, D=[], U=null, UEXT='', S={}, MG=[], DP=[], HD=[], VT=[];
+window.__login=function(){ au.signInWithPopup(new firebase.auth.GoogleAuthProvider()).catch(function(e){ $('lerr').innerHTML=esc(e.message); }); };
+au.onAuthStateChanged(function(u){
+  if(!u||u.isAnonymous||ADMINS.indexOf(u.email)<0){ $('login').style.display='block'; $('app').style.display='none'; if(u&&!u.isAnonymous) $('lerr').innerHTML='Akun '+esc(u.email)+' bukan admin.'; return; }
+  $('who').innerHTML=esc(u.email)+' · <a href="javascript:void(0)" onclick="firebase.auth().signOut()">keluar</a>'; $('login').style.display='none'; $('app').style.display='block'; start(); });
+var started=false;
+function start(){ if(started) return; started=true;
+  fs.collection('pengaturan').doc('umum').onSnapshot(function(d){ CFG=d.exists?d.data():{}; rInfo(); rTg(); rHasil(); });
+  fs.collection('daftar').onSnapshot(function(s){ D=[]; s.forEach(function(d){ var x=d.data(); x.id=d.id; D.push(x); }); rCnt(); rDp(); });
+  fs.collection('turnamen').doc('undian').onSnapshot(function(d){ U=null; if(d.exists){ try{ U=JSON.parse(d.data().json); }catch(e){} UEXT=d.data().ext||''; if(!$('uExt').value) $('uExt').value=UEXT; } rUndian(); rSkorSel(); rSkor(); rHasil(); });
+  fs.collection('skor').onSnapshot(function(s){ S={}; s.forEach(function(d){ S[d.id]=d.data(); }); rSkor(); rHasil(); rUndian(); });
+  fs.collection('minigame').onSnapshot(function(s){ MG=[]; s.forEach(function(d){ var x=d.data(); x.id=d.id; MG.push(x); }); rMg(); });
+  fs.collection('doorprize').onSnapshot(function(s){ DP=[]; s.forEach(function(d){ var x=d.data(); x.id=d.id; DP.push(x); }); DP.sort(function(a,b){ return b.t-a.t; }); rDp(); });
+  fs.collection('hadir').onSnapshot(function(s){ HD=[]; s.forEach(function(d){ var x=d.data(); x.id=d.id; HD.push(x); }); rDp(); },function(){ HD=[]; rDp(); });
+  fs.collection('suara').onSnapshot(function(s){ VT=[]; s.forEach(function(d){ VT.push(d.data()); }); rVote(); },function(){ $('vOut').innerHTML='<div class="note warn">Data voting belum bisa dibaca. Pastikan rules Firebase terbaru sudah dipasang.</div>'; });
+}
+function setCfg(o,msg){ o.u=Date.now(); return fs.collection('pengaturan').doc('umum').set(o,{merge:true}).then(function(){ if(msg) toast(msg); }).catch(function(e){ toast('Gagal: '+esc(e.message)); }); }
+// ---------- info acara
+var infoFilled=false;
+function rInfo(){ if(infoFilled) return; infoFilled=true; $('iTgl').value=CFG.tgl||''; $('iJam').value=CFG.jam||'07:00'; $('iVen').value=CFG.venue||''; $('iAl').value=CFG.alamat||''; $('iMap').value=CFG.maps||''; }
+window.__saveInfo=function(){ var m=$('iMap').value.trim(); if(m&&!/^https?:\/\//.test(m)){ toast('Link peta harus diawali https://'); return; } setCfg({tgl:$('iTgl').value,jam:$('iJam').value,venue:$('iVen').value.trim(),alamat:$('iAl').value.trim(),maps:m},'Info acara tersimpan'); };
+// ---------- tampil di web
+var TG=[['pubJadwal','Jadwal, grup & bagan','Pencarian jadwal per pasangan, klasemen grup, dan bagan. Nyalakan setelah undian.'],['pubLive','Skor live','Skor berjalan di web publik pada hari H.'],['pubMG','Klasemen mini game','Poin mini game di bagian Mini game.'],['voteOpen','Buka voting','Pengunjung bisa memilih Best Dresscode dan Best Supporter.'],['pubHasil','Hasil & juara','Podium tiap kategori dan penghargaan DPC.']];
+function rTg(){ $('tgList').innerHTML=TG.map(function(t){ return '<div class="sw"><div><b>'+t[1]+'</b><span>'+t[2]+'</span></div><button type="button" class="tg'+(CFG[t[0]]?' on':'')+'" aria-pressed="'+(CFG[t[0]]?'true':'false')+'" aria-label="'+t[1]+'" onclick="__tg(\''+t[0]+'\')"></button></div>'; }).join(''); $('layarSt').innerHTML=CFG.layar?'Sekarang: <b>'+esc(CFG.layar)+'</b>':''; }
+window.__tg=function(k){ var o={}; o[k]=!CFG[k]; setCfg(o,(o[k]?'Dinyalakan':'Dimatikan')); };
+window.__layar=function(m){ setCfg({layar:m,layarT:Date.now()},'Layar besar: '+m); };
+// ---------- undian
+function rCnt(){ var P=TUR.pairsFrom(D,[]); $('uCnt').innerHTML='Terdaftar: '+TUR.KAT.map(function(k){ return '<b>'+P[k[0]].length+'</b> pasang '+k[1]; }).join(' · '); }
+function parseExt(){ var out=[], bad=[]; $('uExt').value.split('\n').forEach(function(l,i){ l=l.trim(); if(!l) return; var a=l.split(';').map(function(x){ return x.trim(); }), k=(a[0]||'').toLowerCase(); if(!TUR.KN[k]||!a[1]||!a[2]){ bad.push(i+1); return; } out.push({k:k,n1:a[1],n2:a[2],tim:a[3]||'Pertamina'}); }); return {out:out,bad:bad}; }
+window.__draw=function(){ var e=parseExt(); if(e.bad.length){ toast('Format baris '+e.bad.join(', ')+' belum benar'); return; }
+  var anyScore=Object.keys(S).length; if(U&&!confirm(anyScore?'Sudah ada skor tersimpan. Undian ulang akan mengganti grup dan jadwal. Lanjutkan?':'Undian sudah pernah dilakukan. Ulangi undian?')) return;
+  var P=TUR.pairsFrom(D,e.out), N=TUR.draw(P); fs.collection('turnamen').doc('undian').set({json:JSON.stringify(N),t:Date.now(),ext:$('uExt').value}).then(function(){ toast('Undian selesai'); }).catch(function(x){ toast('Gagal: '+esc(x.message)); }); };
+function rUndian(){ if(!U){ $('uOut').innerHTML='<div class="note">Belum ada undian.</div>'; return; }
+  var h='<div class="note ok">Undian '+new Date(U.t).toLocaleString('id-ID')+' · fase grup sampai '+TUR.hm(U.lunch)+', final '+TUR.hm(U.fin)+', selesai sekitar '+TUR.hm(U.end+30)+'.</div>';
+  TUR.KAT.forEach(function(k){ var K=U.kat[k[0]]; if(!K) return; var st=TUR.standings(U,S,k[0]); h+='<h3>'+k[1]+'</h3><div class="gp">'+st.map(function(g){ return '<div class="card"><b>Grup '+g.name+'</b><ol>'+g.rows.map(function(r){ return '<li>'+esc(TUR.pairName(U,r.p,true))+' <span class="muted small">'+esc(U.pairs[r.p].dpc)+'</span></li>'; }).join('')+'</ol></div>'; }).join('')+'</div>'; });
+  $('uOut').innerHTML=h; }
+// ---------- skor
+function rSkorSel(){ var o='<option value="">Semua kategori</option>'+TUR.KAT.map(function(k){ return '<option value="'+k[0]+'">'+k[1]+'</option>'; }).join(''); var v=$('sK').value; $('sK').innerHTML=o; $('sK').value=v; }
+window.__rSkor=rSkor;
+function rSkor(){ if(!U){ $('sOut').innerHTML='<p class="muted small">Skor tersedia setelah undian.</p>'; return; } var f=$('sK').value, R=TUR.resolve(U,S).filter(function(r){ return !f||r.m.k==f; }).sort(function(a,b){ return a.m.t-b.m.t||a.m.c-b.m.c; });
+  var h='<table><tr><th>Jam</th><th>Ct</th><th>Pertandingan</th><th>Skor</th><th></th></tr>';
+  R.forEach(function(r){ var m=r.m, s=r.s||{}, a=r.a?TUR.pairName(U,r.a,true):TUR.label(U,m,'a'), b=r.b?TUR.pairName(U,r.b,true):TUR.label(U,m,'b');
+    h+='<tr class="mrow"><td>'+TUR.hm(m.t)+'</td><td>'+m.c+'</td><td><span class="chip">'+TUR.KN[m.k]+' · '+(m.st=='G'?'Grup '+TUR.gname(m.gr):TUR.STN[m.st])+'</span><br>'+esc(a)+' <span class="muted">vs</span> '+esc(b)+'</td><td style="white-space:nowrap"><input id="sa-'+m.id+'" value="'+(s.a!=null?s.a:'')+'" inputmode="numeric"> : <input id="sb-'+m.id+'" value="'+(s.b!=null?s.b:'')+'" inputmode="numeric"></td><td style="white-space:nowrap"><button class="btn sm nv" onclick="__sv(\''+m.id+'\')">Simpan</button>'+(s.done?'<span class="chip ok">selesai</span>':'')+'</td></tr>'; });
+  $('sOut').innerHTML=h+'</table>'; }
+window.__sv=function(id){ var a=parseInt($('sa-'+id).value,10), b=parseInt($('sb-'+id).value,10); if(isNaN(a)||isNaN(b)){ if(confirm('Hapus skor pertandingan ini?')) fs.collection('skor').doc(id).delete(); return; } var m=null; U.m.forEach(function(x){ if(x.id==id) m=x; }); var tgt=m&&m.st=='F'?6:4;
+  fs.collection('skor').doc(id).set({a:a,b:b,done:(a>=tgt||b>=tgt)&&a!=b,t:Date.now(),by:'admin'}).then(function(){ toast('Skor tersimpan'); }).catch(function(e){ toast('Gagal: '+esc(e.message)); }); };
+// ---------- mini game
+window.__mgAdd=function(){ var n=$('mN').value.trim(), p=parseInt($('mP').value,10); if(!n||isNaN(p)){ toast('Isi nama dan poin'); return; } fs.collection('minigame').add({g:$('mG').value,nama:n,dpc:$('mD').value.trim(),poin:p,t:Date.now()}).then(function(){ $('mN').value=''; $('mP').value=''; toast('Poin tersimpan'); }); };
+window.__mgDel=function(id){ if(confirm('Hapus data ini?')) fs.collection('minigame').doc(id).delete(); };
+function rMg(){ var h=''; [['target','Target Challenge'],['king','King of the Court']].forEach(function(g){ var L=MG.filter(function(x){ return x.g==g[0]; }).sort(function(a,b){ return b.poin-a.poin||a.t-b.t; }); if(!L.length) return;
+  h+='<h3><i class="fx">'+g[1]+'</i></h3><table><tr><th>#</th><th>Nama</th><th>DPC</th><th>Poin</th><th></th></tr>'+L.map(function(x,i){ return '<tr><td>'+(i+1)+'</td><td>'+esc(x.nama)+'</td><td>'+esc(x.dpc)+'</td><td><b>'+x.poin+'</b></td><td><button class="btn sm red" onclick="__mgDel(\''+x.id+'\')">Hapus</button></td></tr>'; }).join('')+'</table>'; });
+  $('mgOut').innerHTML=h||'<p class="muted small">Belum ada poin.</p>'; }
+// ---------- doorprize
+function pool(){ var P=[], won={}; DP.forEach(function(x){ won[x.pid]=1; });
+  if(HD.length){ HD.forEach(function(x){ if(x.nama&&!won[x.id]) P.push({pid:x.id,nama:x.nama,dpc:x.dpc||x.ket||''}); }); return {P:P,src:'hadir'}; }
+  D.forEach(function(x){ TUR.KAT.forEach(function(k){ var c=x.kat&&x.kat[k[0]]; if(c&&c.ada&&c.p) c.p.forEach(function(p,i){ var id=x.id+'-'+k[0]+'-'+i; if(!won[id]) P.push({pid:id,nama:p.nama,dpc:x.dpc}); }); }); var pd=x.pd&&x.pd.nama||[]; pd.forEach(function(n,i){ var id=x.id+'-pd-'+(i+1); if(n&&!won[id]) P.push({pid:id,nama:n,dpc:x.dpc}); }); });
+  return {P:P,src:'daftar'}; }
+function rDp(){ var p=pool(); $('dpPool').innerHTML='<b>'+p.P.length+'</b> orang ikut diundi (dari '+(p.src=='hadir'?'daftar hadir':'data pendaftaran')+').';
+  $('dpOut').innerHTML=DP.length?'<h3>Pemenang</h3><table><tr><th>Waktu</th><th>Nama</th><th>DPC</th><th>Hadiah</th><th></th></tr>'+DP.map(function(x){ return '<tr><td>'+new Date(x.t).toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'})+'</td><td><b>'+esc(x.nama)+'</b></td><td>'+esc(x.dpc)+'</td><td>'+esc(x.hadiah)+'</td><td><button class="btn sm red" onclick="__dpDel(\''+x.id+'\')">Batal</button></td></tr>'; }).join('')+'</table>':''; }
+window.__dpDraw=function(){ var p=pool().P; if(!p.length){ toast('Tidak ada nama untuk diundi'); return; } var a=new Uint32Array(1); crypto.getRandomValues(a); var w=p[a[0]%p.length];
+  fs.collection('doorprize').add({pid:w.pid,nama:w.nama,dpc:w.dpc,hadiah:$('dH').value.trim(),t:Date.now()}).then(function(){ toast('Pemenang: '+esc(w.nama)); }).catch(function(e){ toast('Gagal: '+esc(e.message)); }); };
+window.__dpDel=function(id){ if(confirm('Batalkan pemenang ini? Namanya ikut diundi lagi.')) fs.collection('doorprize').doc(id).delete(); };
+// ---------- voting
+function rVote(){ var c={ds:{},sp:{}}; VT.forEach(function(v){ if(v.ds) c.ds[v.ds]=(c.ds[v.ds]||0)+1; if(v.sp) c.sp[v.sp]=(c.sp[v.sp]||0)+1; });
+  function tb(o,t){ var k=Object.keys(o).sort(function(a,b){ return o[b]-o[a]; }); return '<div class="card"><b><i class="fx">'+t+'</i></b>'+(k.length?'<table>'+k.map(function(d){ return '<tr><td>'+esc(d)+'</td><td style="text-align:right"><b>'+o[d]+'</b> suara</td></tr>'; }).join('')+'</table>':'<p class="muted small">Belum ada suara.</p>')+'</div>'; }
+  $('vOut').innerHTML='<p class="small">Total <b>'+VT.length+'</b> pemilih. Voting '+(CFG.voteOpen?'<span class="chip live">dibuka</span>':'<span class="chip">ditutup</span>')+' (atur di bagian Tampil di web).</p><div class="grid2">'+tb(c.ds,'Best Dresscode')+tb(c.sp,'Best Supporter')+'</div>'; }
+// ---------- hasil
+function rHasil(){ var o='<option value="">Belum ditetapkan</option>'+DPCS.map(function(d){ return '<option>'+d+'</option>'; }).join(''); ['hDs','hSp'].forEach(function(i,j){ var v=j?CFG.bestSupp:CFG.bestDress; $(i).innerHTML=o; $(i).value=v||''; }); if(document.activeElement!==$('hFt')) $('hFt').value=CFG.fotoPodium||'';
+  if(!U){ $('hOut').innerHTML='<p class="muted small">Hasil muncul setelah undian dan pertandingan selesai.</p>'; return; } var R=TUR.results(U,S), h='<div class="grid2">';
+  TUR.KAT.forEach(function(k){ var p=R.podium[k[0]]; if(!p) return; h+='<div class="card"><b>'+k[1]+'</b><ol>'+[1,2,3].map(function(n){ return '<li>'+(p[n]?esc(TUR.pairName(U,p[n]))+' <span class="muted small">'+esc(U.pairs[p[n]].dpc)+'</span>':'<span class="muted">belum ada</span>')+'</li>'; }).join('')+'</ol></div>'; });
+  h+='<div class="card"><b><i class="fx">Best DPC</i></b>'+(R.best.length?'<ol>'+R.best.slice(0,3).map(function(d){ return '<li>'+esc(d)+' · '+R.pts[d]+' poin</li>'; }).join('')+'</ol>':'<p class="muted small">Belum ada poin.</p>')+'</div></div>'; $('hOut').innerHTML=h; }
+window.__saveBest=function(){ var f=$('hFt').value.trim(); if(f&&!/^https?:\/\//.test(f)){ toast('Link harus diawali https://'); return; } setCfg({bestDress:$('hDs').value,bestSupp:$('hSp').value,fotoPodium:f},'Tersimpan'); };
+})();
+</script>
+<script src="asing.js?v=1"></script>
+</body>
+</html>

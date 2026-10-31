@@ -1,0 +1,47 @@
+/* Gaya bersama halaman kelola, wasit, dan layar (selaras dengan halaman publik) */
+html,body{margin:0;padding:0}*{box-sizing:border-box}
+body{background:#F1F5F9;color:#08203D;font-family:"Plus Jakarta Sans","Segoe UI",Arial,sans-serif;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
+a{color:#0270B5}
+button,input,select,textarea{font-family:inherit}
+.hd{background:#08203D;background-image:radial-gradient(120% 90% at 100% 0%,rgba(0,137,217,.28),rgba(0,137,217,0) 60%);color:#fff;padding:calc(16px + env(safe-area-inset-top)) 20px 18px}
+.hd .in{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.hd img{width:34px;height:34px}
+.hd .t{flex:1;min-width:0}
+.hd .t b{display:block;font-family:Archivo,Arial,sans-serif;font-style:italic;font-weight:900;font-size:24px;line-height:1.1}
+.hd .t span{font-size:13px;color:#B8CCE0}
+.hd .who{font-size:13px;color:#B8CCE0}
+.hd .who a{color:#DDF247}
+.wrap{max-width:1080px;margin:0 auto;padding:16px 14px 40px}
+.sec{background:#fff;border-radius:20px;padding:22px 20px;margin-bottom:14px;box-shadow:0 1px 2px rgba(8,32,61,.05),0 6px 20px rgba(8,32,61,.05)}
+.sec h2{margin:0 0 4px;font-family:Archivo,Arial,sans-serif;font-style:italic;font-weight:900;font-size:24px;letter-spacing:-.3px}
+.sec .s{color:#4A5D72;font-size:14.5px;margin:0 0 14px;text-align:justify}
+h3{font-family:Archivo,Arial,sans-serif;font-weight:800;font-size:16px;margin:16px 0 8px}
+.lbl{font-family:Archivo,Arial,sans-serif;font-weight:800;font-size:11px;letter-spacing:1.4px;text-transform:uppercase;color:#4A5D72}
+.muted{color:#4A5D72}.small{font-size:13px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;font-family:Archivo,Arial,sans-serif;font-weight:800;font-size:14px;color:#08203D;background:#DDF247;border:0;border-radius:12px;padding:10px 16px;min-height:44px;margin:4px 6px 4px 0;cursor:pointer;text-decoration:none}
+.btn.nv{background:#08203D;color:#DDF247}.btn.ln{background:#fff;border:1px solid #D5DFEA}.btn.red{background:#fff;color:#B42318;border:1px solid #F2B8B5}.btn.sm{min-height:34px;padding:6px 10px;font-size:12.5px;border-radius:10px}
+.btn[disabled]{opacity:.45;cursor:default}
+.fr{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 12px}
+.fc label{display:block;font-size:13.5px;font-weight:700;margin-bottom:5px}
+.in2{display:block;width:100%;height:46px;border:1px solid #D5DFEA;border-radius:12px;padding:10px 12px;font-size:16px;background:#fff;color:#08203D;-webkit-appearance:none;appearance:none}
+textarea.in2{height:auto;min-height:96px;line-height:1.45}
+.in2:focus{outline:0;border-color:#0089D9;box-shadow:0 0 0 3px rgba(0,137,217,.15)}
+.sw{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-top:1px solid #EEF2F7}
+.sw:first-of-type{border-top:0}
+.sw b{display:block;font-size:15px}.sw span{font-size:13px;color:#4A5D72}
+.tg{position:relative;flex:0 0 auto;width:52px;height:30px;border-radius:999px;background:#CBD5E1;border:0;cursor:pointer;transition:background .15s}
+.tg:after{content:"";position:absolute;left:3px;top:3px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.2);transition:left .15s}
+.tg.on{background:#1F9D55}.tg.on:after{left:25px}
+table{border-collapse:separate;border-spacing:0;width:100%}
+th,td{border-bottom:1px solid #EEF2F7;padding:8px 8px;text-align:left;vertical-align:middle;font-size:14px}
+th{font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:#4A5D72}
+.tbl{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.note{border-radius:12px;background:#EEF6FC;padding:12px 14px;font-size:14px;margin:10px 0}
+.note.warn{background:#FFF6DB;color:#6B4B00}.note.ok{background:#E3F6E8;color:#1F4D2C}
+.chip{display:inline-block;border-radius:999px;padding:3px 10px;font-size:12px;font-weight:800;background:#EEF2F7;color:#334155}
+.chip.live{background:#FDE8E8;color:#B42318}.chip.ok{background:#E3F6E8;color:#1F7A3A}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.card{border:1px solid #E2E8F0;border-radius:16px;padding:14px 16px;background:#fff}
+#toast{display:none;position:fixed;left:16px;right:16px;bottom:calc(20px + env(safe-area-inset-bottom));max-width:420px;margin:0 auto;z-index:90;background:#08203D;color:#DDF247;font-weight:800;font-size:14px;text-align:center;padding:12px 14px;border-radius:14px;box-shadow:0 6px 20px rgba(8,32,61,.3)}
+i.fx{font-style:italic}
+@media (max-width:640px){ .fr,.grid2{grid-template-columns:1fr} }
