@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 438" role="img" aria-label="Ilustrasi Target Challenge: pemain memukul bola dari bawah ke target berpoin">
+  <rect width="700" height="438" fill="#FFFFFF"/>
+  <!-- lapangan -->
+  <polygon points="190,40 510,40 600,420 100,420" fill="#0A7CC6"/>
+  <polygon points="190,40 510,40 530,124 170,124" fill="#0D88D6"/>
+  <g stroke="#FFFFFF" stroke-width="3" fill="none">
+    <polygon points="190,40 510,40 600,420 100,420"/>
+    <line x1="170" y1="124" x2="530" y2="124"/>
+    <line x1="350" y1="40" x2="350" y2="124"/>
+    <line x1="129" y1="300" x2="571" y2="300"/>
+    <line x1="350" y1="300" x2="350" y2="420"/>
+  </g>
+  <!-- net -->
+  <rect x="146" y="196" width="408" height="22" fill="#08203D" fill-opacity=".55"/>
+  <g stroke="#FFFFFF" stroke-opacity=".35" stroke-width="1">
+    <line x1="146" y1="203" x2="554" y2="203"/><line x1="146" y1="210" x2="554" y2="210"/>
+  </g>
+  <line x1="146" y1="196" x2="554" y2="196" stroke="#FFFFFF" stroke-width="4"/>
+  <line x1="146" y1="190" x2="146" y2="218" stroke="#08203D" stroke-width="5"/>
+  <line x1="554" y1="190" x2="554" y2="218" stroke="#08203D" stroke-width="5"/>
+  <!-- target berpoin -->
+  <g font-family="Arial, sans-serif" font-weight="700" text-anchor="middle">
+    <g transform="translate(240,92)">
+      <ellipse rx="44" ry="16" fill="#FFFFFF"/><ellipse rx="31" ry="11" fill="#08203D"/><ellipse rx="18" ry="6.5" fill="#FFFFFF"/><ellipse rx="7" ry="2.6" fill="#DDF247"/>
+      <text y="-24" font-size="20" fill="#FFFFFF">10</text>
+    </g>
+    <g transform="translate(356,86)">
+      <ellipse rx="34" ry="12" fill="#FFFFFF"/><ellipse rx="24" ry="8.5" fill="#08203D"/><ellipse rx="14" ry="5" fill="#FFFFFF"/><ellipse rx="5.5" ry="2" fill="#DDF247"/>
+      <text y="-19" font-size="20" fill="#FFFFFF">30</text>
+    </g>
+    <g transform="translate(456,96)">
+      <ellipse rx="40" ry="14" fill="#FFFFFF"/><ellipse rx="28" ry="10" fill="#08203D"/><ellipse rx="16" ry="5.8" fill="#FFFFFF"/><ellipse rx="6" ry="2.2" fill="#DDF247"/>
+      <text y="-22" font-size="20" fill="#FFFFFF">20</text>
+    </g>
+    <text x="350" y="164" font-size="15" fill="#DDF247" letter-spacing="2">TARGET</text>
+  </g>
+  <!-- lintasan bola -->
+  <path d="M398 318 Q378 170 360 92" fill="none" stroke="#DDF247" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round"/>
+  <circle cx="360" cy="90" r="7" fill="#DDF247" stroke="#9DB000"/>
+  <!-- pemain -->
+  <g>
+    <ellipse cx="380" cy="404" rx="34" ry="8" fill="#08203D" fill-opacity=".35"/>
+    <line x1="370" y1="356" x2="362" y2="402" stroke="#08203D" stroke-width="10" stroke-linecap="round"/>
+    <line x1="390" y1="356" x2="398" y2="402" stroke="#08203D" stroke-width="10" stroke-linecap="round"/>
+    <rect x="360" y="342" width="40" height="22" rx="5" fill="#08203D"/>
+    <rect x="358" y="292" width="44" height="56" rx="10" fill="#DDF247"/>
+    <circle cx="380" cy="276" r="15" fill="#E8B894"/>
+    <line x1="398" y1="304" x2="416" y2="330" stroke="#E8B894" stroke-width="8" stroke-linecap="round"/>
+    <ellipse cx="420" cy="342" rx="11" ry="15" fill="#08203D" stroke="#DDF247" stroke-width="2" transform="rotate(-25 420 342)"/>
+  </g>
+  <!-- 3 bola -->
+  <g><circle cx="272" cy="392" r="8" fill="#DDF247" stroke="#9DB000"/><circle cx="290" cy="398" r="8" fill="#DDF247" stroke="#9DB000"/><circle cx="281" cy="381" r="8" fill="#DDF247" stroke="#9DB000"/></g>
+  <text x="281" y="368" font-family="Arial, sans-serif" font-weight="700" font-size="14" text-anchor="middle" fill="#FFFFFF">3 BOLA</text>
+  <text x="586" y="404" font-family="Arial, sans-serif" font-style="italic" font-weight="700" font-size="14" text-anchor="end" fill="#FFFFFF">pukulan dari bawah</text>
+</svg>
